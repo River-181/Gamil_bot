@@ -138,3 +138,11 @@
 5. [x] 승인 문구 확인 후 mutate 실행
 6. [x] 실행 로그/오분류/롤백 여부 기록
    - `tests/plans/phase7b_mutate_execution_log_20260224.md`
+
+## Phase 8 점검 항목 (운영 안정화)
+1. [x] 다음 계획 수립
+   - `tests/plans/phase8_operations_plan_v1.md`
+2. [ ] 주간 리포트 템플릿 작성
+3. [ ] 사고 대응 로그 템플릿 작성
+4. [ ] 회귀 게이트 문서 작성
+5. [ ] 배치 확대 여부(유지/확대) 판정 기록
