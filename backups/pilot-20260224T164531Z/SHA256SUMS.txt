@@ -1,0 +1,5 @@
+a060fb4c18188285365421dde99c26ef9110310167dd96312976d2fcf3575529  /Users/river/tools/gmail-agent-sys/backups/pilot-20260224T164531Z/filters.v3.json
+6a2526c206a8501b6c460a054813b4930ca88ff9c34bdbc955e8d3ad6d079bc7  /Users/river/tools/gmail-agent-sys/backups/pilot-20260224T164531Z/incident_backup_playbook_v3.md
+9e38d4a384fb4c247278b802d287dff3f7945b0719aa91b4b7ee34184dc661d4  /Users/river/tools/gmail-agent-sys/backups/pilot-20260224T164531Z/labels.v3.json
+b3c29776e3e6f20e939c6399c12c15aa91d4bf3f0e15087b01751581f82b1d51  /Users/river/tools/gmail-agent-sys/backups/pilot-20260224T164531Z/phase7_pilot_apply_v3.md
+7959dcc4eb4219497febed91fb9a4303bac75d2ec02ee5461501ba7c15fa1b6d  /Users/river/tools/gmail-agent-sys/backups/pilot-20260224T164531Z/policy_normalization_v3.md

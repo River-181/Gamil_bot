@@ -1,0 +1,25 @@
+{
+  "version": "v3.0.0",
+  "generated_at": "2026-02-24T00:00:00+09:00",
+  "owner": "chany010713@gmail.com",
+  "labels": [
+    {"id": "state_action", "path": "@GTD/Action", "kind": "STATE", "description": "오늘 또는 이번 주 처리", "source_rule_ref": ["manual_state"], "enabled": true, "caps": {"inbox_priority": "high", "requires_review": true, "max_depth": 2, "is_system": false, "state_tag": true}},
+    {"id": "state_waiting", "path": "@GTD/Waiting", "kind": "STATE", "description": "상대방 답변 대기", "source_rule_ref": ["manual_state"], "enabled": true, "caps": {"inbox_priority": "normal", "requires_review": true, "max_depth": 2, "is_system": false, "state_tag": true}},
+    {"id": "state_reference", "path": "@GTD/Reference", "kind": "STATE", "description": "참고 보존용 메일", "source_rule_ref": ["manual_state"], "enabled": true, "caps": {"inbox_priority": "low", "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": true}},
+    {"id": "state_read", "path": "@GTD/Read", "kind": "STATE", "description": "읽고 종료 가능", "source_rule_ref": ["manual_state"], "enabled": true, "caps": {"inbox_priority": "low", "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": true}},
+
+    {"id": "cnu_student", "path": "@CNU/학생", "kind": "CTX", "description": "충남대 개인/학사 소통", "source_rule_ref": ["rule_cnu_student"], "enabled": true, "caps": {"inbox_priority": "high", "retention_days": 365, "requires_review": true, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "cnu_news", "path": "@CNU/뉴스알림", "kind": "CTX", "description": "충남대 공지/안내 알림", "source_rule_ref": ["rule_cnu_notice"], "enabled": true, "caps": {"inbox_priority": "normal", "retention_days": 180, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+
+    {"id": "ctx_travel", "path": "@CTX/Travel", "kind": "CTX", "description": "여행/예약 관련 메일", "source_rule_ref": ["rule_travel"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 120, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "ctx_finance", "path": "@CTX/Finance", "kind": "CTX", "description": "결제·금융류 정산 참고", "source_rule_ref": ["rule_receipt"], "enabled": true, "caps": {"inbox_priority": "normal", "retention_days": 365, "requires_review": true, "max_depth": 2, "is_system": false, "state_tag": false}},
+
+    {"id": "auto_newsletter", "path": "@AUTO/Newsletter", "kind": "AUTO", "description": "뉴스레터/SaaS/커뮤니티 알림", "source_rule_ref": ["rule_newsletter_from", "rule_newsletter_subject_guard"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 90, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "auto_receipt", "path": "@AUTO/Receipt", "kind": "AUTO", "description": "영수증/명세서/결제 알림", "source_rule_ref": ["rule_receipt"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 365, "requires_review": true, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "auto_notification", "path": "@AUTO/Notification", "kind": "AUTO", "description": "서비스 공지·약관·정책 알림", "source_rule_ref": ["rule_notification", "rule_google_notification"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 180, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "auto_social", "path": "@AUTO/Social", "kind": "AUTO", "description": "소셜 알림(LinkedIn/Instagram 중심)", "source_rule_ref": ["rule_social_from", "rule_social_subject_guard"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 30, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+    {"id": "auto_promo", "path": "@AUTO/Promo", "kind": "AUTO", "description": "브랜드 마케팅/프로모션", "source_rule_ref": ["rule_promo"], "enabled": true, "caps": {"inbox_priority": "low", "retention_days": 30, "requires_review": false, "max_depth": 2, "is_system": false, "state_tag": false}},
+
+    {"id": "sys_security", "path": "@SYS/Security", "kind": "SYS", "description": "보안/로그인/OTP 알림", "source_rule_ref": ["rule_sys_security", "rule_cnu_otp"], "enabled": true, "caps": {"inbox_priority": "high", "retention_days": 3650, "requires_review": true, "max_depth": 2, "is_system": true, "state_tag": false}}
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "version": "v3.0.0",
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "command": "bash hooks/session_start.sh",
+      "enabled": true,
+      "scope": "local",
+      "guard": {
+        "mask_sensitive": true,
+        "log_only": true,
+        "timeout_ms": 6000,
+        "fail_open": true
+      },
+      "allowed_patterns": ["policy_normalization_v3.md", "labels.v3.json", "filters.v3.json", "CLAUDE.md", "AGENTS.md"],
+      "outputs": ["status", "missing", "warnings"]
+    },
+    {
+      "event": "UserPromptSubmit",
+      "command": "bash hooks/user_prompt.sh",
+      "enabled": true,
+      "scope": "repo",
+      "guard": {
+        "mask_sensitive": true,
+        "log_only": true,
+        "timeout_ms": 8000,
+        "fail_open": true
+      },
+      "allowed_patterns": ["Phase", "filter", "label", "security", "policy"],
+      "outputs": ["status", "violations", "next_actions"]
+    },
+    {
+      "event": "PostToolUse",
+      "command": "bash hooks/post_tool_use.sh",
+      "enabled": true,
+      "scope": "repo",
+      "guard": {
+        "mask_sensitive": true,
+        "log_only": true,
+        "timeout_ms": 10000,
+        "fail_open": true
+      },
+      "allowed_patterns": ["*.json", "*.md", "hooks", "skills", "personas"],
+      "outputs": ["status", "audits", "risk_tags"]
+    },
+    {
+      "event": "Stop",
+      "command": "bash hooks/stop_handoff.sh",
+      "enabled": true,
+      "scope": "local",
+      "guard": {
+        "mask_sensitive": true,
+        "log_only": true,
+        "timeout_ms": 10000,
+        "fail_open": true
+      },
+      "allowed_patterns": ["handoff", "next_steps", "risks", "open_questions"],
+      "outputs": ["summary", "handoff_items", "escalations"]
+    },
+    {
+      "event": "ErrorBoundary",
+      "command": "bash hooks/error_boundary.sh",
+      "enabled": true,
+      "scope": "local",
+      "guard": {
+        "mask_sensitive": true,
+        "log_only": true,
+        "timeout_ms": 8000,
+        "fail_open": true
+      },
+      "allowed_patterns": ["error", "token_leak", "permission", "auth"],
+      "outputs": ["status", "error_class", "recommendation"]
+    }
+  ]
+}

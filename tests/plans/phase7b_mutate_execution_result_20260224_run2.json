@@ -1,0 +1,162 @@
+{
+  "apply_pilot": {
+    "applied": 5,
+    "applied_records": [
+      {
+        "add_label_ids": [
+          "Label_20"
+        ],
+        "from": "The New York Times <nytdirect@nytimes.com>",
+        "matched_rules": [
+          "rule_newsletter_from"
+        ],
+        "message_id": "19c8f7f60d462c21",
+        "remove_label_ids": [
+          "INBOX"
+        ],
+        "status": "applied",
+        "subject": "The Morning: Your tariff questions"
+      },
+      {
+        "add_label_ids": [
+          "Label_18"
+        ],
+        "from": "\"Google 지도\" <google-maps-noreply@google.com>",
+        "matched_rules": [
+          "rule_google_notification"
+        ],
+        "message_id": "19c8f2bfc67207cc",
+        "remove_label_ids": [
+          "INBOX"
+        ],
+        "status": "applied",
+        "subject": "Google 지도에 올려주신 사진을 많은 사람들이 보고 있습니다"
+      },
+      {
+        "add_label_ids": [
+          "Label_20"
+        ],
+        "from": "GNU Newsletter <newsletter@gnu.ac.kr>",
+        "matched_rules": [
+          "rule_newsletter_from"
+        ],
+        "message_id": "19c8f1bcb039b5ba",
+        "remove_label_ids": [
+          "INBOX"
+        ],
+        "status": "applied",
+        "subject": "경상국립대학교 뉴스레터 | GNU ON 제377호"
+      },
+      {
+        "add_label_ids": [
+          "Label_20"
+        ],
+        "from": "mymind <updates@mymind.email>",
+        "matched_rules": [
+          "rule_newsletter_from"
+        ],
+        "message_id": "19c8d660c6724e30",
+        "remove_label_ids": [
+          "INBOX"
+        ],
+        "status": "applied",
+        "subject": "💭 On longing, brain rot & expectations"
+      },
+      {
+        "add_label_ids": [
+          "Label_21",
+          "Label_23"
+        ],
+        "from": "\"토스페이먼츠\" <bill@bill-mail.tosspayments.com>",
+        "matched_rules": [
+          "rule_receipt"
+        ],
+        "message_id": "19c8ae88d897a7db",
+        "remove_label_ids": [
+          "INBOX"
+        ],
+        "status": "applied",
+        "subject": "-님, 주식회사와이드모바일에서 결제한 내역이 도착했어요."
+      }
+    ],
+    "failures": [],
+    "limit": 5,
+    "noop": 0,
+    "protected_skips": [
+      {
+        "from": "cnuportal@cnu.ac.kr",
+        "matched_critical_rules": [
+          "rule_cnu_otp"
+        ],
+        "message_id": "19c8dd5e10222f4a",
+        "subject": "임시 OTP"
+      }
+    ],
+    "query": "newer_than:3d",
+    "selected_candidates": 5,
+    "status": "ok"
+  },
+  "artifact": {
+    "filters": "/Users/river/tools/gmail-agent-sys/config/filters.v3.json",
+    "labels": "/Users/river/tools/gmail-agent-sys/config/labels.v3.json",
+    "sample": null
+  },
+  "generated_at": "2026-02-24T16:53:55.235172Z",
+  "mode": "plan-only",
+  "plan": {
+    "checks": [
+      {
+        "name": "labels_schema",
+        "status": "pass"
+      },
+      {
+        "name": "filters_schema",
+        "status": "pass"
+      },
+      {
+        "name": "label_version",
+        "status": "pass",
+        "value": "v3.0.0"
+      },
+      {
+        "name": "filter_version",
+        "status": "pass",
+        "value": "v3.0.0"
+      },
+      {
+        "name": "label_count",
+        "status": "pass",
+        "value": 14
+      },
+      {
+        "name": "filter_count",
+        "status": "pass",
+        "value": 13
+      },
+      {
+        "details": {
+          "filter_labels_exist": [],
+          "label_refs_to_unknown_filters": []
+        },
+        "name": "policy_refs",
+        "status": "pass"
+      }
+    ],
+    "generated_at": "2026-02-24T16:53:55.236647Z",
+    "mode": "plan-only",
+    "schema": {
+      "filters_total": 13,
+      "labels_total": 14
+    },
+    "status": "pass",
+    "violations": {
+      "filters": [],
+      "labels": [],
+      "policy": {
+        "filter_labels_exist": [],
+        "label_refs_to_unknown_filters": []
+      }
+    }
+  },
+  "status": "pass"
+}

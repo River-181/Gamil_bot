@@ -1,0 +1,138 @@
+{
+  "artifact": {
+    "filters": "/Users/river/tools/gmail-agent-sys/config/filters.v3.json",
+    "labels": "/Users/river/tools/gmail-agent-sys/config/labels.v3.json",
+    "sample": "tests/plans/phase3_sample_messages.json"
+  },
+  "generated_at": "2026-02-24T16:45:31.626005Z",
+  "mode": "plan-only",
+  "plan": {
+    "checks": [
+      {
+        "name": "labels_schema",
+        "status": "pass"
+      },
+      {
+        "name": "filters_schema",
+        "status": "pass"
+      },
+      {
+        "name": "label_version",
+        "status": "pass",
+        "value": "v3.0.0"
+      },
+      {
+        "name": "filter_version",
+        "status": "pass",
+        "value": "v3.0.0"
+      },
+      {
+        "name": "label_count",
+        "status": "pass",
+        "value": 14
+      },
+      {
+        "name": "filter_count",
+        "status": "pass",
+        "value": 13
+      },
+      {
+        "details": {
+          "filter_labels_exist": [],
+          "label_refs_to_unknown_filters": []
+        },
+        "name": "policy_refs",
+        "status": "pass"
+      }
+    ],
+    "dry_run_simulation": {
+      "processed": 6,
+      "results": [
+        {
+          "from": "cnuportal@cnu.ac.kr",
+          "labels": [
+            "@SYS/Security"
+          ],
+          "matched_rules": [
+            "rule_cnu_otp"
+          ],
+          "message_key": "s1",
+          "skip_inbox": true,
+          "subject": "OTP 본인확인 인증 코드"
+        },
+        {
+          "from": "professor@cnu.ac.kr",
+          "labels": [
+            "@CNU/뉴스알림"
+          ],
+          "matched_rules": [
+            "rule_cnu_notice"
+          ],
+          "message_key": "s2",
+          "skip_inbox": true,
+          "subject": "교수님과의 면담 안내"
+        },
+        {
+          "from": "notifications-noreply@linkedin.com",
+          "labels": [
+            "@AUTO/Social"
+          ],
+          "matched_rules": [
+            "rule_social_from"
+          ],
+          "message_key": "s3",
+          "skip_inbox": true,
+          "subject": "LinkedIn에서 팔로워 요청이 있습니다"
+        },
+        {
+          "from": "nytdirect@nytimes.com",
+          "labels": [
+            "@AUTO/Newsletter"
+          ],
+          "matched_rules": [
+            "rule_newsletter_from"
+          ],
+          "message_key": "s4",
+          "skip_inbox": true,
+          "subject": "오늘의 뉴스레터: AI Weekly"
+        },
+        {
+          "from": "no-reply@google.com",
+          "labels": [
+            "@SYS/Security"
+          ],
+          "matched_rules": [
+            "rule_sys_security"
+          ],
+          "message_key": "s5",
+          "skip_inbox": false,
+          "subject": "새로 로그인 알림"
+        },
+        {
+          "from": "news@kepco.co.kr",
+          "labels": [],
+          "matched_rules": [],
+          "message_key": "s6",
+          "skip_inbox": false,
+          "subject": "공지: 이번달 정기 공지"
+        }
+      ]
+    },
+    "generated_at": "2026-02-24T16:45:31.627719Z",
+    "mode": "plan-only",
+    "schema": {
+      "filters_total": 13,
+      "labels_total": 14
+    },
+    "status": "pass",
+    "violations": {
+      "filters": [],
+      "labels": [],
+      "policy": {
+        "filter_labels_exist": [],
+        "label_refs_to_unknown_filters": []
+      }
+    }
+  },
+  "status": "pass"
+}

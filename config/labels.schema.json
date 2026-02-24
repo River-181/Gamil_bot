@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "gmail-labels-schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generated_at", "labels"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^v?\\d+\\.\\d+(?:\\.\\d+)?$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "owner": {
+      "type": "string",
+      "format": "email"
+    },
+    "labels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 15,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "path",
+          "kind",
+          "description",
+          "source_rule_ref",
+          "enabled",
+          "caps"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": { "properties": { "kind": { "const": "STATE" } }, "required": ["kind"] },
+            "then": {
+              "required": ["source_rule_ref"],
+              "properties": {
+                "source_rule_ref": {
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "items": { "const": "manual_state" }
+                },
+                "caps": {
+                  "required": ["state_tag"],
+                  "properties": {
+                    "state_tag": { "const": true },
+                    "is_system": { "const": false }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": { "properties": { "kind": { "const": "SYS" } }, "required": ["kind"] },
+            "then": {
+              "properties": {
+                "source_rule_ref": {
+                  "items": { "not": { "const": "manual_state" } }
+                },
+                "caps": {
+                  "required": ["is_system"],
+                  "properties": {
+                    "is_system": { "const": true },
+                    "state_tag": { "const": false }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": { "enum": ["CTX", "AUTO"] }
+              },
+              "required": ["kind"]
+            },
+            "then": {
+              "properties": {
+                "source_rule_ref": {
+                  "items": { "not": { "const": "manual_state" } }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_\\-]+$"
+          },
+          "path": {
+            "type": "string",
+            "description": "Label path e.g. @AUTO/Receipt",
+            "pattern": "^@([A-Za-z0-9_\\-\\uAC00-\\uD7A3]+)(/([A-Za-z0-9_\\-\\uAC00-\\uD7A3]+)){0,2}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["CTX", "AUTO", "SYS", "STATE"]
+          },
+          "description": {
+            "type": "string"
+          },
+          "source_rule_ref": {
+            "type": "array",
+            "description": "STATE 라벨은 manual_state만 허용, 그 외 라벨은 필터 ID를 참조",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "anyOf": [
+                { "const": "manual_state" },
+                { "pattern": "^[a-z][a-z0-9_\\-]*$" }
+              ]
+            }
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "caps": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "inbox_priority": {
+                "type": "string",
+                "enum": ["high", "normal", "low"]
+              },
+              "retention_days": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "requires_review": {
+                "type": "boolean"
+              },
+              "max_depth": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "is_system": {
+                "type": "boolean",
+                "description": "SYS 계열 라벨에서 true 권장"
+              },
+              "state_tag": {
+                "type": "boolean",
+                "description": "STATE 라벨에서 true 권장"
+              }
+            },
+            "required": ["inbox_priority", "requires_review"]
+          }
+        }
+      }
+    }
+  }
+}

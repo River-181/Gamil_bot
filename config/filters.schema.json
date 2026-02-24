@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "gmail-filters-schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generated_at", "filters"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^v?\\d+\\.\\d+(?:\\.\\d+)?$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "owner": {
+      "type": "string",
+      "format": "email"
+    },
+    "normalization_ref": {
+      "type": "string"
+    },
+    "filters": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "priority", "enabled", "actions"],
+        "additionalProperties": false,
+        "oneOf": [
+          { "required": ["from_patterns"] },
+          { "required": ["subject_patterns"] }
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_\\-]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "from_patterns": {
+            "type": "array",
+            "description": "발신자 기반 매칭. 값이 비어있으면 안 됨",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 1
+          },
+          "subject_patterns": {
+            "type": "array",
+            "description": "제목 기반 매칭. 값이 비어있으면 안 됨",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 1
+          },
+          "exclude_patterns": {
+            "type": "array",
+            "description": "매칭에서 제외할 패턴 집합",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "actions": {
+            "type": "object",
+            "required": ["apply_labels"],
+            "properties": {
+              "apply_labels": {
+                "type": "array",
+                "description": "적용 라벨. 최소 1개 이상.",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "pattern": "^@([A-Za-z0-9_\\-\\uAC00-\\uD7A3]+)(/([A-Za-z0-9_\\-\\uAC00-\\uD7A3]+)){0,2}$"
+                }
+              },
+              "skip_inbox": {
+                "type": "boolean",
+                "description": "skip_inbox는 라벨 적용 후에도 허용"
+              },
+              "mark_read": { "type": "boolean" },
+              "mark_important": { "type": "boolean" },
+              "star": { "type": "boolean" }
+            },
+            "additionalProperties": false,
+            "required": ["apply_labels"]
+          },
+          "conflict_with": {
+            "type": "array",
+            "description": "충돌 후보 ID. 동일 priority와 overlap 시 conflict 분석이 필요",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9_\\-]+$"
+            }
+          },
+          "mutual_exclusive_group": {
+            "type": "string",
+            "description": "동일 그룹에서 멀티매치 시 단일 규칙만 채택해야 함"
+          }
+        }
+      }
+    }
+  }
+}

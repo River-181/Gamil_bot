@@ -1,0 +1,89 @@
+{
+  "server_id": "gmail-agent-system",
+  "name": "gmail-agent-system",
+  "version": "v3.0.0",
+  "transport": "stdio",
+  "command": "python3",
+  "args": [
+    "-m",
+    "gmail_agent_sys.mcp.entrypoint"
+  ],
+  "working_directory": "/Users/river/tools/gmail-agent-sys",
+  "env": {
+    "GMAIL_CLIENT_SECRET_PATH": "${HOME}/.config/gmail-agent-sys/client_secret.json",
+    "GMAIL_TOKEN_CACHE": "${HOME}/.cache/gmail-agent-sys/tokens",
+    "GMAIL_TOKEN_FILE": "${HOME}/.cache/gmail-agent-sys/token.json",
+    "GMAIL_TOKEN_STORE": "file",
+    "GMAIL_OAUTH_SCOPES": "https://www.googleapis.com/auth/gmail.labels https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/gmail.readonly"
+  },
+  "runtime": {
+    "python_min": "3.12",
+    "policy_ref": "docs/policy_normalization_v3.md",
+    "labels_policy_ref": "config/labels.v3.json",
+    "filters_policy_ref": "config/filters.v3.json"
+  },
+  "security": {
+    "token_hardcoded": false,
+    "secret_in_plan_only": true,
+    "redact_headers": [
+      "Authorization",
+      "X-Goog-Api-Client"
+    ]
+  },
+  "modes": {
+    "plan_only": {
+      "enabled": true,
+      "default": true,
+      "allow_apply": false
+    },
+    "dry_run": {
+      "enabled": true,
+      "allow_apply": false
+    },
+    "apply": {
+      "enabled": true,
+      "allow_apply": true,
+      "requires_operator_approve": true,
+      "dry_run_first": true
+    }
+  },
+  "startup": {
+    "timeout_ms": 30000,
+    "health_check": "health",
+    "retry": {
+      "max_attempts": 5,
+      "base_delay_ms": 800,
+      "max_delay_ms": 8000,
+      "backoff": "exponential",
+      "retry_status_codes": [429, 500, 502, 503, 504]
+    },
+    "retry_strategy_ref": "docs/mcp_retry_policy_v3.md"
+  },
+  "rate_limit": {
+    "requests_per_100s_per_user": 250,
+    "read_write_balance": {
+      "read": 0.8,
+      "write": 0.2
+    }
+  },
+  "api_contract": {
+    "required_features": [
+      "auth.oauth",
+      "labels:list",
+      "labels:apply",
+      "filters:list",
+      "filters:test",
+      "filters:create",
+      "filters:delete",
+      "mail:search",
+      "mail:query:dry_run"
+    ],
+    "error_codes": {
+      "auth_reauth": 401,
+      "rate_limit": 429,
+      "invalid_request": 400,
+      "service_unavailable": 503
+    }
+  },
+  "notes": "현재 운영은 학습/준비 단계. 기본 동작은 plan-only/dry-run 우선, 실제 apply는 승인 게이트 통과 후에만 허용."
+}

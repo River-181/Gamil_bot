@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "gmail-hooks-schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "hooks"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event", "command", "enabled", "guard", "outputs"],
+        "properties": {
+          "event": {
+            "type": "string",
+            "enum": ["SessionStart", "UserPromptSubmit", "PostToolUse", "Stop", "ErrorBoundary"]
+          },
+          "command": {
+            "type": "string",
+            "description": "Executable command"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "scope": {
+            "type": "string",
+            "enum": ["local", "repo", "global"]
+          },
+          "guard": {
+            "type": "object",
+            "required": ["mask_sensitive", "log_only"],
+            "properties": {
+              "mask_sensitive": {"type": "boolean"},
+              "log_only": {"type": "boolean"},
+              "timeout_ms": {"type": "integer", "minimum": 1000},
+              "fail_open": {"type": "boolean"}
+            }
+          },
+          "allowed_patterns": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "outputs": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

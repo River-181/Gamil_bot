@@ -1,0 +1,34 @@
+{
+  "messages": [
+    {
+      "id": "s1",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "OTP 본인확인 인증 코드"
+    },
+    {
+      "id": "s2",
+      "from": "professor@cnu.ac.kr",
+      "subject": "교수님과의 면담 안내"
+    },
+    {
+      "id": "s3",
+      "from": "notifications-noreply@linkedin.com",
+      "subject": "LinkedIn에서 팔로워 요청이 있습니다"
+    },
+    {
+      "id": "s4",
+      "from": "nytdirect@nytimes.com",
+      "subject": "오늘의 뉴스레터: AI Weekly"
+    },
+    {
+      "id": "s5",
+      "from": "no-reply@google.com",
+      "subject": "새로 로그인 알림"
+    },
+    {
+      "id": "s6",
+      "from": "news@kepco.co.kr",
+      "subject": "공지: 이번달 정기 공지"
+    }
+  ]
+}
