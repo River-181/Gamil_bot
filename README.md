@@ -3,6 +3,7 @@
 ## 목적
 `/Users/river/tools/gmail-agent-sys`는 개인 Gmail 운영을 위한 **정책+운영 레이어**이다.
 현재 기준은 `snapshot -> apply-snapshot -> trash-commit` 흐름으로 Gmail 정리와 유지 운영을 수행한다.
+운영 우선순위는 `has:nouserlabels -> 0`이며, Gmail 메인 `기타` 체감량 감소는 그 결과로 함께 수렴시키는 방향으로 고정한다.
 
 ## 아키텍처(고정)
 - `docs/` : 전략, 정합 정책, 흐름/Runbook
@@ -19,13 +20,19 @@
 
 ## 운영 제약(현재)
 - direct `--apply-batch`는 유지하되 운영 기본경로는 `snapshot -> apply-snapshot -> trash-commit`
-- `@AUTO/TrashCandidate`는 보존 후 삭제 후보 라벨로 사용
+- `@AUTO/TrashCandidate`는 `14일 보존 후 삭제` 후보 라벨로 사용
 - 인증 비밀(클라이언트 시크릿/토큰)은 파일에 저장하지 않음
 
+## backlog 운영 모델(v3.2)
+- queue는 `bulk_low_value`, `social_newsletter`, `context_ops`, `critical_review`, `manual_residual`로 고정
+- snapshot 생성은 `--snapshot-queue` 또는 `--snapshot-rule-ids` 기반 targeted mode를 기본값으로 사용
+- `manual_residual`은 자동 queue가 아니라 rule-family queue 소진 후 별도 조사 대상으로 남긴다
+
 ## 다음 단계
-1. snapshot 기반 최근 메일 안정화 (`50 -> 200`)
-2. backlog drain (`200 -> 500 -> 1000`)
-3. delayed trash 및 rollback 운영
+1. rule-family targeted snapshot 안정화 (`25 -> 50`)
+2. queue별 apply throughput 확보 (`50 -> 200`)
+3. backlog drain (`200 -> 500`)
+4. `older_than:14d` delayed trash 및 rollback 운영
 
 ## 즉시 실행 커맨드 (plan-only)
 - 환경 준비:
@@ -34,10 +41,12 @@
   - `python3 -m gmail_agent_sys.mcp.entrypoint --plan-only --pretty`
 - snapshot 생성:
   - `python3 -m gmail_agent_sys.mcp.entrypoint --build-snapshot --snapshot-limit 50 --snapshot-file .tokens/phase10_snapshot.json --pretty`
+- queue 기반 snapshot 생성:
+  - `python3 -m gmail_agent_sys.mcp.entrypoint --build-snapshot --snapshot-queue social_newsletter --snapshot-limit 25 --snapshot-file .tokens/phase10_social_snapshot.json --pretty`
 - snapshot 적용:
   - `python3 -m gmail_agent_sys.mcp.entrypoint --apply-snapshot .tokens/phase10_snapshot.json --apply-run-id phase10-snapshot-run --apply-journal-file .tokens/phase10_apply_journal.jsonl --approve-text "<phase10 approval text>" --pretty`
 - TrashCandidate commit:
-  - `python3 -m gmail_agent_sys.mcp.entrypoint --trash-commit --trash-limit 50 --trash-run-id phase10-trash-run --trash-journal-file .tokens/phase10_trash_journal.jsonl --approve-text "<phase10 trash approval text>" --pretty`
+  - `python3 -m gmail_agent_sys.mcp.entrypoint --trash-commit --trash-older-than-days 14 --trash-limit 50 --trash-run-id phase10-trash-run --trash-journal-file .tokens/phase10_trash_journal.jsonl --approve-text "<phase10 trash approval text>" --pretty`
 - 연동 전 체크:
   - `python3 -m gmail_agent_sys.mcp.entrypoint --plan-only --connect-check --pretty`
 - 실제 Gmail OAuth 연결(토큰 발급, 최초 1회):

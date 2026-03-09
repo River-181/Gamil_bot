@@ -34,20 +34,22 @@
 
 ## targeted snapshot 전략
 - 전체 snapshot 200보다 `bulk 규칙군 전용 snapshot 200`이 더 실용적이다.
-- 추천 대상 규칙:
-  - `rule_trash_candidate_sender`
-  - `rule_trash_candidate_subject_guard`
-  - `rule_promo`
-  - `rule_newsletter_from`
-  - `rule_newsletter_subject_guard`
-  - `rule_social_from`
-  - `rule_social_subject_guard`
+- 운영 queue 고정:
+  - `bulk_low_value`: `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard`, `rule_promo`
+  - `social_newsletter`: `rule_social_from`, `rule_social_subject_guard`, `rule_newsletter_from`, `rule_newsletter_subject_guard`
+  - `context_ops`: `rule_google_notification`, `rule_receipt`, `rule_travel`
+  - `critical_review`: `rule_sys_security`, `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp`
+  - `manual_residual`: rule-family queue 소진 후 수동 조사
 
 ## 배치 확대 기준
-- `50`: 실행 경로 검증
-- `200`: 최근 메일 일상 운영
-- `500`: backlog drain 시작
-- `1000`: 두 번 연속 정상 종료 후만 허용
+- 최근 구간:
+  - `25`: 실행 경로 검증
+  - `50`: queue 단위 샘플 적용
+  - `200`: 최근 메일 일상 운영
+- 중기/장기 구간:
+  - `50`: queue 시동
+  - `200`: backlog drain 시작
+  - `500`: 두 번 연속 정상 종료 후 허용
 
 ## 후속 개선 후보
 - LinkedIn -> Newsletter 오탐 예외 추가

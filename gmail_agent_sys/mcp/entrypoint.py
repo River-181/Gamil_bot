@@ -66,6 +66,31 @@ KNOWN_GMAIL_SYSTEM_LABELS = {
     "CATEGORY_TRAVEL",
     "CATEGORY_FINANCE",
 }
+RULE_FAMILY_QUEUES = {
+    "bulk_low_value": [
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard",
+        "rule_promo",
+    ],
+    "social_newsletter": [
+        "rule_social_from",
+        "rule_social_subject_guard",
+        "rule_newsletter_from",
+        "rule_newsletter_subject_guard",
+    ],
+    "context_ops": [
+        "rule_google_notification",
+        "rule_receipt",
+        "rule_travel",
+    ],
+    "critical_review": [
+        "rule_sys_security",
+        "rule_cnu_student",
+        "rule_cnu_notice",
+        "rule_cnu_otp",
+    ],
+    "manual_residual": [],
+}
 
 
 def _read_json(path: Path) -> Dict[str, Any]:
@@ -602,9 +627,9 @@ def _quote_gmail_term(value: str) -> str:
     return f"\"{cleaned}\"" if any(ch.isspace() for ch in cleaned) else cleaned
 
 
-def _build_rule_gmail_queries(rule: Dict[str, Any], days: int) -> List[str]:
+def _build_rule_gmail_queries(rule: Dict[str, Any], base_query: str) -> List[str]:
     queries: List[str] = []
-    base = f"has:nouserlabels newer_than:{days}d"
+    base = base_query
 
     from_patterns = [
         p.strip()
@@ -640,12 +665,60 @@ def _build_rule_gmail_queries(rule: Dict[str, Any], days: int) -> List[str]:
     return deduped
 
 
+def _parse_csv_arg(raw: str) -> List[str]:
+    if not isinstance(raw, str) or not raw.strip():
+        return []
+    seen = set()
+    values: List[str] = []
+    for part in raw.split(","):
+        cleaned = part.strip()
+        if not cleaned or cleaned in seen:
+            continue
+        seen.add(cleaned)
+        values.append(cleaned)
+    return values
+
+
+def _build_time_window_query(
+    newer_than_days: int,
+    older_than_days: int = 0,
+    require_no_user_labels: bool = True,
+) -> str:
+    parts: List[str] = []
+    if require_no_user_labels:
+        parts.append("has:nouserlabels")
+    parts.append(f"newer_than:{newer_than_days}d")
+    if older_than_days > 0:
+        parts.append(f"older_than:{older_than_days}d")
+    return " ".join(parts)
+
+
+def _resolve_snapshot_target_rule_ids(
+    snapshot_queue: str,
+    snapshot_rule_ids: List[str],
+) -> List[str]:
+    if snapshot_queue and snapshot_rule_ids:
+        raise ValueError("use either --snapshot-queue or --snapshot-rule-ids, not both")
+    if not snapshot_queue:
+        return snapshot_rule_ids
+    if snapshot_queue not in RULE_FAMILY_QUEUES:
+        raise ValueError(
+            f"unknown snapshot queue: {snapshot_queue}. "
+            f"supported queues: {', '.join(sorted(RULE_FAMILY_QUEUES))}"
+        )
+    if snapshot_queue == "manual_residual":
+        raise ValueError("manual_residual queue is review-only; exhaust rule-family queues first")
+    return list(RULE_FAMILY_QUEUES[snapshot_queue])
+
+
 def _build_phase10_candidates(
     label_file: Path,
     filter_file: Path,
     apply_limit: int,
     apply_hours: int,
+    apply_min_hours: int,
     allow_critical: bool,
+    target_rule_ids: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     loaded = _load_and_validate(label_file, filter_file)
     report = loaded["report"]
@@ -684,13 +757,31 @@ def _build_phase10_candidates(
     else:
         filters_apply = [r for r in filters_all if not _is_critical_rule(r)]
 
+    selected_rule_ids = [rid for rid in (target_rule_ids or []) if isinstance(rid, str) and rid.strip()]
+    if selected_rule_ids:
+        selected_rule_id_set = set(selected_rule_ids)
+        known_rule_ids = {
+            rule.get("id")
+            for rule in filters_apply
+            if isinstance(rule, dict) and isinstance(rule.get("id"), str)
+        }
+        unknown_rule_ids = [rid for rid in selected_rule_ids if rid not in known_rule_ids]
+        if unknown_rule_ids:
+            raise ValueError(f"unknown snapshot rule ids: {', '.join(sorted(unknown_rule_ids))}")
+        filters_apply = [rule for rule in filters_apply if rule.get("id") in selected_rule_id_set]
+    else:
+        selected_rule_id_set = set()
+
     if not filters_apply:
         raise ValueError("no eligible rules for apply batch")
 
     label_map = _collect_apply_label_map(token_data, filters_apply)
     days = max(1, int(math.ceil(apply_hours / 24)))
-    primary_query = f"has:nouserlabels newer_than:{days}d"
-    fallback_query = f"newer_than:{days}d"
+    min_days = max(0, int(math.floor(apply_min_hours / 24)))
+    if min_days >= days:
+        raise ValueError("minimum window must be smaller than maximum window")
+    primary_query = _build_time_window_query(days, min_days, require_no_user_labels=True)
+    fallback_query = _build_time_window_query(days, min_days, require_no_user_labels=False)
     list_max = min(600, max(250, apply_limit * 3))
     per_query_cap = max(25, min(80, apply_limit))
     query_sequence: List[str] = []
@@ -698,7 +789,7 @@ def _build_phase10_candidates(
     seen_message_ids = set()
 
     for rule in filters_apply:
-        for query_part in _build_rule_gmail_queries(rule, days):
+        for query_part in _build_rule_gmail_queries(rule, primary_query):
             query_sequence.append(query_part)
             for message_id in _gmail_list_messages(token_data, query=query_part, max_total=per_query_cap):
                 if message_id in seen_message_ids:
@@ -805,6 +896,7 @@ def _build_phase10_candidates(
         "token_data": token_data,
         "query": primary_query,
         "query_sequence": query_sequence,
+        "target_rule_ids": sorted(selected_rule_id_set),
         "selected_candidates": len(candidate_messages),
         "candidate_messages": candidate_messages,
         "protected_skips": protected_skips,
@@ -2138,6 +2230,7 @@ def _run_apply_batch(
         filter_file=filter_file,
         apply_limit=apply_limit,
         apply_hours=apply_hours,
+        apply_min_hours=0,
         allow_critical=allow_critical,
     )
     token_file = built["token_file"]
@@ -2268,18 +2361,30 @@ def _run_build_snapshot(
     snapshot_hours: int,
     allow_critical: bool,
     snapshot_file: Path,
+    snapshot_rule_ids: Optional[List[str]] = None,
+    snapshot_queue: str = "",
+    snapshot_min_hours: int = 0,
 ) -> Dict[str, Any]:
+    resolved_target_rule_ids = _resolve_snapshot_target_rule_ids(
+        snapshot_queue=snapshot_queue,
+        snapshot_rule_ids=list(snapshot_rule_ids or []),
+    )
     built = _build_phase10_candidates(
         label_file=label_file,
         filter_file=filter_file,
         apply_limit=snapshot_limit,
         apply_hours=snapshot_hours,
+        apply_min_hours=snapshot_min_hours,
         allow_critical=allow_critical,
+        target_rule_ids=resolved_target_rule_ids,
     )
     payload = {
         "status": "ok",
         "query": built["query"],
         "query_sequence": built["query_sequence"],
+        "target_queue": snapshot_queue or None,
+        "target_rule_ids": built.get("target_rule_ids", []),
+        "window": {"max_hours": snapshot_hours, "min_hours": snapshot_min_hours},
         "limit": snapshot_limit,
         "selected_candidates": built["selected_candidates"],
         "protected_skips": built["protected_skips"],
@@ -2657,10 +2762,28 @@ def main() -> int:
         help="snapshot lookback window in hours",
     )
     parser.add_argument(
+        "--snapshot-min-hours",
+        type=int,
+        default=0,
+        help="minimum message age in hours for snapshot window",
+    )
+    parser.add_argument(
         "--snapshot-file",
         type=str,
         default=str(Path(".tokens/phase10_snapshot.json")),
         help="snapshot output file",
+    )
+    parser.add_argument(
+        "--snapshot-queue",
+        type=str,
+        default="",
+        help="named rule-family queue for targeted snapshot",
+    )
+    parser.add_argument(
+        "--snapshot-rule-ids",
+        type=str,
+        default="",
+        help="comma-separated rule ids for targeted snapshot narrowing",
     )
     parser.add_argument(
         "--apply-snapshot",
@@ -2677,7 +2800,7 @@ def main() -> int:
     parser.add_argument(
         "--trash-older-than-days",
         type=int,
-        default=7,
+        default=14,
         help="minimum age before trash commit",
     )
     parser.add_argument(
@@ -2884,8 +3007,11 @@ def main() -> int:
                     filter_file=filter_path,
                     snapshot_limit=args.snapshot_limit,
                     snapshot_hours=args.snapshot_hours,
+                    snapshot_min_hours=args.snapshot_min_hours,
                     allow_critical=args.allow_critical,
                     snapshot_file=Path(args.snapshot_file),
+                    snapshot_rule_ids=_parse_csv_arg(args.snapshot_rule_ids),
+                    snapshot_queue=(args.snapshot_queue or "").strip(),
                 ),
             )
         except Exception as exc:
