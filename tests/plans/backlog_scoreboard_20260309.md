@@ -20,7 +20,7 @@
 | `social_newsletter` | `rule_social_from`, `rule_social_subject_guard`, `rule_newsletter_from`, `rule_newsletter_subject_guard` | `0~365d`, `181~365d`, `366d+` | complete (`25`, `50`, `83`, `40`, `17`, `71`) | complete (`25`, `50`, `83`, `40`, `17`, `71`) | `0` | `phase10-social-newsletter-25-20260309`, `phase10-social-newsletter-50-20260310`, `phase10-social-newsletter-83-20260310`, `phase10-social-newsletter-residual-40-20260310`, `phase10-social-newsletter-17-181-365d-20260310`, `phase10-social-newsletter-71-366d-plus-20260310` 적용 완료 |
 | `context_ops` | `rule_google_notification`, `rule_receipt`, `rule_travel` | `0~30d`, `31~180d`, `181~365d` | complete (`1`, `4`, `31`) | complete (`1`, `4`, `31`) | `0` | `snapshot-min-hours` + targeted fallback 차단 후 정상화, `이메일 확인 코드`는 `Security`로 보호됨, `181~365d` 네이버페이/영수증 31건 적용 완료 |
 | `critical_review` | `rule_sys_security`, `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp` | all | review only | n/a | `0` | `--allow-critical` 필요 |
-| `manual_residual` | residual unlabeled | all | sample `100` analyzed, focused snapshots `10`, `10`, `13` | partial (`10`, `10`, `13`) | `0` | 상위 도메인: `makenotion.com`, `email.apple.com`, `mail.notion.so`, `cnu.ac.kr`, `kyobobook.com`; `Notion` support/marketplace 10건, `Apple` 가족공유 10건, `Notion newsletter` 13건 적용 완료 |
+| `manual_residual` | residual unlabeled | all | sample `100` analyzed, focused snapshots `10`, `10`, `13`, `5`, `9` | partial (`10`, `10`, `13`, `5`, `9`) | `0` | 상위 도메인: `makenotion.com`, `email.apple.com`, `mail.notion.so`, `cnu.ac.kr`, `kyobobook.com`; `Notion` support/marketplace 10건, `Apple` 가족공유 10건, `Notion newsletter` 13건, `Notion notify/team` 5건, `Apple storage` 9건 적용 완료 |
 
 ## Throughput Gates
 - `M8-A`

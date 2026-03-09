@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-10",
+  "apple_unlabeled_messages_found": 22,
+  "samples": [
+    {
+      "message_id": "19bfe0acec187ae0",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+    },
+    {
+      "message_id": "199124123687fc19",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+    },
+    {
+      "message_id": "19813768e44461ca",
+      "from": "Find My <noreply@email.apple.com>",
+      "subject": "iPad (184)에서 나의 찾기가 비활성화되었습니다."
+    },
+    {
+      "message_id": "1980e1f9398dfd57",
+      "from": "Find My <noreply@email.apple.com>",
+      "subject": "김주용의 iPad에서 나의 찾기가 비활성화되었습니다."
+    },
+    {
+      "message_id": "1980e1bead1d777b",
+      "from": "Find My <noreply@email.apple.com>",
+      "subject": "활성화 잠금을 사용하려면 김주용의 iPad에 암호를 입력해야 합니다."
+    },
+    {
+      "message_id": "1980defc819c2d0f",
+      "from": "Find My <noreply@email.apple.com>",
+      "subject": "River’s iPad에서 나의 찾기가 비활성화되었습니다."
+    },
+    {
+      "message_id": "1975ebcd278c58ac",
+      "from": "Apple iCloud <noreply@email.apple.com>",
+      "subject": "iOS 이용 약관"
+    },
+    {
+      "message_id": "196be1c3dabccd27",
+      "from": "Find My <noreply@email.apple.com>",
+      "subject": "iPad (184)에서 나의 찾기가 비활성화되었습니다."
+    },
+    {
+      "message_id": "1968667cf4a8319a",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "나의 Apple ID가 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+    },
+    {
+      "message_id": "19684d5d2d2efac1",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "나의 Apple ID가 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+    },
+    {
+      "message_id": "196600feab488f4f",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "나의 Apple ID가 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+    },
+    {
+      "message_id": "195f017af224bb1e",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "Apple 계정의 앱 암호가 생성되었습니다."
+    }
+  ]
+}

@@ -74,8 +74,9 @@
 - 재스캔 아티팩트: `/Users/river/tools/gmail-agent-sys/tests/plans/manual_residual_rescan_notion_apple_post_apply_20260310.json`
 - `Apple` residual:
   - before: `41`
-  - after: `31`
-  - 감소: `10`
+  - after focused family/apply: `31`
+  - after storage apply + rescan: `22`
+  - 감소: `19`
 - `Notion` residual:
   - 총합은 sender family 확장 재집계로 직접 비교하지 않음
   - 핵심 sender 감소:
@@ -85,3 +86,13 @@
     - `marketplace@mail.notion.so`: `10 -> 8`
   - 해석:
     - `Notion`은 여전히 `notify@mail.notion.so`, `team@mail.notion.so`가 큰 잔여군이라 별도 queue로 계속 밀어야 한다.
+
+## Apple 2차 분기 후 상태
+- 재스캔 아티팩트: `/Users/river/tools/gmail-agent-sys/tests/plans/manual_residual_rescan_apple_post_storage_20260310.json`
+- 남은 `Apple` residual `22`건의 대부분은 아래 성격이다.
+  - `Find My` 비활성화
+  - `iCloud 로그인`
+  - `앱 암호 생성`
+- 판단:
+  - 이 구간은 더 소거할 대상이 아니라 `@SYS/Security` 보호 구간으로 보는 것이 맞다.
+  - 일반 알림으로 남는 `iCloud storage`, `iOS 이용 약관`만 `@AUTO/Notification`으로 수렴시킨다.
