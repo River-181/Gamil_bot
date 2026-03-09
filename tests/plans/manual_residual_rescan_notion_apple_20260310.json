@@ -1,127 +1,304 @@
 {
   "generated_at": "2026-03-10",
-  "scope": "has:nouserlabels sender-family residual count",
+  "scope": "has:nouserlabels sender-family residual rescan",
   "results": {
     "notion": {
-      "unlabeled_messages_found": 293,
-      "sender_hits": {
-        "templates-inbox@makenotion.com": 8,
-        "templates+noreply@makenotion.com": 2,
-        "templates@makenotion.com": 4,
-        "marketplace@mail.notion.so": 10,
-        "notify@mail.notion.so": 200,
-        "team@mail.notion.so": 35,
-        "team@notion.com": 3,
-        "ivan@mail.notion.so": 33
-      },
-      "sample_subjects": [
+      "sender_count": 8,
+      "unlabeled_messages_found": 341,
+      "matched_now": 238,
+      "still_unmatched": 103,
+      "matched_samples": [
         {
           "message_id": "19c04e9ec0530452",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "요청 #5161361: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?"
+          "subject": "요청 #5161361: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bfa6572fab85d0",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "요청 #5163108: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?"
-        },
-        {
-          "message_id": "19bf50fa0cd93a68",
-          "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "[Notion] Re: 노션 온보딩 중단 오류"
+          "subject": "요청 #5163108: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bf50f199581ba1",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "[접수 완료]"
+          "subject": "[접수 완료]",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bf5080a4bcddb4",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "Update your Stripe account to receive your funds from Notion Labs, Inc."
+          "subject": "Update your Stripe account to receive your funds from Notion Labs, Inc.",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bea22f95e79852",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
+          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bea1efc11b8be9",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "[접수 완료]"
+          "subject": "[접수 완료]",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bea1c16c457b3c",
           "from": "Notion Support <templates-inbox@makenotion.com>",
-          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
-        },
-        {
-          "message_id": "19bf50efb7b04ca8",
-          "from": "Notion Template Support <templates+noreply@makenotion.com>",
-          "subject": "Re: 노션 온보딩 중단 오류"
+          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
         },
         {
           "message_id": "19bea1b31810ca90",
           "from": "Notion Template Support <templates+noreply@makenotion.com>",
-          "subject": "Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
+          "subject": "Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+          "matched_rules": [
+            "rule_notion_notification"
+          ]
+        },
+        {
+          "message_id": "19c7341e69668722",
+          "from": "Notion Template Creator Newsletter <templates@makenotion.com>",
+          "subject": "Custom Agent templates are here!",
+          "matched_rules": [
+            "rule_newsletter_from"
+          ]
+        },
+        {
+          "message_id": "19b9efa77b70b309",
+          "from": "Notion Template Creator Newsletter <templates@makenotion.com>",
+          "subject": "January Update: Lower Fees, Custom Agents and More!",
+          "matched_rules": [
+            "rule_newsletter_from"
+          ]
+        }
+      ],
+      "unmatched_samples": [
+        {
+          "message_id": "19bf50fa0cd93a68",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[Notion] Re: 노션 온보딩 중단 오류",
+          "matched_rules": []
+        },
+        {
+          "message_id": "19bf50efb7b04ca8",
+          "from": "Notion Template Support <templates+noreply@makenotion.com>",
+          "subject": "Re: 노션 온보딩 중단 오류",
+          "matched_rules": []
+        },
+        {
+          "message_id": "1995c23d061b8dd5",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 화면별 기능정의서_사이드 프로젝트 ver. 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "19917ff05d3335ca",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 비전과 전략 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "197526b72dfefaee",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 학교 동아리 박스 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "19551d9bda897ae2",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 팀 전략 문서 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "19551b910372dbb8",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 프로젝트와 작업 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "194fba0e55a57f01",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 IT팀 박스 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "194e15dcf8749a2e",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 HUFS Team Project 템플릿을 다운로드했습니다",
+          "matched_rules": []
+        },
+        {
+          "message_id": "193770ce06770b2b",
+          "from": "Notion Marketplace <marketplace@mail.notion.so>",
+          "subject": "Notion에서 PARA 정리법 메모앱 템플릿을 다운로드했습니다",
+          "matched_rules": []
         }
       ]
     },
     "apple": {
+      "sender_count": 1,
       "unlabeled_messages_found": 41,
-      "sender_hits": {
-        "noreply@email.apple.com": 41
-      },
-      "sample_subjects": [
+      "matched_now": 21,
+      "still_unmatched": 20,
+      "matched_samples": [
         {
           "message_id": "19c64646c81cc0e1",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "남승미 님이 가족에 참여했습니다."
+          "subject": "남승미 님이 가족에 참여했습니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c61718480f5e9c",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "lee jeongyil 님이 가족에 참여했습니다."
+          "subject": "lee jeongyil 님이 가족에 참여했습니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c604aa05feaeb2",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "가족 공유를 시작합니다."
+          "subject": "가족 공유를 시작합니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c6046f415ebcbd",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "가족 공유를 시작합니다."
+          "subject": "가족 공유를 시작합니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c604662b50c879",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "가족 공유를 시작합니다."
+          "subject": "가족 공유를 시작합니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c5eaaffde06a8e",
           "from": "iCloud <noreply@email.apple.com>",
-          "subject": "‘가족’ 캘린더는 더 이상 공유되지 않습니다."
+          "subject": "‘가족’ 캘린더는 더 이상 공유되지 않습니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c5eaaff6846b40",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "더 이상 가족 공유에 참여하지 않습니다."
+          "subject": "더 이상 가족 공유에 참여하지 않습니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c5eaaff3700fd5",
           "from": "iCloud <noreply@email.apple.com>",
-          "subject": "‘가족’ 목록이 더 이상 공유되지 않습니다."
+          "subject": "‘가족’ 목록이 더 이상 공유되지 않습니다.",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19c5eaae538dad9f",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "JY Han 님이 더 이상 가족 공유에 참여하지 않습니다"
+          "subject": "JY Han 님이 더 이상 가족 공유에 참여하지 않습니다",
+          "matched_rules": [
+            "rule_apple_notification"
+          ]
         },
         {
           "message_id": "19bfe0acec187ae0",
           "from": "Apple <noreply@email.apple.com>",
-          "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+          "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다.",
+          "matched_rules": [
+            "rule_sys_security"
+          ]
+        }
+      ],
+      "unmatched_samples": [
+        {
+          "message_id": "1991015860e56bf0",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 가득 찼습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "198ebceb9cc6cf64",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 가득 찼습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "198c7a9e196ef0ec",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 가득 찼습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "198a2b98b6b461dd",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 거의 가득 찼습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "1986e32e14d0f949",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 거의 가득 찼습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "19813768e44461ca",
+          "from": "Find My <noreply@email.apple.com>",
+          "subject": "iPad (184)에서 나의 찾기가 비활성화되었습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "1980e1f9398dfd57",
+          "from": "Find My <noreply@email.apple.com>",
+          "subject": "김주용의 iPad에서 나의 찾기가 비활성화되었습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "1980e1bead1d777b",
+          "from": "Find My <noreply@email.apple.com>",
+          "subject": "활성화 잠금을 사용하려면 김주용의 iPad에 암호를 입력해야 합니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "1980defc819c2d0f",
+          "from": "Find My <noreply@email.apple.com>",
+          "subject": "River’s iPad에서 나의 찾기가 비활성화되었습니다.",
+          "matched_rules": []
+        },
+        {
+          "message_id": "197f18e6d08a6035",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "iCloud 저장 공간이 거의 가득 찼습니다.",
+          "matched_rules": []
         }
       ]
     }

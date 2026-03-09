@@ -55,3 +55,33 @@
   - 로그인/인증 계열 subject도 일부 포함
   - 해석:
     - `Apple`은 `security`와 `general notification` 분리 적용이 필요하다.
+
+## 1차 focused apply
+- `Notion support/marketplace`
+  - snapshot: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_notion_notification_25.json`
+  - apply: `10`
+  - journal: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_apply_journal_notion_notification_10_20260310.jsonl`
+- `Apple family sharing`
+  - snapshot: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_apple_notification_25.json`
+  - apply: `10`
+  - journal: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_apply_journal_apple_notification_10_20260310.jsonl`
+- `Notion newsletter`
+  - snapshot: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_notion_newsletter_residual_25.json`
+  - apply: `13`
+  - journal: `/Users/river/tools/gmail-agent-sys/.tokens/phase10_apply_journal_notion_newsletter_13_20260310.jsonl`
+
+## focused apply 후 재스캔
+- 재스캔 아티팩트: `/Users/river/tools/gmail-agent-sys/tests/plans/manual_residual_rescan_notion_apple_post_apply_20260310.json`
+- `Apple` residual:
+  - before: `41`
+  - after: `31`
+  - 감소: `10`
+- `Notion` residual:
+  - 총합은 sender family 확장 재집계로 직접 비교하지 않음
+  - 핵심 sender 감소:
+    - `team@notion.com`: `3 -> 0`
+    - `ivan@mail.notion.so`: `33 -> 23`
+    - `templates-inbox@makenotion.com`: `8 -> 1`
+    - `marketplace@mail.notion.so`: `10 -> 8`
+  - 해석:
+    - `Notion`은 여전히 `notify@mail.notion.so`, `team@mail.notion.so`가 큰 잔여군이라 별도 queue로 계속 밀어야 한다.

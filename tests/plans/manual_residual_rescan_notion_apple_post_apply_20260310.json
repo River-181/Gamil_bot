@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-03-10",
+  "results": {
+    "notion": {
+      "unlabeled_messages_found": 318,
+      "sender_hits": {
+        "templates-inbox@makenotion.com": 1,
+        "templates+noreply@makenotion.com": 1,
+        "templates@makenotion.com": 3,
+        "marketplace@mail.notion.so": 8,
+        "notify@mail.notion.so": 248,
+        "team@mail.notion.so": 35,
+        "team@notion.com": 0,
+        "ivan@mail.notion.so": 23
+      }
+    },
+    "apple": {
+      "unlabeled_messages_found": 31,
+      "sender_hits": {
+        "noreply@email.apple.com": 31
+      }
+    }
+  }
+}
