@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-03-10",
+  "scope": "has:nouserlabels sender-family residual count",
+  "results": {
+    "notion": {
+      "unlabeled_messages_found": 293,
+      "sender_hits": {
+        "templates-inbox@makenotion.com": 8,
+        "templates+noreply@makenotion.com": 2,
+        "templates@makenotion.com": 4,
+        "marketplace@mail.notion.so": 10,
+        "notify@mail.notion.so": 200,
+        "team@mail.notion.so": 35,
+        "team@notion.com": 3,
+        "ivan@mail.notion.so": 33
+      },
+      "sample_subjects": [
+        {
+          "message_id": "19c04e9ec0530452",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "요청 #5161361: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?"
+        },
+        {
+          "message_id": "19bfa6572fab85d0",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "요청 #5163108: 받으신 고객 지원에 대한 평가를 해 주실 수 있나요?"
+        },
+        {
+          "message_id": "19bf50fa0cd93a68",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[Notion] Re: 노션 온보딩 중단 오류"
+        },
+        {
+          "message_id": "19bf50f199581ba1",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[접수 완료]"
+        },
+        {
+          "message_id": "19bf5080a4bcddb4",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "Update your Stripe account to receive your funds from Notion Labs, Inc."
+        },
+        {
+          "message_id": "19bea22f95e79852",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
+        },
+        {
+          "message_id": "19bea1efc11b8be9",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[접수 완료]"
+        },
+        {
+          "message_id": "19bea1c16c457b3c",
+          "from": "Notion Support <templates-inbox@makenotion.com>",
+          "subject": "[Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
+        },
+        {
+          "message_id": "19bf50efb7b04ca8",
+          "from": "Notion Template Support <templates+noreply@makenotion.com>",
+          "subject": "Re: 노션 온보딩 중단 오류"
+        },
+        {
+          "message_id": "19bea1b31810ca90",
+          "from": "Notion Template Support <templates+noreply@makenotion.com>",
+          "subject": "Re: Update your Stripe account to receive your funds from Notion Labs, Inc."
+        }
+      ]
+    },
+    "apple": {
+      "unlabeled_messages_found": 41,
+      "sender_hits": {
+        "noreply@email.apple.com": 41
+      },
+      "sample_subjects": [
+        {
+          "message_id": "19c64646c81cc0e1",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "남승미 님이 가족에 참여했습니다."
+        },
+        {
+          "message_id": "19c61718480f5e9c",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "lee jeongyil 님이 가족에 참여했습니다."
+        },
+        {
+          "message_id": "19c604aa05feaeb2",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "가족 공유를 시작합니다."
+        },
+        {
+          "message_id": "19c6046f415ebcbd",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "가족 공유를 시작합니다."
+        },
+        {
+          "message_id": "19c604662b50c879",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "가족 공유를 시작합니다."
+        },
+        {
+          "message_id": "19c5eaaffde06a8e",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "‘가족’ 캘린더는 더 이상 공유되지 않습니다."
+        },
+        {
+          "message_id": "19c5eaaff6846b40",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "더 이상 가족 공유에 참여하지 않습니다."
+        },
+        {
+          "message_id": "19c5eaaff3700fd5",
+          "from": "iCloud <noreply@email.apple.com>",
+          "subject": "‘가족’ 목록이 더 이상 공유되지 않습니다."
+        },
+        {
+          "message_id": "19c5eaae538dad9f",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "JY Han 님이 더 이상 가족 공유에 참여하지 않습니다"
+        },
+        {
+          "message_id": "19bfe0acec187ae0",
+          "from": "Apple <noreply@email.apple.com>",
+          "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다."
+        }
+      ]
+    }
+  }
+}

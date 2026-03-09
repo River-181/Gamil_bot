@@ -1,0 +1,57 @@
+# Manual Residual Summary 2026-03-10
+
+## 목적
+- `has:nouserlabels`에 남아 있지만 기존 rule-family queue에 걸리지 않는 메일 100건을 표본 분석한다.
+
+## 결과 요약
+- 표본 크기: `100`
+- 원본: `/Users/river/tools/gmail-agent-sys/tests/plans/manual_residual_sample_100_20260310.json`
+
+## 상위 도메인
+- `makenotion.com`: `11`
+- `email.apple.com`: `10`
+- `mail.notion.so`: `5`
+- `cnu.ac.kr`: `5`
+- `naver.com`: `4`
+- `kyobobook.com`: `4`
+- `notion.com`: `3`
+- `stripe.com`: `3`
+
+## 상위 발신자
+- `Apple <noreply@email.apple.com>`: `8`
+- `Notion Support <templates-inbox@makenotion.com>`: `8`
+- `"교보문고" <noreply@kyobobook.com>`: `3`
+- `"기획재정과" <evaluation@cnu.ac.kr>`: `3`
+- `"Notion Academy & Certifications" <team@notion.com>`: `3`
+
+## 관찰
+- `Notion` 계열이 가장 큰 잔여군이다.
+  - `templates-inbox@makenotion.com`
+  - `marketplace@mail.notion.so`
+  - `notify@mail.notion.so`
+  - `team@notion.com`
+- `Apple/iCloud` 계열도 반복적으로 남아 있다.
+- `CNU` 계열 중 일부는 현재 `subject` 패턴이 약해서 `critical_review` 또는 `CNU notice` 보강 후보로 보인다.
+- `교보문고`, `티머니`, `토스증권`, `KB국민은행`, `PayPal`은 `context_ops` 또는 finance rule 보강 후보다.
+- `Your authentication code`와 로그인성 Apple 메일이 residual에 남는 것은 `Security` 패턴 보강 우선순위가 높다는 뜻이다.
+
+## 다음 보강 후보
+1. `Notion` 알림/템플릿/마켓플레이스 전용 rule 또는 기존 `notification/newsletter` 보강
+2. `Apple/iCloud`의 계정/가족공유/로그인 분기 보강
+3. `CNU` notice/student 패턴 추가 보강
+4. `교보문고`/`티머니`/`토스증권`/`KB국민은행`/`PayPal`의 finance-context 보강
+
+## 보강 후 재스캔
+- 재스캔 아티팩트: `/Users/river/tools/gmail-agent-sys/tests/plans/manual_residual_rescan_notion_apple_20260310.json`
+- `Notion` sender-family residual: `293`
+  - 큰 군집:
+    - `notify@mail.notion.so`: `200`
+    - `team@mail.notion.so`: `35`
+    - `ivan@mail.notion.so`: `33`
+  - 해석:
+    - 기존 보강만으로는 `Notion`이 아직 backlog의 독립 큐가 될 만큼 크다.
+- `Apple/iCloud` sender-family residual: `41`
+  - 대부분 가족공유/공유 해제 계열
+  - 로그인/인증 계열 subject도 일부 포함
+  - 해석:
+    - `Apple`은 `security`와 `general notification` 분리 적용이 필요하다.

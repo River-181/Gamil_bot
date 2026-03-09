@@ -2,20 +2,20 @@
 
 ## Baseline
 - `all_mail`: `11,227`
-- `inbox`: `9,575`
-- `has:nouserlabels`: `7,027`
-- `has:userlabels`: `4,200`
+- `inbox`: `9,309`
+- `has:nouserlabels`: `6,761`
+- `has:userlabels`: `4,466`
 - `trash_candidate`: `8`
 - `trash_candidate_older_than_14d`: `0`
 
 ## Queue Status
 | Queue | Rules | Window | Snapshot | Apply | Failures | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `bulk_low_value` | `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard`, `rule_promo` | `0~30d` | pending | pending | `0` | `TrashCandidate`는 `14일 보존` |
-| `social_newsletter` | `rule_social_from`, `rule_social_subject_guard`, `rule_newsletter_from`, `rule_newsletter_subject_guard` | `0~180d` | complete (`25`) | complete (`25`) | `0` | `phase10-social-newsletter-25-20260309` 적용 완료 |
-| `context_ops` | `rule_google_notification`, `rule_receipt`, `rule_travel` | `0~30d`, `31~180d` | blocked | pending | `0` | `snapshot-min-hours` 추가 후에도 metadata fetch 병목 남음 |
+| `bulk_low_value` | `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard`, `rule_promo` | `0~30d`, `31~180d` | complete (`0`, `0`) | n/a | `0` | 최근/중기 구간에서 추가 처리 후보 없음, `CNU` 공지 2건 보호됨 |
+| `social_newsletter` | `rule_social_from`, `rule_social_subject_guard`, `rule_newsletter_from`, `rule_newsletter_subject_guard` | `0~365d`, `181~365d`, `366d+` | complete (`25`, `50`, `83`, `40`, `17`, `71`) | complete (`25`, `50`, `83`, `40`, `17`, `71`) | `0` | `phase10-social-newsletter-25-20260309`, `phase10-social-newsletter-50-20260310`, `phase10-social-newsletter-83-20260310`, `phase10-social-newsletter-residual-40-20260310`, `phase10-social-newsletter-17-181-365d-20260310`, `phase10-social-newsletter-71-366d-plus-20260310` 적용 완료 |
+| `context_ops` | `rule_google_notification`, `rule_receipt`, `rule_travel` | `0~30d`, `31~180d`, `181~365d` | complete (`1`, `4`, `31`) | complete (`1`, `4`, `31`) | `0` | `snapshot-min-hours` + targeted fallback 차단 후 정상화, `이메일 확인 코드`는 `Security`로 보호됨, `181~365d` 네이버페이/영수증 31건 적용 완료 |
 | `critical_review` | `rule_sys_security`, `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp` | all | review only | n/a | `0` | `--allow-critical` 필요 |
-| `manual_residual` | residual unlabeled | all | pending | pending | n/a | rule-family queue 소진 후 진입 |
+| `manual_residual` | residual unlabeled | all | sample `100` analyzed | pending | n/a | 상위 도메인: `makenotion.com`, `email.apple.com`, `mail.notion.so`, `cnu.ac.kr`, `kyobobook.com` |
 
 ## Throughput Gates
 - `M8-A`
