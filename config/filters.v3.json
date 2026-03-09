@@ -106,7 +106,10 @@
         "공지",
         "안내",
         "알림",
-        "뉴스레터"
+        "뉴스레터",
+        "정보화소식",
+        "조사",
+        "개최"
       ],
       "actions": {
         "apply_labels": [
@@ -133,8 +136,10 @@
         "dosirakesim.com",
         "hanacard.co.kr",
         "paypal.com",
+        "noreply@service.paypal.com",
         "naverpayadmin_noreply@navercorp.com",
         "cyberman@bill.kbcard.com",
+        "mailadmin@tmoney.co.kr",
         "invoice+statements@mail.anthropic.com",
         "no_reply@email.apple.com",
         "billing_info@kepco.co.kr"
@@ -146,6 +151,8 @@
         "승인",
         "영수증",
         "명세서",
+        "내역서",
+        "거래내역",
         "정산",
         "청구서",
         "invoice",
@@ -161,6 +168,49 @@
         "mark_important": false,
         "star": false
       },
+      "mutual_exclusive_group": "finance_scope"
+    },
+    {
+      "id": "rule_finance_notice",
+      "name": "[금융] 약관/거래/포인트 안내",
+      "priority": 55,
+      "enabled": true,
+      "from_patterns": [
+        "mailadmin@tmoney.co.kr",
+        "no.reply@mail.tossinvest.com",
+        "kbmail@kbmail.kbstar.com",
+        "noreply@service.paypal.com"
+      ],
+      "subject_patterns": [
+        "약관",
+        "특약",
+        "개정",
+        "안내",
+        "거래내역",
+        "내역",
+        "포인트",
+        "마일리지",
+        "서비스"
+      ],
+      "exclude_patterns": [
+        "OTP",
+        "보안",
+        "인증",
+        "로그인"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/Notification",
+          "@CTX/Finance"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_receipt"
+      ],
       "mutual_exclusive_group": "finance_scope"
     },
     {
