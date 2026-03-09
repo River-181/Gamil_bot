@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "counts": {
+    "all_mail": 11402,
+    "inbox": 9664,
+    "has_nouserlabels": 7120,
+    "has_userlabels": 4158,
+    "trash_candidate": 67,
+    "trash_candidate_older_than_7d": 59,
+    "trash_candidate_older_than_14d": 59
+  }
+}

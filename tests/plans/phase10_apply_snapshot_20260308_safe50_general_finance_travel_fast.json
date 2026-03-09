@@ -1,0 +1,275 @@
+{
+  "status": "ok",
+  "run_id": "phase10-safe50-general-finance-travel-fast-20260308",
+  "safe_rule_ids": [
+    "rule_newsletter_from",
+    "rule_newsletter_subject_guard",
+    "rule_notification",
+    "rule_promo",
+    "rule_receipt",
+    "rule_social_from",
+    "rule_social_subject_guard",
+    "rule_travel"
+  ],
+  "queries": [
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:hanacard.co.kr"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:paypal.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:receipt"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:payment"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:승인"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:receipt"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:receipt"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:airbnb.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:booking.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:ticket"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:항공"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:항공권"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com subject:ticket"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:ticket"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:notifications-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:messages-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:updates-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@mail.instagram.com"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:linkedin"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:instagram"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:twitter"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:youtube"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:website.kr@shokz.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:noreply@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:[광고]"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:행사"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:이벤트"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:[광고]"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:[광고]"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:nytdirect@nytimes.com"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:updates@mymind.email"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:nunzio@akiflow.com"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:care@fabric.so"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:unsubscribe"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:newsletter"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:digest"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:weekly"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:support@kakao.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@kakaotalk.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:정책"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:변경"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:안내"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:정책"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:정책"
+    }
+  ],
+  "selected_candidates": 0,
+  "self_sent_skips": [],
+  "candidates": []
+}

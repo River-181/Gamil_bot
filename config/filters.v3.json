@@ -1,6 +1,6 @@
 {
   "version": "v3.0.0",
-  "generated_at": "2026-02-24T00:00:00+09:00",
+  "generated_at": "2026-03-08T18:09:15.106053Z",
   "owner": "chany010713@gmail.com",
   "normalization_ref": "policy_normalization_v3.md",
   "filters": [
@@ -9,10 +9,41 @@
       "name": "[보안] 로그인/OTP/계정 알림",
       "priority": 10,
       "enabled": true,
-      "from_patterns": ["noreply@email.apple.com", "no-reply@google.com", "noreply@google.com"],
-      "subject_patterns": ["login", "OTP", "보안", "새로 로그인", "security", "인증"],
+      "from_patterns": [
+        "noreply@email.apple.com",
+        "no-reply@google.com",
+        "noreply@google.com",
+        "no-reply@accounts.google.com",
+        "verify@x.com",
+        "noreply@github.com",
+        "noreply@tm1.openai.com",
+        "pops@megazone.com",
+        "sa.noreply@samsung-mail.com"
+      ],
+      "subject_patterns": [
+        "login",
+        "OTP",
+        "보안",
+        "새로 로그인",
+        "security",
+        "인증",
+        "authentication",
+        "verification",
+        "new login",
+        "two-factor",
+        "passkey",
+        "recovery code",
+        "recovery codes",
+        "personal access token",
+        "authentication code",
+        "비밀번호가 변경",
+        "비밀번호 재설정",
+        "휴면 해제"
+      ],
       "actions": {
-        "apply_labels": ["@SYS/Security"],
+        "apply_labels": [
+          "@SYS/Security"
+        ],
         "skip_inbox": false,
         "mark_read": false,
         "mark_important": true,
@@ -21,31 +52,32 @@
       "mutual_exclusive_group": "security_priority"
     },
     {
-      "id": "rule_cnu_otp",
-      "name": "[CNU OTP] 보안 강제 경로",
-      "priority": 20,
-      "enabled": true,
-      "from_patterns": ["cnuportal@cnu.ac.kr"],
-      "subject_patterns": ["OTP", "보안", "인증"],
-      "actions": {
-        "apply_labels": ["@SYS/Security"],
-        "skip_inbox": true,
-        "mark_read": true,
-        "mark_important": true,
-        "star": false
-      },
-      "conflict_with": ["rule_cnu_student", "rule_cnu_notice"]
-    },
-    {
       "id": "rule_cnu_student",
       "name": "[CNU] 학생/학사 직접 메일",
       "priority": 30,
       "enabled": true,
-      "from_patterns": ["@cnu.ac.kr"],
-      "subject_patterns": ["교수", "학사", "수강", "과제", "문의", "지원"],
-      "exclude_patterns": ["OTP", "공지", "안내", "뉴스", "뉴스레터"],
+      "from_patterns": [
+        "@cnu.ac.kr"
+      ],
+      "subject_patterns": [
+        "교수",
+        "학사",
+        "수강",
+        "과제",
+        "문의",
+        "지원"
+      ],
+      "exclude_patterns": [
+        "OTP",
+        "공지",
+        "안내",
+        "뉴스",
+        "뉴스레터"
+      ],
       "actions": {
-        "apply_labels": ["@CNU/학생"],
+        "apply_labels": [
+          "@CNU/학생"
+        ],
         "skip_inbox": false,
         "mark_read": false,
         "mark_important": true,
@@ -58,16 +90,28 @@
       "name": "[CNU] 공지/안내 알림",
       "priority": 40,
       "enabled": true,
-      "from_patterns": ["@cnu.ac.kr"],
-      "subject_patterns": ["공지", "안내", "알림", "뉴스레터"],
+      "from_patterns": [
+        "@cnu.ac.kr"
+      ],
+      "subject_patterns": [
+        "공지",
+        "안내",
+        "알림",
+        "뉴스레터"
+      ],
       "actions": {
-        "apply_labels": ["@CNU/뉴스알림"],
+        "apply_labels": [
+          "@CNU/뉴스알림"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_cnu_student", "rule_cnu_otp"],
+      "conflict_with": [
+        "rule_cnu_student",
+        "rule_cnu_otp"
+      ],
       "mutual_exclusive_group": "cnu_scope"
     },
     {
@@ -75,10 +119,34 @@
       "name": "[결제] 영수증/승인/명세서",
       "priority": 50,
       "enabled": true,
-      "from_patterns": ["bill@bill-mail.tosspayments.com", "dosirakesim.com", "hanacard.co.kr", "paypal.com"],
-      "subject_patterns": ["결제", "receipt", "payment", "승인", "영수증", "명세서", "정산"],
+      "from_patterns": [
+        "bill@bill-mail.tosspayments.com",
+        "dosirakesim.com",
+        "hanacard.co.kr",
+        "paypal.com",
+        "naverpayadmin_noreply@navercorp.com",
+        "cyberman@bill.kbcard.com",
+        "invoice+statements@mail.anthropic.com",
+        "no_reply@email.apple.com",
+        "billing_info@kepco.co.kr"
+      ],
+      "subject_patterns": [
+        "결제",
+        "receipt",
+        "payment",
+        "승인",
+        "영수증",
+        "명세서",
+        "정산",
+        "청구서",
+        "invoice",
+        "환불 요청 접수 확인"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Receipt", "@CTX/Finance"],
+        "apply_labels": [
+          "@AUTO/Receipt",
+          "@CTX/Finance"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
@@ -91,10 +159,28 @@
       "name": "[여행] 항공/예약/여행 보조",
       "priority": 60,
       "enabled": true,
-      "from_patterns": ["trip.com", "dosirakesim.com", "airbnb.com", "booking.com", "wifi.heathrow.com", "klook.com"],
-      "subject_patterns": ["예약", "ticket", "항공", "항공권", "결제완료", "보드링", "체크인", "WiFi"],
+      "from_patterns": [
+        "trip.com",
+        "dosirakesim.com",
+        "airbnb.com",
+        "booking.com",
+        "wifi.heathrow.com",
+        "klook.com"
+      ],
+      "subject_patterns": [
+        "예약",
+        "ticket",
+        "항공",
+        "항공권",
+        "결제완료",
+        "보드링",
+        "체크인",
+        "WiFi"
+      ],
       "actions": {
-        "apply_labels": ["@CTX/Travel"],
+        "apply_labels": [
+          "@CTX/Travel"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
@@ -107,15 +193,26 @@
       "name": "[소셜] 발신자 기반",
       "priority": 70,
       "enabled": true,
-      "from_patterns": ["notifications-noreply@linkedin.com", "no-reply@mail.instagram.com", "noreply@twitter.com", "noreply@youtube.com"],
+      "from_patterns": [
+        "notifications-noreply@linkedin.com",
+        "messages-noreply@linkedin.com",
+        "updates-noreply@linkedin.com",
+        "no-reply@mail.instagram.com",
+        "noreply@twitter.com",
+        "noreply@youtube.com"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Social"],
+        "apply_labels": [
+          "@AUTO/Social"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_social_subject_guard"],
+      "conflict_with": [
+        "rule_social_subject_guard"
+      ],
       "mutual_exclusive_group": "social_group"
     },
     {
@@ -123,32 +220,224 @@
       "name": "[소셜] 제목 기반 보강",
       "priority": 71,
       "enabled": true,
-      "subject_patterns": ["linkedin", "instagram", "twitter", "youtube", "팔로우", "초대", "follow", "comment", "좋아요"],
+      "subject_patterns": [
+        "linkedin",
+        "instagram",
+        "twitter",
+        "youtube",
+        "팔로우",
+        "초대",
+        "follow",
+        "comment",
+        "좋아요",
+        "멘션",
+        "게시물",
+        "게시함",
+        "다음 단계를 확인"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Social"],
+        "apply_labels": [
+          "@AUTO/Social"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_social_from"],
+      "conflict_with": [
+        "rule_social_from"
+      ],
       "mutual_exclusive_group": "social_group"
+    },
+    {
+      "id": "rule_trash_candidate_sender",
+      "name": "trash candidate sender registry",
+      "description": "반복 확인된 저가치 commercial bulk sender를 보존 후 삭제 후보로 분류",
+      "priority": 75,
+      "enabled": true,
+      "from_patterns": [
+        "newsletter.trip.com",
+        "website.kr@shokz.com",
+        "team@mail.perplexity.ai",
+        "News@insideapple.apple.com"
+      ],
+      "exclude_patterns": [
+        "otp",
+        "verification",
+        "login",
+        "security",
+        "privacy",
+        "policy",
+        "account",
+        "receipt",
+        "invoice",
+        "payment",
+        "결제",
+        "영수증",
+        "명세서",
+        "booking",
+        "itinerary",
+        "reservation",
+        "trip",
+        "travel",
+        "항공",
+        "숙소",
+        "예약",
+        "cnu.ac.kr",
+        "github",
+        "openai",
+        "claude",
+        "google",
+        "appleid",
+        "hanacard",
+        "하나카드",
+        "kbcard",
+        "국민카드",
+        "카드",
+        "loan",
+        "대출"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/TrashCandidate"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_promo",
+        "rule_newsletter_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "mutual_exclusive_group": "bulk_disposition_group"
+    },
+    {
+      "id": "rule_trash_candidate_subject_guard",
+      "name": "trash candidate subject guard",
+      "description": "명시적 광고/판촉 제목 패턴을 보존 후 삭제 후보로 분류",
+      "priority": 76,
+      "enabled": true,
+      "subject_patterns": [
+        "(광고)",
+        "세일",
+        "특가",
+        "쿠폰",
+        "혜택",
+        "무료배송",
+        "마감임박",
+        "오늘만",
+        "% 할인",
+        "프로모션"
+      ],
+      "exclude_patterns": [
+        "otp",
+        "verification",
+        "login",
+        "security",
+        "privacy",
+        "policy",
+        "account",
+        "receipt",
+        "invoice",
+        "payment",
+        "결제",
+        "영수증",
+        "명세서",
+        "booking",
+        "itinerary",
+        "reservation",
+        "trip",
+        "travel",
+        "항공",
+        "숙소",
+        "예약",
+        "학생",
+        "공지",
+        "github",
+        "openai",
+        "claude",
+        "google",
+        "hanacard",
+        "하나카드",
+        "kbcard",
+        "국민카드",
+        "카드",
+        "loan",
+        "대출"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/TrashCandidate"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_promo",
+        "rule_newsletter_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "mutual_exclusive_group": "bulk_disposition_group"
     },
     {
       "id": "rule_promo",
       "name": "[브랜드] 프로모션/광고",
       "priority": 80,
       "enabled": true,
-      "from_patterns": ["appletv@insideapple.apple.com", "News@insideapple.apple.com", "website.kr@shokz.com", "noreply@insideapple.apple.com"],
-      "subject_patterns": ["광고", "[광고]", "행사", "이벤트", "쿠폰", "세일"],
+      "from_patterns": [
+        "appletv@insideapple.apple.com",
+        "News@insideapple.apple.com",
+        "website.kr@shokz.com",
+        "noreply@insideapple.apple.com",
+        "daisomall_official@daiso.co.kr",
+        "team@mail.perplexity.ai",
+        "admin@akool2025.com",
+        "tour@nol-universe.com",
+        "mail@ifttt.com",
+        "chelsea.c@ifttt.com",
+        "hello@freedom.to",
+        "marriottbonvoy@email-marriott.com",
+        "support@gpters.org",
+        "trip.com@newsletter.trip.com",
+        "letter@panelpower.net",
+        "noreply@kyobobook.com"
+      ],
+      "subject_patterns": [
+        "광고",
+        "[광고]",
+        "행사",
+        "이벤트",
+        "쿠폰",
+        "세일",
+        "unlock",
+        "offer",
+        "60% off",
+        "최저가",
+        "subscription",
+        "포인트 소멸 예정",
+        "웨비나",
+        "대상탈락 없는 소비자패널조사",
+        "소비자 조사에 참여",
+        "무료 AI 웨비나"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Promo"],
+        "apply_labels": [
+          "@AUTO/Promo"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "mutual_exclusive_group": "promo_news_scope"
+      "mutual_exclusive_group": "bulk_disposition_group",
+      "conflict_with": [
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard"
+      ]
     },
     {
       "id": "rule_newsletter_from",
@@ -166,49 +455,104 @@
         "no-reply@notification.circle.so",
         "newsletter@gnu.ac.kr",
         "cyber_info@kepco.co.kr",
-        "sciencedaily@substack.com"
+        "sciencedaily@substack.com",
+        "recommends@ted.com",
+        "hello@linkingyourthinking.com",
+        "hello@medium.com",
+        "subscriptions@medium.com",
+        "info@admin.manus.im",
+        "developer@insideapple.apple.com",
+        "githubeducation@github.com",
+        "platon@jigwan.org",
+        "datalabnews@knto.or.kr",
+        "kird@kird.re.kr",
+        "no-reply@goodwillstore.org",
+        "hello@tavus.io",
+        "no-reply@m.mail.coursera.org",
+        "emails@britishmuseum.org",
+        "newsletters-noreply@linkedin.com"
       ],
       "actions": {
-        "apply_labels": ["@AUTO/Newsletter"],
+        "apply_labels": [
+          "@AUTO/Newsletter"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_newsletter_subject_guard"],
-      "mutual_exclusive_group": "news_group"
+      "conflict_with": [
+        "rule_newsletter_subject_guard",
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard"
+      ],
+      "mutual_exclusive_group": "bulk_disposition_group"
     },
     {
       "id": "rule_newsletter_subject_guard",
       "name": "[뉴스레터] 제목 기반 보강",
       "priority": 91,
       "enabled": true,
-      "subject_patterns": ["unsubscribe", "newsletter", "digest", "weekly", "news", "업데이트", "community"],
+      "subject_patterns": [
+        "unsubscribe",
+        "newsletter",
+        "digest",
+        "weekly",
+        "news",
+        "업데이트",
+        "community"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Newsletter"],
+        "apply_labels": [
+          "@AUTO/Newsletter"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_newsletter_from"],
-      "mutual_exclusive_group": "news_group"
+      "conflict_with": [
+        "rule_newsletter_from",
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard"
+      ],
+      "mutual_exclusive_group": "bulk_disposition_group",
+      "exclude_patterns": [
+        "linkedin",
+        "notifications-noreply@linkedin.com",
+        "messages-noreply@linkedin.com",
+        "updates-noreply@linkedin.com"
+      ]
     },
     {
       "id": "rule_google_notification",
       "name": "[Google] 시스템 알림",
       "priority": 95,
       "enabled": true,
-      "from_patterns": ["no-reply@google.com", "noreply@google.com"],
-      "exclude_patterns": ["login", "OTP", "보안", "새로 로그인", "security", "인증"],
+      "from_patterns": [
+        "no-reply@google.com",
+        "noreply@google.com"
+      ],
+      "exclude_patterns": [
+        "login",
+        "OTP",
+        "보안",
+        "새로 로그인",
+        "security",
+        "인증"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Notification"],
+        "apply_labels": [
+          "@AUTO/Notification"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_notification"],
+      "conflict_with": [
+        "rule_notification"
+      ],
       "mutual_exclusive_group": "notification_group"
     },
     {
@@ -216,17 +560,103 @@
       "name": "[서비스 알림] 약관/정책/공지",
       "priority": 99,
       "enabled": true,
-      "from_patterns": ["no-reply@yes24.com", "noreply@kakaopay.com", "support@kakao.com", "no-reply@kakaotalk.com"],
-      "subject_patterns": ["약관", "정책", "변경", "안내", "공지", "서비스"],
+      "from_patterns": [
+        "no-reply@yes24.com",
+        "noreply@kakaopay.com",
+        "support@kakao.com",
+        "no-reply@kakaotalk.com",
+        "notify@mail.notion.so",
+        "team@mail.notion.so",
+        "noreply@email.openai.com",
+        "noreply@tm.openai.com",
+        "noreply@tm1.openai.com",
+        "no-reply@email.claude.com",
+        "noreply@github.com",
+        "notifications@github.com",
+        "dbtools-apexext-noreply@oracleapex.com",
+        "no-reply@gov.kr",
+        "no.reply@mail.tossbank.com",
+        "doumi@hi.co.kr",
+        "info@raindrop.io",
+        "windowsinsiderprogram@e-mails.microsoft.com",
+        "no-reply@nol-universe.com",
+        "memories@facebookmail.com"
+      ],
+      "subject_patterns": [
+        "약관",
+        "정책",
+        "변경",
+        "안내",
+        "공지",
+        "서비스",
+        "update",
+        "product update",
+        "privacy",
+        "introducing",
+        "export",
+        "ready",
+        "notification",
+        "mention",
+        "comment",
+        "준비를 마쳤습니다",
+        "데이터 내보내기",
+        "updated permissions",
+        "permissions",
+        "workspace",
+        "purged",
+        "welcome",
+        "회원가입",
+        "처리되었습니다",
+        "혜택 변경 안내",
+        "export file created",
+        "bookmarks imported successfully",
+        "과거의 오늘",
+        "위치기반서비스 종료 안내",
+        "run failed",
+        "run cancelled",
+        "새 기능",
+        "체험판"
+      ],
       "actions": {
-        "apply_labels": ["@AUTO/Notification"],
+        "apply_labels": [
+          "@AUTO/Notification"
+        ],
         "skip_inbox": true,
         "mark_read": true,
         "mark_important": false,
         "star": false
       },
-      "conflict_with": ["rule_google_notification"],
+      "conflict_with": [
+        "rule_google_notification"
+      ],
       "mutual_exclusive_group": "notification_group"
+    },
+    {
+      "id": "rule_cnu_otp",
+      "name": "[CNU OTP] 보안 강제 경로",
+      "priority": 100,
+      "enabled": true,
+      "from_patterns": [
+        "cnuportal@cnu.ac.kr"
+      ],
+      "subject_patterns": [
+        "OTP",
+        "보안",
+        "인증"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@SYS/Security"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": true,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_cnu_student",
+        "rule_cnu_notice"
+      ]
     }
   ]
 }

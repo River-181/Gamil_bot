@@ -149,3 +149,20 @@
 4. [ ] 사고 대응 로그 템플릿 작성
 5. [ ] 회귀 게이트 문서 작성
 6. [ ] 배치 확대 여부(유지/확대) 판정 기록
+
+## Phase 9 점검 항목 (Shadow Archive Legacy 마이그레이션)
+1. [ ] 베이스라인 고정
+   - `tests/plans/phase9_legacy_label_baseline_20260305.md`
+2. [ ] 레거시-아카이브 매핑 산출
+   - `tests/plans/phase9_archive_mapping_20260305.json`
+3. [ ] 마이그레이션 게이트 문서화
+   - `tests/plans/phase9_migration_gate_20260305.md`
+4. [ ] Stage A/Dry-run 실행 기록 템플릿 확정
+5. [ ] 마이그레이션 runbook 작성
+   - `docs/runbooks/legacy_label_archive_migration_v1.md`
+6. [ ] 롤백 runbook 작성
+   - `docs/runbooks/legacy_label_rollback_v1.md`
+7. [ ] CLI 계약 정합성 반영
+   - `--archive-migrate`, `--archive-rollback`
+8. [ ] Hook/Persona 협업 갱신
+   - `AGENTS.md`, `CLAUDE.md`, `docs/skills_hooks_integration_v3.md`

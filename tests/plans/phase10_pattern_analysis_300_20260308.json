@@ -1,0 +1,1004 @@
+{
+  "sample_query": "in:all",
+  "sample_size": 300,
+  "matched_count": 90,
+  "unmatched_count": 210,
+  "match_rate": 0.3,
+  "top_domains": [
+    [
+      "linkedin.com",
+      39
+    ],
+    [
+      "nytimes.com",
+      23
+    ],
+    [
+      "google.com",
+      17
+    ],
+    [
+      "mail.notion.so",
+      15
+    ],
+    [
+      "ted.com",
+      13
+    ],
+    [
+      "linkingyourthinking.com",
+      11
+    ],
+    [
+      "email.apple.com",
+      10
+    ],
+    [
+      "accounts.google.com",
+      9
+    ],
+    [
+      "gmail.com",
+      8
+    ],
+    [
+      "github.com",
+      7
+    ],
+    [
+      "newsletter.trip.com",
+      7
+    ],
+    [
+      "navercorp.com",
+      7
+    ],
+    [
+      "daiso.co.kr",
+      6
+    ],
+    [
+      "notification.circle.so",
+      6
+    ],
+    [
+      "tm1.openai.com",
+      6
+    ],
+    [
+      "insideapple.apple.com",
+      5
+    ],
+    [
+      "oracleapex.com",
+      5
+    ],
+    [
+      "trip.com",
+      5
+    ],
+    [
+      "email.claude.com",
+      5
+    ],
+    [
+      "medium.com",
+      4
+    ]
+  ],
+  "top_from_addresses": [
+    [
+      "messages-noreply@linkedin.com",
+      25
+    ],
+    [
+      "nytdirect@nytimes.com",
+      23
+    ],
+    [
+      "recommends@ted.com",
+      13
+    ],
+    [
+      "notify@mail.notion.so",
+      13
+    ],
+    [
+      "hello@linkingyourthinking.com",
+      11
+    ],
+    [
+      "no-reply@accounts.google.com",
+      9
+    ],
+    [
+      "noreply@email.apple.com",
+      9
+    ],
+    [
+      "updates-noreply@linkedin.com",
+      8
+    ],
+    [
+      "chany010713@gmail.com",
+      8
+    ],
+    [
+      "platformnotifications-noreply@google.com",
+      7
+    ],
+    [
+      "trip.com@newsletter.trip.com",
+      7
+    ],
+    [
+      "naverpayadmin_noreply@navercorp.com",
+      7
+    ],
+    [
+      "daisomall_official@daiso.co.kr",
+      6
+    ],
+    [
+      "no-reply@notification.circle.so",
+      6
+    ],
+    [
+      "noreply@tm1.openai.com",
+      6
+    ],
+    [
+      "notifications-noreply@linkedin.com",
+      5
+    ],
+    [
+      "noreply@github.com",
+      5
+    ],
+    [
+      "dbtools-apexext-noreply@oracleapex.com",
+      5
+    ],
+    [
+      "no-reply@email.claude.com",
+      5
+    ],
+    [
+      "noreply@tm.openai.com",
+      4
+    ]
+  ],
+  "top_current_labels": [
+    [
+      "INBOX",
+      255
+    ],
+    [
+      "CATEGORY_UPDATES",
+      187
+    ],
+    [
+      "IMPORTANT",
+      93
+    ],
+    [
+      "UNREAD",
+      54
+    ],
+    [
+      "CATEGORY_PROMOTIONS",
+      42
+    ],
+    [
+      "Cold outreach",
+      34
+    ],
+    [
+      "CATEGORY_PERSONAL",
+      32
+    ],
+    [
+      "CATEGORY_SOCIAL",
+      31
+    ],
+    [
+      "#Archive/Legacy-20260305/Cold outreach",
+      27
+    ],
+    [
+      "SPAM",
+      19
+    ],
+    [
+      "#Archive/구글",
+      9
+    ],
+    [
+      "@To me",
+      8
+    ],
+    [
+      "SENT",
+      8
+    ],
+    [
+      "#Archive/Legacy-20260305/n8n__n8n__Notion Account",
+      7
+    ],
+    [
+      "n8n/n8n/Notion Account",
+      7
+    ],
+    [
+      "@AUTO/Newsletter",
+      5
+    ],
+    [
+      "Active Project/[SanS] 시안",
+      5
+    ],
+    [
+      "#Archive/Legacy-20260305/Active Project__[SanS] 시안",
+      5
+    ],
+    [
+      "#Archive/은행",
+      3
+    ],
+    [
+      "#Archive/Legacy-20260305/@To me",
+      3
+    ],
+    [
+      "#Archive/기타/설문",
+      2
+    ],
+    [
+      "@AUTO/Receipt",
+      2
+    ],
+    [
+      "@CTX/Finance",
+      2
+    ],
+    [
+      "#Archive/Legacy-20260305/#Archive__은행",
+      1
+    ],
+    [
+      "@CTX/Travel",
+      1
+    ],
+    [
+      "@AUTO/Promo",
+      1
+    ],
+    [
+      "#Archive/뉴스레터",
+      1
+    ],
+    [
+      "#Archive/영수증/주거통신",
+      1
+    ],
+    [
+      "@AUTO/Notification",
+      1
+    ],
+    [
+      "#Archive/Legacy-20260305/#Archive__경상대",
+      1
+    ]
+  ],
+  "top_matched_rules": [
+    [
+      "rule_newsletter_from",
+      34
+    ],
+    [
+      "rule_google_notification",
+      17
+    ],
+    [
+      "rule_travel",
+      9
+    ],
+    [
+      "rule_social_subject_guard",
+      8
+    ],
+    [
+      "rule_newsletter_subject_guard",
+      7
+    ],
+    [
+      "rule_promo",
+      6
+    ],
+    [
+      "rule_social_from",
+      5
+    ],
+    [
+      "rule_cnu_otp",
+      3
+    ],
+    [
+      "rule_receipt",
+      2
+    ]
+  ],
+  "manualish_signals": {
+    "self_sent": 8
+  },
+  "top_unmatched_domains": [
+    [
+      "linkedin.com",
+      27
+    ],
+    [
+      "ted.com",
+      13
+    ],
+    [
+      "mail.notion.so",
+      13
+    ],
+    [
+      "linkingyourthinking.com",
+      11
+    ],
+    [
+      "email.apple.com",
+      10
+    ],
+    [
+      "accounts.google.com",
+      9
+    ],
+    [
+      "gmail.com",
+      8
+    ],
+    [
+      "github.com",
+      7
+    ],
+    [
+      "navercorp.com",
+      7
+    ],
+    [
+      "daiso.co.kr",
+      6
+    ],
+    [
+      "tm1.openai.com",
+      6
+    ],
+    [
+      "oracleapex.com",
+      5
+    ],
+    [
+      "email.claude.com",
+      5
+    ],
+    [
+      "medium.com",
+      4
+    ],
+    [
+      "tm.openai.com",
+      4
+    ],
+    [
+      "nol-universe.com",
+      3
+    ],
+    [
+      "gpters.org",
+      3
+    ],
+    [
+      "newsletter.trip.com",
+      3
+    ],
+    [
+      "ifttt.com",
+      3
+    ],
+    [
+      "naver.com",
+      3
+    ]
+  ],
+  "top_unmatched_from": [
+    [
+      "messages-noreply@linkedin.com",
+      20
+    ],
+    [
+      "recommends@ted.com",
+      13
+    ],
+    [
+      "hello@linkingyourthinking.com",
+      11
+    ],
+    [
+      "notify@mail.notion.so",
+      11
+    ],
+    [
+      "no-reply@accounts.google.com",
+      9
+    ],
+    [
+      "noreply@email.apple.com",
+      9
+    ],
+    [
+      "chany010713@gmail.com",
+      8
+    ],
+    [
+      "naverpayadmin_noreply@navercorp.com",
+      7
+    ],
+    [
+      "updates-noreply@linkedin.com",
+      6
+    ],
+    [
+      "daisomall_official@daiso.co.kr",
+      6
+    ],
+    [
+      "noreply@tm1.openai.com",
+      6
+    ],
+    [
+      "noreply@github.com",
+      5
+    ],
+    [
+      "dbtools-apexext-noreply@oracleapex.com",
+      5
+    ],
+    [
+      "no-reply@email.claude.com",
+      5
+    ],
+    [
+      "noreply@tm.openai.com",
+      4
+    ],
+    [
+      "subscriptions@medium.com",
+      3
+    ],
+    [
+      "support@gpters.org",
+      3
+    ],
+    [
+      "trip.com@newsletter.trip.com",
+      3
+    ],
+    [
+      "info@raindrop.io",
+      3
+    ],
+    [
+      "noreply@email.openai.com",
+      2
+    ]
+  ],
+  "top_subject_keywords": [
+    [
+      "to",
+      31
+    ],
+    [
+      "morning",
+      23
+    ],
+    [
+      "심리학과",
+      18
+    ],
+    [
+      "on",
+      15
+    ],
+    [
+      "2026",
+      15
+    ],
+    [
+      "is",
+      13
+    ],
+    [
+      "확인하세요",
+      12
+    ],
+    [
+      "안내",
+      12
+    ],
+    [
+      "of",
+      12
+    ],
+    [
+      "학생회님이",
+      11
+    ],
+    [
+      "나를",
+      11
+    ],
+    [
+      "멘션했습니다",
+      11
+    ],
+    [
+      "다음",
+      10
+    ],
+    [
+      "단계를",
+      10
+    ],
+    [
+      "project",
+      10
+    ],
+    [
+      "new",
+      9
+    ],
+    [
+      "here",
+      9
+    ],
+    [
+      "authentication",
+      9
+    ],
+    [
+      "보안",
+      9
+    ],
+    [
+      "알림",
+      9
+    ],
+    [
+      "님이",
+      8
+    ],
+    [
+      "re",
+      8
+    ],
+    [
+      "code",
+      8
+    ],
+    [
+      "google",
+      7
+    ],
+    [
+      "게시물과",
+      7
+    ]
+  ],
+  "unmatched_examples": [
+    {
+      "id": "19cc83b3491ac981",
+      "from": "AKOOL <admin@akool2025.com>",
+      "subject": "New Face Swap Updates Are Now Available",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "SPAM"
+      ]
+    },
+    {
+      "id": "19cc74f341eb4f59",
+      "from": "Manus <info@admin.manus.im>",
+      "subject": "Manus Year One: Our First Annual Letter",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc5a9ea489ba17",
+      "from": "Perplexity <team@mail.perplexity.ai>",
+      "subject": "Action required: Unlock Enterprise Pro features for you and your team",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "Cold outreach",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc49fb7eadaebe",
+      "from": "OpenAI <noreply@email.openai.com>",
+      "subject": "Introducing GPT-5.4",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc48c6041306b0",
+      "from": "OpenAI <noreply@email.openai.com>",
+      "subject": "Updates to OpenAI’s Privacy Policy",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc43cb939b6798",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "Magic Hour",
+      "labels": [
+        "Cold outreach",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc439d914cda1d",
+      "from": "Medium <hello@medium.com>",
+      "subject": "Product update: Profile activity tab. Choose what shows up.",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc342e20ddcd54",
+      "from": "X <verify@x.com>",
+      "subject": "New login to X from ChromeDesktop on Mac",
+      "labels": [
+        "CATEGORY_PERSONAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc2a1da6df57c4",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Google President and Chief Investment Officer 님이 최근에 게시함",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc233f236dbbf7",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Claude님의 게시물과 다음 단계를 확인하세요",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_SOCIAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc20f824deed63",
+      "from": "OpenAI <noreply@tm.openai.com>",
+      "subject": "ChatGPT - 데이터 내보내기 준비를 마쳤습니다",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc1970c82c871b",
+      "from": "\"하나카드\" <hanacard@hanacard.co.kr>",
+      "subject": "(광고)[하나카드] 내게 맞는 최저금리 대출",
+      "labels": [
+        "UNREAD",
+        "Cold outreach",
+        "#Archive/은행",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc15bf8375fa87",
+      "from": "\"[엠브레인]\" <letter@panelpower.net>",
+      "subject": "[146973] 소비자 조사에 참여해 주세요. (소요시간 15분~19분, 적립금 1500원~1900원)",
+      "labels": [
+        "Cold outreach",
+        "CATEGORY_UPDATES",
+        "#Archive/기타/설문"
+      ]
+    },
+    {
+      "id": "19cc0b685afc4e3c",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "A sex therapist's secret to rediscovering your spark",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cc029c508f5827",
+      "from": "\"다이소몰\" <daisomall_official@daiso.co.kr>",
+      "subject": "(광고) 설레는 봄, 여행을 더 설레게 해줄 아이템 모음",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "SPAM"
+      ]
+    },
+    {
+      "id": "19cbfc84b12dac6e",
+      "from": "Law and Ethics in Tech <subscriptions@medium.com>",
+      "subject": "AI chaos: from robot assassins for military use and Meta’s spying glasses to hallucinating Police…",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbf96769978acc",
+      "from": "GitHub Education <githubeducation@github.com>",
+      "subject": "⚡ Red Bull, Hack Week & Teen Coding Legends",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbe0158dd6122c",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 Manon M.",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_SOCIAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbde48ff9f1264",
+      "from": "KIRD <kird@kird.re.kr>",
+      "subject": "[KIRD] 4월 전문교육 5개 과정 안내 및 참석협조 요청",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbdb31ae8b3b51",
+      "from": "\"NOL 인터파크투어\" <tour@nol-universe.com>",
+      "subject": " (광고) ⏰지금부터가 여행 최저가 타이밍~! / ✈️진에어 1.6만원대~ / 🛏️롯데리조트 속초 22만원대~★",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "SPAM"
+      ]
+    },
+    {
+      "id": "19cbce8e0b21049f",
+      "from": "OpenAI <noreply@tm.openai.com>",
+      "subject": "ChatGPT - 데이터 내보내기가 시작되었습니다",
+      "labels": [
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbccb763554ab6",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your two-factor authentication recovery codes were viewed",
+      "labels": [
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbcc9c1ea11be1",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your two-factor authentication recovery codes were viewed",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbcc7ea19b875d",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] A passkey was added to your account",
+      "labels": [
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbc6248fa75b9b",
+      "from": "\"지피터스 커뮤니티\" <support@gpters.org>",
+      "subject": "(광고) 이번주 무료 AI 웨비나를 확인해보세요",
+      "labels": [
+        "Cold outreach",
+        "IMPORTANT",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbb90a1e3a9a5f",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "Three ideas. Three contradictions. Or not.",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbb7c73736873d",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 1.3만원으로 방콕 가실 분?✈️ 럭셔리 호캉스도 1.9만원부터❗️",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "Cold outreach",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbb0f8374e7ad7",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your personal access token (classic) is about to expire",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cbadb2e28ef733",
+      "from": "Apple Developer <developer@insideapple.apple.com>",
+      "subject": "Hello Developer: 2026년 3월",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cba2c0e9c83a4b",
+      "from": "IFTTT <mail@ifttt.com>",
+      "subject": "Automate your way to a cleaner digital life ✨",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "Cold outreach",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb9780a41acad1",
+      "from": "Marie at Tally <marie@tally.so>",
+      "subject": "Conditional logic updates and other small wins",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb96b31a1e8c8c",
+      "from": "\"다이소몰\" <daisomall_official@daiso.co.kr>",
+      "subject": "다이소 멤버십 포인트 소멸 예정 안내",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "SPAM"
+      ]
+    },
+    {
+      "id": "19cb7e74bc3ac131",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "김태영님을 추가하고 다음 단계를 확인하세요",
+      "labels": [
+        "CATEGORY_SOCIAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb7e139c17ede4",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "labels": [
+        "#Archive/Legacy-20260305/n8n__n8n__Notion Account",
+        "CATEGORY_UPDATES",
+        "INBOX",
+        "n8n/n8n/Notion Account"
+      ]
+    },
+    {
+      "id": "19cb7a62f921725c",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "labels": [
+        "#Archive/구글",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb7a5d59300aa9",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "labels": [
+        "#Archive/구글",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb7a5931b3c245",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "labels": [
+        "#Archive/구글",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb6a8d2bd42511",
+      "from": "Google <no-reply@m.mail.coursera.org>",
+      "subject": "✨ New: The Google AI Professional Certificate | Gain the AI skills employers are looking for",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb698c0b73e370",
+      "from": "\"인터플래닛\" <biz@interplanet.co.kr>",
+      "subject": "(광고) 3월 START 🌸일본직구 새 출발! 재팬스타일",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "SPAM"
+      ]
+    },
+    {
+      "id": "19cb66a753906846",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "How targeted ads might just save your life",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX"
+      ]
+    }
+  ]
+}

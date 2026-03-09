@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "run_id": "phase10-safe50-20260308",
+  "query": "has:nouserlabels newer_than:30d",
+  "limit": 50,
+  "selected_candidates": 50,
+  "applied": 50,
+  "failures": [],
+  "rollback_errors": [],
+  "rollback_ready": true,
+  "journal_path": "/Users/river/tools/gmail-agent-sys/.tokens/apply_batch_journal_phase10_safe50_20260308.jsonl",
+  "snapshot_path": "/Users/river/tools/gmail-agent-sys/tests/plans/phase10_apply_snapshot_20260308_safe50.json"
+}

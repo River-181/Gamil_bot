@@ -1,0 +1,610 @@
+{
+  "status": "ok",
+  "run_id": "phase10-safe50-general-finance-travel-20260308",
+  "safe_rule_ids": [
+    "rule_newsletter_from",
+    "rule_newsletter_subject_guard",
+    "rule_notification",
+    "rule_promo",
+    "rule_receipt",
+    "rule_social_from",
+    "rule_social_subject_guard",
+    "rule_travel"
+  ],
+  "queries": [
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:hanacard.co.kr"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:paypal.com"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:receipt"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:payment"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d subject:승인"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:receipt"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:결제"
+    },
+    {
+      "rule_id": "rule_receipt",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:receipt"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:airbnb.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:booking.com"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:ticket"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:항공"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d subject:항공권"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:trip.com subject:ticket"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:예약"
+    },
+    {
+      "rule_id": "rule_travel",
+      "query": "has:nouserlabels newer_than:30d from:dosirakesim.com subject:ticket"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:notifications-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:messages-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:updates-noreply@linkedin.com"
+    },
+    {
+      "rule_id": "rule_social_from",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@mail.instagram.com"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:linkedin"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:instagram"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:twitter"
+    },
+    {
+      "rule_id": "rule_social_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:youtube"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:website.kr@shokz.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:noreply@insideapple.apple.com"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:[광고]"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:행사"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d subject:이벤트"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:[광고]"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:광고"
+    },
+    {
+      "rule_id": "rule_promo",
+      "query": "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:[광고]"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:nytdirect@nytimes.com"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:updates@mymind.email"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:nunzio@akiflow.com"
+    },
+    {
+      "rule_id": "rule_newsletter_from",
+      "query": "has:nouserlabels newer_than:30d from:care@fabric.so"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:unsubscribe"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:newsletter"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:digest"
+    },
+    {
+      "rule_id": "rule_newsletter_subject_guard",
+      "query": "has:nouserlabels newer_than:30d subject:weekly"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:support@kakao.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@kakaotalk.com"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:정책"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:변경"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d subject:안내"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:정책"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:약관"
+    },
+    {
+      "rule_id": "rule_notification",
+      "query": "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:정책"
+    },
+    {
+      "rule_id": "fallback",
+      "query": "has:nouserlabels newer_than:30d"
+    },
+    {
+      "rule_id": "fallback",
+      "query": "newer_than:30d"
+    }
+  ],
+  "selected_candidates": 23,
+  "self_sent_skips": [],
+  "candidates": [
+    {
+      "message_id": "19c4deb0ac4ae9e0",
+      "from": "juyong kim <notifications@github.com>",
+      "subject": "[River-181/River-181.github.io] Run failed: pages build and deployment - main (d148a64)",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4ddd23ff458bd",
+      "from": "juyong kim <notifications@github.com>",
+      "subject": "[River-181/mangsanggwedo-home] Run failed: pages build and deployment - main (d148a64)",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4ddcb5def84e3",
+      "from": "juyong kim <notifications@github.com>",
+      "subject": "[River-181/mangsanggwedo-home] Run cancelled: pages build and deployment - main (d148a64)",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4ddc6f8bdbdac",
+      "from": "juyong kim <notifications@github.com>",
+      "subject": "[River-181/mangsanggwedo-home] Run failed: pages build and deployment - main (d148a64)",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d5874a409d49",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 최우수상(1등, 고용노동부 장관상)에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d5390e7971a4",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 대상(1등)에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d522993d36d0",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 나눔과 기술 대표상에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d50ccf538bb5",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 1등 대상에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d2ed9821afaa",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 📄 6주 차 품의서에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d1ec107aa8a9",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 📄 4주 차 품의서에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4d1e967de5bd5",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 📄 5주 차 품의서에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4cca9db2af3b4",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "Default에 초대되었습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4cc2879a06f95",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 팀 망상궤도 웹사이트에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4a4516ce56f9e",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "The relationship between sex and imagination",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c49e4662844357",
+      "from": "\"재단법인 止觀\" <platon@jigwan.org>",
+      "subject": "[VOL.227]  다시 시작하는 모두를 위한 ☀️2월의 전시 소식",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c45315d063f109",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"RIVER_181\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c450d40781a3ef",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "충남대학교 심리학과 학생회 WorkSpace에서 심리학과 학생회이 업데이트했습니다",
+      "matched_rules": [
+        "rule_newsletter_subject_guard",
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18",
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4214c642b741d",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 27. 디스코드 회의에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4188b4bb704f2",
+      "from": "Claude Team <no-reply@email.claude.com>",
+      "subject": "Welcome to Claude Code",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3f505962d54f3",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "충남대학교 심리학과 학생회 WorkSpace에서 심리학과 학생회이 업데이트했습니다",
+      "matched_rules": [
+        "rule_newsletter_subject_guard",
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18",
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3e39b2637b8df",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 26. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3ad2470441c41",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "The laws that sex workers really want",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c345da0f288207",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "Will AI be the death of PKM?",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    }
+  ]
+}

@@ -21,8 +21,14 @@
 - 필터 우선순위는 숫자 오름차순(작은 숫자 우선).
 - 동일 메시지 다중 매칭 시 `mutual_exclusive_group` 또는 `conflict_with`를 통해 상향/우선순위 결정한다.
 - 정책 변경은 `tests/plans/plan_checklist.md`에 트래킹된다.
+- `archive_migrate`와 `archive_rollback`은 `run-id`로 추적되어 실행 기록(`checkpoint/journal`) 기반으로 재현 가능해야 한다.
 
 ## 5) 불필요 작업 억제
 - 단계 미달성 변경 요청(운영 미연결 상태에서 외부 자동화 구현)은 보류한다.
 - 다음 턴의 실행 계획이 없는 경우, 문서 정합성 확보 작업을 우선한다.
 
+## 6) 새 작업 유형
+- `legacy-label-archive-migration` 추가
+  - 입력: `--archive-migrate`, `--archive-rollback`, `--archive-root`, `--run-id`
+  - 규칙: apply 결과는 checkpoint/journal이 있어야 하며 rollback 가용 상태가 추적되어야 함.
+  - 중단 기준: 단계 실패율 10% 초과

@@ -16,6 +16,7 @@ import sys
 import hashlib
 import math
 from collections import defaultdict, Counter
+from email.utils import parseaddr
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -36,6 +37,35 @@ GMAIL_API_BASE = "https://gmail.googleapis.com/gmail/v1/users/me"
 PHASE7B_APPROVAL_TEXT = (
     "Phase 7-b 실제 mutate 파일럿(최대 10건)을 승인합니다. 이상 징후 발생 시 즉시 중단하고 롤백 절차를 수행합니다."
 )
+PHASE10_APPLY_APPROVAL_TEXT = (
+    "Phase 10 실제 분류 파일럿(최대 200건)을 승인합니다. self-sent 메일은 자동 변경하지 않고, 이상 징후 발생 시 즉시 중단하고 롤백 절차를 수행합니다."
+)
+PHASE10_TRASH_APPROVAL_TEXT = (
+    "Phase 10 TrashCandidate 보존 메일을 TRASH로 이동하는 것을 승인합니다. 이상 징후 발생 시 즉시 중단하고 롤백 절차를 수행합니다."
+)
+PHASE9_APPROVAL_TEXT = "Phase 9 Legacy 라벨 일괄 아카이브(Shadow Archive)로 전환합니다. 기존 라벨 유지 및 14일 내 삭제 보류를 승인합니다."
+ARCHIVE_ROOT_DEFAULT = "#Archive/Legacy-20260305"
+ARCHIVE_STAGES = ["A", "B", "C"]
+GMAIL_REQUEST_TIMEOUT_SECONDS = max(5, int(os.getenv("GMAIL_REQUEST_TIMEOUT", "60")))
+KNOWN_GMAIL_SYSTEM_LABELS = {
+    "INBOX",
+    "UNREAD",
+    "IMPORTANT",
+    "STARRED",
+    "SENT",
+    "DRAFT",
+    "CHAT",
+    "SPAM",
+    "TRASH",
+    "CATEGORY_PERSONAL",
+    "CATEGORY_SOCIAL",
+    "CATEGORY_PROMOTIONS",
+    "CATEGORY_UPDATES",
+    "CATEGORY_FORUMS",
+    "CATEGORY_PURCHASES",
+    "CATEGORY_TRAVEL",
+    "CATEGORY_FINANCE",
+}
 
 
 def _read_json(path: Path) -> Dict[str, Any]:
@@ -382,7 +412,7 @@ def _gmail_request(
 
     req = Request(url, method=method, headers=headers, data=data)
     try:
-        with urlopen(req, timeout=60) as resp:
+        with urlopen(req, timeout=GMAIL_REQUEST_TIMEOUT_SECONDS) as resp:
             raw = resp.read().decode("utf-8")
             return json.loads(raw) if raw else {}
     except HTTPError as exc:
@@ -409,6 +439,35 @@ def _gmail_list_labels(token_data: Dict[str, Any]) -> Dict[str, str]:
         if isinstance(item, dict) and isinstance(item.get("name"), str) and isinstance(item.get("id"), str):
             mapping[item["name"]] = item["id"]
     return mapping
+
+
+def _gmail_list_labels_full(token_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    resp = _gmail_request(token_data, "GET", "/labels")
+    labels = resp.get("labels", [])
+    return labels if isinstance(labels, list) else []
+
+
+def _gmail_list_messages(
+    token_data: Dict[str, Any],
+    query: str,
+    max_total: Optional[int] = None,
+) -> List[str]:
+    ids: List[str] = []
+    page_token = None
+    while True:
+        params: Dict[str, Any] = {"q": query, "maxResults": 500}
+        if page_token:
+            params["pageToken"] = page_token
+        resp = _gmail_request(token_data, "GET", "/messages", params=params)
+        for item in resp.get("messages", []) or []:
+            if isinstance(item, dict) and isinstance(item.get("id"), str):
+                ids.append(item["id"])
+                if max_total is not None and len(ids) >= max_total:
+                    return ids
+        page_token = resp.get("nextPageToken")
+        if not page_token:
+            break
+    return ids
 
 
 def _gmail_create_label(token_data: Dict[str, Any], name: str) -> str:
@@ -476,8 +535,281 @@ def _gmail_modify_message(
     )
 
 
+def _gmail_trash_message(token_data: Dict[str, Any], message_id: str) -> Dict[str, Any]:
+    return _gmail_request(
+        token_data,
+        "POST",
+        f"/messages/{quote(message_id, safe='')}/trash",
+    )
+
+
+def _gmail_untrash_message(token_data: Dict[str, Any], message_id: str) -> Dict[str, Any]:
+    return _gmail_request(
+        token_data,
+        "POST",
+        f"/messages/{quote(message_id, safe='')}/untrash",
+    )
+
+
 def _normalize_text(value: Any) -> str:
     return str(value or "").strip().lower()
+
+
+def _normalize_email_address(value: Any) -> str:
+    return parseaddr(str(value or "").strip())[1].strip().lower()
+
+
+def _build_apply_run_id() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def _default_apply_journal_path(run_id: str) -> Path:
+    token_file = os.getenv("GMAIL_TOKEN_FILE")
+    base_dir = Path(token_file).parent if token_file else (ROOT / ".tokens")
+    return base_dir / f"apply_batch_journal_{run_id}.jsonl"
+
+
+def _append_jsonl(path: Path, payload: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+
+def _load_jsonl(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists():
+        raise FileNotFoundError(f"missing journal file: {path}")
+    rows: List[Dict[str, Any]] = []
+    with path.open("r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            row = json.loads(line)
+            if isinstance(row, dict):
+                rows.append(row)
+    return rows
+
+
+def _write_json_artifact(path: Path, payload: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _quote_gmail_term(value: str) -> str:
+    cleaned = str(value or "").strip().replace('"', "")
+    if not cleaned:
+        return ""
+    return f"\"{cleaned}\"" if any(ch.isspace() for ch in cleaned) else cleaned
+
+
+def _build_rule_gmail_queries(rule: Dict[str, Any], days: int) -> List[str]:
+    queries: List[str] = []
+    base = f"has:nouserlabels newer_than:{days}d"
+
+    from_patterns = [
+        p.strip()
+        for p in (rule.get("from_patterns") or [])
+        if isinstance(p, str) and p.strip()
+    ][:4]
+    subject_patterns = [
+        p.strip()
+        for p in (rule.get("subject_patterns") or [])
+        if isinstance(p, str) and p.strip()
+    ][:4]
+
+    for pattern in from_patterns:
+        queries.append(f"{base} from:{_quote_gmail_term(pattern)}")
+    for pattern in subject_patterns:
+        queries.append(f"{base} subject:{_quote_gmail_term(pattern)}")
+    if from_patterns and subject_patterns:
+        for from_pattern in from_patterns[:2]:
+            for subject_pattern in subject_patterns[:2]:
+                queries.append(
+                    f"{base} from:{_quote_gmail_term(from_pattern)} subject:{_quote_gmail_term(subject_pattern)}"
+                )
+
+    if not queries:
+        queries.append(base)
+
+    seen = set()
+    deduped = []
+    for query in queries:
+        if query not in seen:
+            seen.add(query)
+            deduped.append(query)
+    return deduped
+
+
+def _build_phase10_candidates(
+    label_file: Path,
+    filter_file: Path,
+    apply_limit: int,
+    apply_hours: int,
+    allow_critical: bool,
+) -> Dict[str, Any]:
+    loaded = _load_and_validate(label_file, filter_file)
+    report = loaded["report"]
+    plan_fail = bool(
+        report["labels"]["errors"]
+        or report["filters"]["errors"]
+        or report["policy"]["label_refs_to_unknown_filters"]
+        or report["policy"]["filter_labels_exist"]
+    )
+    if plan_fail:
+        raise ValueError("policy artifacts have blocking errors; fix before apply")
+
+    required_env = [
+        "GMAIL_TOKEN_FILE",
+        "GMAIL_CLIENT_SECRET_PATH",
+        "GMAIL_TOKEN_CACHE",
+        "GMAIL_TOKEN_STORE",
+    ]
+    env_state = _collect_required_env(required_env)
+    if env_state["missing"]:
+        raise ValueError(f"missing required env vars: {', '.join(env_state['missing'])}")
+
+    token_file = Path(os.environ["GMAIL_TOKEN_FILE"])
+    token_data = _load_token_artifact(token_file)
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(token_file, token_data)
+
+    filters_all = [f for f in loaded["filters"].get("filters", []) if isinstance(f, dict) and f.get("enabled")]
+    filters_all.sort(key=lambda r: (r.get("priority", 999), r.get("id", "")))
+    owner_email = _normalize_email_address(
+        loaded["labels"].get("owner") or loaded["filters"].get("owner")
+    )
+    if allow_critical:
+        filters_apply = filters_all
+    else:
+        filters_apply = [r for r in filters_all if not _is_critical_rule(r)]
+
+    if not filters_apply:
+        raise ValueError("no eligible rules for apply batch")
+
+    label_map = _collect_apply_label_map(token_data, filters_apply)
+    days = max(1, int(math.ceil(apply_hours / 24)))
+    primary_query = f"has:nouserlabels newer_than:{days}d"
+    fallback_query = f"newer_than:{days}d"
+    list_max = min(600, max(250, apply_limit * 3))
+    per_query_cap = max(25, min(80, apply_limit))
+    query_sequence: List[str] = []
+    message_ids: List[str] = []
+    seen_message_ids = set()
+
+    for rule in filters_apply:
+        for query_part in _build_rule_gmail_queries(rule, days):
+            query_sequence.append(query_part)
+            for message_id in _gmail_list_messages(token_data, query=query_part, max_total=per_query_cap):
+                if message_id in seen_message_ids:
+                    continue
+                seen_message_ids.add(message_id)
+                message_ids.append(message_id)
+                if len(message_ids) >= list_max:
+                    break
+            if len(message_ids) >= list_max:
+                break
+        if len(message_ids) >= list_max:
+            break
+
+    for query_part in [primary_query, fallback_query]:
+        if len(message_ids) >= list_max:
+            break
+        query_sequence.append(query_part)
+        for message_id in _gmail_list_messages(token_data, query=query_part, max_total=list_max):
+            if message_id in seen_message_ids:
+                continue
+            seen_message_ids.add(message_id)
+            message_ids.append(message_id)
+            if len(message_ids) >= list_max:
+                break
+
+    candidate_messages = []
+    protected_skips = []
+    self_sent_skips = []
+    for mid in message_ids:
+        meta = _gmail_get_message_metadata(token_data, mid)
+        sender = meta.get("from", "")
+        msg = {"id": meta["id"], "from": sender, "subject": meta.get("subject", "")}
+
+        if owner_email and _normalize_email_address(sender) == owner_email:
+            self_sent_skips.append(
+                {
+                    "message_id": meta["id"],
+                    "from": sender,
+                    "subject": meta.get("subject", ""),
+                    "reason": "self_sent_manual_review",
+                }
+            )
+            continue
+
+        matches_all = [r for r in filters_all if _simulate_one_rule(r, msg)]
+        selected_all = _select_rules_for_message(matches_all)
+        if (not allow_critical) and any(_is_critical_rule(r) for r in selected_all):
+            protected_skips.append(
+                {
+                    "message_id": meta["id"],
+                    "from": sender,
+                    "subject": meta.get("subject", ""),
+                    "matched_critical_rules": [r.get("id") for r in selected_all if _is_critical_rule(r)],
+                }
+            )
+            continue
+
+        matches_apply = [r for r in filters_apply if _simulate_one_rule(r, msg)]
+        selected_apply = _select_rules_for_message(matches_apply)
+        if not selected_apply:
+            continue
+
+        current_labels = set(meta.get("labelIds", []))
+        label_paths = sorted(
+            {
+                p
+                for rule in selected_apply
+                for p in rule.get("actions", {}).get("apply_labels", [])
+                if isinstance(p, str)
+            }
+        )
+        add_label_ids = [label_map[p] for p in label_paths if p in label_map]
+        remove_label_ids: List[str] = []
+        if any(bool(r.get("actions", {}).get("skip_inbox", False)) for r in selected_apply):
+            remove_label_ids.append("INBOX")
+        if any(bool(r.get("actions", {}).get("mark_read", False)) for r in selected_apply):
+            remove_label_ids.append("UNREAD")
+        if any(bool(r.get("actions", {}).get("star", False)) for r in selected_apply):
+            add_label_ids.append("STARRED")
+        if any(bool(r.get("actions", {}).get("mark_important", False)) for r in selected_apply):
+            add_label_ids.append("IMPORTANT")
+
+        add_final = sorted(set(x for x in add_label_ids if x and x not in current_labels))
+        remove_final = sorted(set(x for x in remove_label_ids if x and x in current_labels))
+        add_final = [x for x in add_final if x not in remove_final]
+        if not add_final and not remove_final:
+            continue
+
+        candidate_messages.append(
+            {
+                "message_id": meta["id"],
+                "from": meta.get("from"),
+                "subject": meta.get("subject"),
+                "matched_rules": [r.get("id") for r in selected_apply],
+                "planned_add_label_ids": add_final,
+                "planned_remove_label_ids": remove_final,
+            }
+        )
+        if len(candidate_messages) >= apply_limit:
+            break
+
+    return {
+        "token_file": token_file,
+        "token_data": token_data,
+        "query": primary_query,
+        "query_sequence": query_sequence,
+        "selected_candidates": len(candidate_messages),
+        "candidate_messages": candidate_messages,
+        "protected_skips": protected_skips,
+        "self_sent_skips": self_sent_skips,
+    }
 
 
 def _pattern_match(patterns: Iterable[str], target: str) -> bool:
@@ -784,6 +1116,595 @@ def _validate_filters(filters_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         )
 
     return errors
+
+
+def _normalize_run_id(value: Optional[str]) -> str:
+    return (value or "").strip()
+
+
+def _build_run_id() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def _resolve_run_artifact(path: Path, run_id: str, suffix: str) -> Path:
+    default_name = f"archive_migration_{suffix}.jsonl" if suffix == "journal" else "archive_migration_checkpoint.json"
+    if path.name == default_name and run_id:
+        return path.with_name(f"{path.stem}_{run_id}{path.suffix}")
+    return path
+
+
+def _load_checkpoint(path: Path) -> Dict[str, Any]:
+    if not path.exists():
+        return {}
+    data = _read_json(path)
+    if isinstance(data, dict):
+        return data
+    return {}
+
+
+def _save_checkpoint(path: Path, payload: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _append_journal(path: Path, record: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def _read_journal(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    entries: List[Dict[str, Any]] = []
+    with path.open("r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                item = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(item, dict):
+                entries.append(item)
+    return entries
+
+
+def _sanitize_archive_label_name(
+    legacy_name: str,
+    archive_root: str,
+) -> str:
+    safe_label = legacy_name.replace("/", "__")
+    candidate = f"{archive_root}/{safe_label}"
+    if len(candidate) <= 180:
+        return candidate
+    suffix = hashlib.md5(legacy_name.encode("utf-8")).hexdigest()[:8]
+    max_base = max(0, 180 - len(archive_root) - 1 - 9)
+    return f"{archive_root}/{safe_label[:max_base]}__{suffix}"
+
+
+def _collect_archive_label_mapping(
+    legacy_labels: Dict[str, str],
+    archive_root: str,
+) -> Dict[str, Any]:
+    mapping: Dict[str, str] = {}
+    collisions: List[Dict[str, str]] = []
+    seen: Dict[str, str] = {}
+    for legacy_name, legacy_id in sorted(legacy_labels.items(), key=lambda item: item[0]):
+        archive_name = _sanitize_archive_label_name(legacy_name, archive_root)
+        prev = seen.get(archive_name)
+        if prev is None:
+            mapping[legacy_name] = archive_name
+            seen[archive_name] = legacy_name
+        else:
+            collisions.append({"legacy_name_a": prev, "legacy_name_b": legacy_name, "archive_label": archive_name})
+    return {
+        "mapping": mapping,
+        "label_ids": {legacy_name: legacy_id for legacy_name, legacy_id in legacy_labels.items()},
+        "collisions": collisions,
+    }
+
+
+def _load_v3_label_paths(label_file: Path) -> List[str]:
+    loaded = _read_json(label_file)
+    return [
+        item.get("path")
+        for item in loaded.get("labels", [])
+        if isinstance(item, dict) and isinstance(item.get("path"), str)
+    ]
+
+
+def _collect_legacy_labels(
+    label_objects: List[Dict[str, Any]],
+    v3_label_paths: List[str],
+    migration_scope: str,
+    archive_root: str,
+) -> Dict[str, str]:
+    if migration_scope != "legacy-user":
+        raise ValueError("unsupported migration scope; current only supports legacy-user")
+    v3_set = {p for p in v3_label_paths if isinstance(p, str)}
+    result: Dict[str, str] = {}
+    for item in label_objects:
+        name = item.get("name")
+        lid = item.get("id")
+        if not isinstance(name, str) or not isinstance(lid, str):
+            continue
+        if name in KNOWN_GMAIL_SYSTEM_LABELS:
+            continue
+        if name in v3_set:
+            continue
+        if name.startswith(archive_root):
+            continue
+        if item.get("type") == "system":
+            continue
+        result[name] = lid
+    return result
+
+
+def _load_legacy_checkpoint(message_ids: List[str], run_id: str, path: Path) -> Dict[str, Any]:
+    checkpoint = _load_checkpoint(path)
+    if not checkpoint:
+        return {
+            "run_id": run_id,
+            "status": "in_progress",
+            "stage": "A",
+            "scope": "legacy-user",
+            "archive_root": ARCHIVE_ROOT_DEFAULT,
+            "message_ids": [],
+            "messages_scanned": 0,
+            "processed": [],
+            "legacy_labels": [],
+            "created_archive_labels": [],
+            "failure_count": 0,
+            "run_messages": message_ids,
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        }
+    if checkpoint.get("run_id") != run_id:
+        return {
+            "run_id": run_id,
+            "status": "in_progress",
+            "stage": "A",
+            "scope": checkpoint.get("scope", "legacy-user"),
+            "archive_root": checkpoint.get("archive_root", ARCHIVE_ROOT_DEFAULT),
+            "message_ids": [],
+            "messages_scanned": 0,
+            "processed": [],
+            "legacy_labels": [],
+            "created_archive_labels": [],
+            "failure_count": 0,
+            "run_messages": message_ids,
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        }
+    if isinstance(checkpoint.get("run_messages"), list):
+        return checkpoint
+    checkpoint["run_messages"] = message_ids
+    return checkpoint
+
+
+def _next_stage(current: str, max_messages: Optional[int], has_manual_limit: bool) -> Optional[str]:
+    if has_manual_limit:
+        return None
+    if current == "A":
+        return "B"
+    if current == "B":
+        return "C"
+    return None
+
+
+def _stage_limit(
+    stage: str,
+    batch_size: int,
+    max_messages: Optional[int],
+    has_manual_limit: bool,
+) -> Optional[int]:
+    if has_manual_limit and max_messages is not None:
+        return max_messages
+    if stage == "A":
+        return batch_size
+    if stage == "B":
+        return 1000
+    if stage == "C":
+        return None
+    return None
+
+
+def _archive_run_id_output_paths(
+    checkpoint_file: Path,
+    journal_file: Path,
+    run_id: str,
+) -> Dict[str, Path]:
+    return {
+        "checkpoint": _resolve_run_artifact(checkpoint_file, run_id, "checkpoint"),
+        "journal": _resolve_run_artifact(journal_file, run_id, "journal"),
+    }
+
+
+def _run_archive_migrate(
+    label_file: Path,
+    filter_file: Path,
+    archive_root: str,
+    migration_scope: str,
+    batch_size: int,
+    max_messages: Optional[int],
+    checkpoint_file: Path,
+    journal_file: Path,
+    run_id: str,
+    approval_text: str,
+    dry_run: bool = False,
+) -> Dict[str, Any]:
+    if approval_text.strip() != PHASE9_APPROVAL_TEXT:
+        raise ValueError("approval text mismatch")
+
+    if batch_size <= 0 or batch_size > 1000:
+        raise ValueError("batch-size must be between 1 and 1000")
+    if archive_root == "":
+        raise ValueError("archive-root must not be empty")
+
+    resolved_paths = _archive_run_id_output_paths(checkpoint_file, journal_file, run_id)
+    checkpoint_path = resolved_paths["checkpoint"]
+    journal_path = resolved_paths["journal"]
+
+    required_env = [
+        "GMAIL_TOKEN_FILE",
+        "GMAIL_CLIENT_SECRET_PATH",
+        "GMAIL_TOKEN_CACHE",
+        "GMAIL_TOKEN_STORE",
+    ]
+    env_state = _collect_required_env(required_env)
+    if env_state["missing"]:
+        raise ValueError(f"missing required env vars: {', '.join(env_state['missing'])}")
+
+    token_data = _load_token_artifact(Path(os.environ["GMAIL_TOKEN_FILE"]))
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(Path(os.environ["GMAIL_TOKEN_FILE"]), token_data)
+
+    loaded = _load_and_validate(label_file, filter_file)
+    plan_fail = bool(
+        loaded["report"]["labels"]["errors"]
+        or loaded["report"]["filters"]["errors"]
+        or loaded["report"]["policy"]["label_refs_to_unknown_filters"]
+        or loaded["report"]["policy"]["filter_labels_exist"]
+    )
+    if plan_fail:
+        raise ValueError("policy artifacts have blocking errors; fix before migration")
+
+    v3_label_paths = _load_v3_label_paths(label_file)
+    label_objs = _gmail_list_labels_full(token_data)
+    legacy = _collect_legacy_labels(label_objs, v3_label_paths, migration_scope, archive_root)
+    legacy_total = len(legacy)
+    legacy_sorted = {k: legacy[k] for k in sorted(legacy)}
+
+    mapping_payload = _collect_archive_label_mapping(legacy_sorted, archive_root)
+    mapping = mapping_payload["mapping"]
+    collisions = mapping_payload["collisions"]
+    stage = "A"
+    if collisions:
+        return {
+            "status": "fail",
+            "run_id": run_id,
+            "stage": stage,
+            "scope": migration_scope,
+            "legacy_labels_total": legacy_total,
+            "archive_labels_created": 0,
+            "messages_scanned": 0,
+            "messages_mutated": 0,
+            "failures": collisions,
+            "checkpoint_path": str(checkpoint_path),
+            "journal_path": str(journal_path),
+            "rollback_ready": False,
+            "error": "archive label name collision detected",
+            "mapping": mapping_payload,
+        }
+
+    existing_labels = _gmail_list_labels(token_data)
+    existing_archives = {
+        name: lid
+        for name, lid in existing_labels.items()
+        if name.startswith(f"{archive_root}/")
+    }
+    archive_by_legacy = {legacy: mapping[legacy] for legacy in sorted(mapping)}
+    needed_archives = [name for name in mapping.values() if name not in existing_labels]
+
+    if not dry_run and needed_archives:
+        for name in needed_archives:
+            _gmail_create_label(token_data, name)
+        existing_labels = _gmail_list_labels(token_data)
+        existing_archives = {
+            name: lid for name, lid in existing_labels.items() if name.startswith(f"{archive_root}/")
+        }
+
+    archive_label_ids = {
+        legacy_name: existing_archives[archive_name]
+        for legacy_name, archive_name in mapping.items()
+        if archive_name in existing_archives
+    }
+
+    message_ids: List[str] = []
+    for legacy_name, legacy_id in sorted(legacy.items(), key=lambda item: item[0]):
+        del legacy_id
+        query = f"label:\"{legacy_name}\""
+        ids = _gmail_list_messages(token_data, query)
+        for mid in ids:
+            if mid not in message_ids:
+                message_ids.append(mid)
+
+    if not message_ids:
+        checkpoint = {
+            "run_id": run_id,
+            "status": "done",
+            "stage": "C",
+            "scope": migration_scope,
+            "archive_root": archive_root,
+            "message_ids": [],
+            "messages_scanned": 0,
+            "processed": [],
+            "legacy_labels": sorted(legacy),
+            "created_archive_labels": needed_archives,
+            "failure_count": 0,
+            "mapping": mapping,
+            "run_messages": [],
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        }
+        _save_checkpoint(checkpoint_path, checkpoint)
+        return {
+            "status": "ok",
+            "run_id": run_id,
+            "stage": "done",
+            "scope": migration_scope,
+            "legacy_labels_total": legacy_total,
+            "archive_labels_created": len(needed_archives),
+            "messages_scanned": 0,
+            "messages_mutated": 0,
+            "failures": [],
+            "checkpoint_path": str(checkpoint_path),
+            "journal_path": str(journal_path),
+            "rollback_ready": False,
+            "mapping": mapping_payload,
+            "message": "no legacy-labeled messages found",
+            "applied_records": [],
+        }
+
+    checkpoint = _load_legacy_checkpoint(message_ids, run_id, checkpoint_path)
+    checkpoint["legacy_labels"] = sorted(legacy)
+    checkpoint["created_archive_labels"] = needed_archives
+    checkpoint["run_messages"] = message_ids
+    checkpoint["archive_root"] = archive_root
+    checkpoint["mapping"] = mapping
+    checkpoint["status"] = "in_progress"
+    checkpoint["run_id"] = run_id
+    checkpoint["scope"] = migration_scope
+    _save_checkpoint(checkpoint_path, checkpoint)
+
+    stage = checkpoint.get("stage", "A")
+    if stage not in ARCHIVE_STAGES:
+        stage = "A"
+
+    processed = {x for x in checkpoint.get("processed", []) if isinstance(x, str)}
+    candidates = [mid for mid in message_ids if mid not in processed]
+
+    has_manual_limit = max_messages is not None and max_messages > 0
+    limit = _stage_limit(stage, batch_size, max_messages, has_manual_limit)
+    if limit is None:
+        selected = candidates
+    else:
+        selected = candidates[:limit]
+
+    applied_records: List[Dict[str, Any]] = []
+    failures: List[Dict[str, Any]] = []
+    messages_mutated = 0
+
+    for mid in selected:
+        try:
+            metadata = _gmail_get_message_metadata(token_data, mid)
+            current_label_ids = set(metadata.get("labelIds", []))
+            matched_legacy: List[str] = [
+                legacy_name for legacy_name, lid in legacy.items() if lid in current_label_ids
+            ]
+            if not matched_legacy:
+                processed.add(mid)
+                continue
+
+            add_archive_names = sorted(set(archive_by_legacy[l] for l in matched_legacy if l in archive_by_legacy))
+            add_archive_ids = sorted(set(archive_label_ids[l] for l in matched_legacy if l in archive_label_ids))
+            if not add_archive_names:
+                processed.add(mid)
+                continue
+
+            if dry_run:
+                attempted_archive_ids: List[str] = []
+            else:
+                attempted_archive_ids = add_archive_ids
+                if len(attempted_archive_ids) != len(add_archive_names):
+                    missing = [n for n in add_archive_names if n not in existing_archives]
+                    raise RuntimeError(
+                        f"archive label creation mismatch: {', '.join(missing)}"
+                    )
+            if not dry_run and not add_archive_ids:
+                continue
+
+            if dry_run:
+                applied_records.append(
+                    {
+                        "message_id": mid,
+                        "from": metadata.get("from"),
+                        "subject": metadata.get("subject"),
+                        "legacy_labels": matched_legacy,
+                        "archive_labels": add_archive_names,
+                        "status": "dry-run",
+                    }
+                )
+            else:
+                _gmail_modify_message(token_data, mid, attempted_archive_ids, [])
+                entry = {
+                    "message_id": mid,
+                    "from": metadata.get("from"),
+                    "subject": metadata.get("subject"),
+                    "legacy_labels": matched_legacy,
+                    "archive_label_ids": attempted_archive_ids,
+                    "archive_label_names": add_archive_names,
+                    "status": "applied",
+                    "legacy_added": [],
+                    "archive_added": attempted_archive_ids,
+                    "stage": stage,
+                    "run_id": run_id,
+                }
+                _append_journal(journal_path, entry)
+                applied_records.append(entry)
+                messages_mutated += 1
+                processed.add(mid)
+        except Exception as exc:
+            failures.append({"message_id": mid, "error": str(exc)})
+            attempted = messages_mutated + len(failures)
+            failure_rate = len(failures) / max(1, attempted)
+            if failure_rate > 0.1:
+                checkpoint.update(
+                    {
+                        "status": "interrupted",
+                        "stage": stage,
+                        "messages_scanned": checkpoint.get("messages_scanned", 0) + len(selected),
+                        "processed": sorted(processed),
+                        "run_messages": message_ids,
+                        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                    }
+                )
+                _save_checkpoint(checkpoint_path, checkpoint)
+                return {
+                    "status": "fail",
+                    "run_id": run_id,
+                    "stage": stage,
+                    "scope": migration_scope,
+                    "legacy_labels_total": legacy_total,
+                    "archive_labels_created": len(needed_archives),
+                    "messages_scanned": len(selected),
+                    "messages_mutated": messages_mutated,
+                    "failures": failures,
+                    "checkpoint_path": str(checkpoint_path),
+                    "journal_path": str(journal_path),
+                    "rollback_ready": True,
+                    "message": "stopped: failure rate > 10%",
+                    "applied_records": applied_records,
+                    "mapping": mapping,
+                }
+
+    checkpoint.update(
+        {
+            "status": "in_progress",
+            "stage": stage,
+            "messages_scanned": checkpoint.get("messages_scanned", 0) + len(selected),
+            "processed": sorted(processed),
+            "run_messages": message_ids,
+            "mapping": mapping,
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        }
+    )
+
+    remaining_candidates = max(0, len(candidates) - len(selected))
+    if remaining_candidates > 0:
+        next_stage = _next_stage(stage, max_messages, has_manual_limit)
+        if next_stage:
+            checkpoint["stage"] = next_stage
+        checkpoint["status"] = "in_progress"
+    else:
+        checkpoint["stage"] = stage
+        checkpoint["status"] = "done"
+
+    _save_checkpoint(checkpoint_path, checkpoint)
+    if not dry_run:
+        _write_token_artifact(Path(os.environ["GMAIL_TOKEN_FILE"]), token_data)
+    return {
+        "status": "ok" if not failures else "warn",
+        "run_id": run_id,
+        "stage": stage,
+        "scope": migration_scope,
+        "legacy_labels_total": legacy_total,
+        "archive_labels_created": len(needed_archives),
+        "messages_scanned": checkpoint["messages_scanned"],
+        "messages_mutated": messages_mutated,
+        "failures": failures,
+        "checkpoint_path": str(checkpoint_path),
+        "journal_path": str(journal_path),
+        "rollback_ready": messages_mutated > 0,
+        "applied_records": applied_records,
+        "next_stage": checkpoint.get("stage"),
+        "migration_scope": migration_scope,
+        "mapping": mapping,
+    }
+
+
+def _run_archive_rollback(
+    run_id: str,
+    checkpoint_file: Path,
+    journal_file: Path,
+) -> Dict[str, Any]:
+    resolved_paths = _archive_run_id_output_paths(checkpoint_file, journal_file, run_id)
+    checkpoint_path = resolved_paths["checkpoint"]
+    journal_path = resolved_paths["journal"]
+    if not checkpoint_path.exists() or not journal_path.exists():
+        raise FileNotFoundError("rollback artifacts are missing")
+
+    required_env = [
+        "GMAIL_TOKEN_FILE",
+        "GMAIL_CLIENT_SECRET_PATH",
+        "GMAIL_TOKEN_CACHE",
+        "GMAIL_TOKEN_STORE",
+    ]
+    env_state = _collect_required_env(required_env)
+    if env_state["missing"]:
+        raise ValueError(f"missing required env vars: {', '.join(env_state['missing'])}")
+
+    token_data = _load_token_artifact(Path(os.environ["GMAIL_TOKEN_FILE"]))
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(Path(os.environ["GMAIL_TOKEN_FILE"]), token_data)
+
+    entries = [e for e in _read_journal(journal_path) if isinstance(e, dict) and e.get("run_id") == run_id]
+    applied = [e for e in entries if e.get("status") == "applied"]
+    if not applied:
+        checkpoint = _load_legacy_checkpoint([], run_id, checkpoint_path)
+        checkpoint["status"] = "done"
+        _save_checkpoint(checkpoint_path, checkpoint)
+        return {
+            "status": "ok",
+            "run_id": run_id,
+            "checkpoint_path": str(checkpoint_path),
+            "journal_path": str(journal_path),
+            "rolled_back": 0,
+            "rollback_failures": [],
+            "remaining_impacted_messages": 0,
+            "message": "no applied items found",
+        }
+
+    failed: List[Dict[str, Any]] = []
+    rolled = 0
+    for item in reversed(applied):
+        message_id = item.get("message_id")
+        archive_label_ids = item.get("archive_label_ids", [])
+        if not message_id or not isinstance(archive_label_ids, list):
+            continue
+        try:
+            _gmail_modify_message(token_data, message_id, [], archive_label_ids)
+            rolled += 1
+        except Exception as exc:
+            failed.append({"message_id": message_id, "error": str(exc)})
+
+    remaining = len(applied) - rolled
+    checkpoint = _load_checkpoint(checkpoint_path)
+    if isinstance(checkpoint, dict):
+        checkpoint["status"] = "rolled_back" if remaining == 0 else "rollback_partial"
+        checkpoint["rollback_failures"] = failed
+        checkpoint["generated_at"] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        _save_checkpoint(checkpoint_path, checkpoint)
+    return {
+        "status": "ok" if remaining == 0 else "warn",
+        "run_id": run_id,
+        "checkpoint_path": str(checkpoint_path),
+        "journal_path": str(journal_path),
+        "rolled_back": rolled,
+        "rollback_failures": failed,
+        "remaining_impacted_messages": remaining,
+    }
 
 
 def _load_and_validate(label_path: Path, filter_path: Path) -> Dict[str, Any]:
@@ -1175,6 +2096,406 @@ def _run_apply_pilot(
     }
 
 
+def _collect_apply_label_map(
+    token_data: Dict[str, Any],
+    filters_apply: List[Dict[str, Any]],
+) -> Dict[str, str]:
+    needed_paths = set()
+    for rule in filters_apply:
+        for path in rule.get("actions", {}).get("apply_labels", []):
+            if isinstance(path, str) and path:
+                needed_paths.add(path)
+    label_map = _gmail_list_labels(token_data)
+    missing_paths = [p for p in sorted(needed_paths, key=lambda x: x.count("/")) if p not in label_map]
+    for path in missing_paths:
+        _gmail_create_label(token_data, path)
+    if missing_paths:
+        label_map = _gmail_list_labels(token_data)
+    return label_map
+
+
+def _run_apply_batch(
+    label_file: Path,
+    filter_file: Path,
+    apply_limit: int,
+    apply_hours: int,
+    approval_text: str,
+    allow_critical: bool,
+    dry_run: bool,
+    journal_file: Optional[Path],
+    run_id: Optional[str],
+) -> Dict[str, Any]:
+    if approval_text.strip() != PHASE10_APPLY_APPROVAL_TEXT:
+        raise ValueError("approval text mismatch")
+    if apply_limit <= 0 or apply_limit > 200:
+        raise ValueError("apply_limit must be between 1 and 200")
+    if apply_hours <= 0:
+        raise ValueError("apply_hours must be positive")
+    normalized_run_id = run_id or _build_apply_run_id()
+    journal_path = journal_file or _default_apply_journal_path(normalized_run_id)
+    built = _build_phase10_candidates(
+        label_file=label_file,
+        filter_file=filter_file,
+        apply_limit=apply_limit,
+        apply_hours=apply_hours,
+        allow_critical=allow_critical,
+    )
+    token_file = built["token_file"]
+    token_data = built["token_data"]
+    primary_query = built["query"]
+    query_sequence = built["query_sequence"]
+    candidate_messages = built["candidate_messages"]
+    protected_skips = built["protected_skips"]
+    self_sent_skips = built["self_sent_skips"]
+    if not candidate_messages:
+        return {
+            "status": "ok",
+            "applied": 0,
+            "message": "no eligible messages after self-sent/protected filtering",
+            "query": primary_query,
+            "query_sequence": query_sequence,
+            "limit": apply_limit,
+            "run_id": normalized_run_id,
+            "journal_path": str(journal_path),
+            "protected_skips": protected_skips,
+            "self_sent_skips": self_sent_skips,
+            "rollback_ready": False,
+        }
+
+    applied_records = []
+    failures = []
+    for item in candidate_messages:
+        add_final = item["planned_add_label_ids"]
+        remove_final = item["planned_remove_label_ids"]
+
+        if dry_run:
+            applied_records.append(
+                {
+                    "message_id": item["message_id"],
+                    "from": item.get("from"),
+                    "subject": item.get("subject"),
+                    "matched_rules": item["matched_rules"],
+                    "add_label_ids": add_final,
+                    "remove_label_ids": remove_final,
+                    "status": "planned",
+                }
+            )
+            continue
+
+        try:
+            _gmail_modify_message(token_data, item["message_id"], add_final, remove_final)
+            record = {
+                "run_id": normalized_run_id,
+                "message_id": item["message_id"],
+                "from": item.get("from"),
+                "subject": item.get("subject"),
+                "matched_rules": item["matched_rules"],
+                "add_label_ids": add_final,
+                "remove_label_ids": remove_final,
+                "status": "applied",
+                "applied_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            }
+            applied_records.append(record)
+            _append_jsonl(journal_path, record)
+        except Exception as exc:
+            failures.append({"message_id": meta["id"], "error": str(exc)})
+            attempted = len([r for r in applied_records if r.get("status") in {"applied", "noop"}]) + len(failures)
+            failure_rate = len(failures) / max(1, attempted)
+            if failure_rate > 0.10:
+                rollback_errors = []
+                for done in reversed([r for r in applied_records if r.get("status") == "applied"]):
+                    try:
+                        _gmail_modify_message(
+                            token_data,
+                            done["message_id"],
+                            done.get("remove_label_ids", []),
+                            done.get("add_label_ids", []),
+                        )
+                        done["rollback"] = "ok"
+                        _append_jsonl(
+                            journal_path,
+                            {
+                                "run_id": normalized_run_id,
+                                "message_id": done["message_id"],
+                                "status": "rolled_back",
+                                "rolled_back_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                            },
+                        )
+                    except Exception as rb_exc:
+                        done["rollback"] = "fail"
+                        rollback_errors.append({"message_id": done["message_id"], "error": str(rb_exc)})
+                return {
+                    "status": "fail",
+                    "query": primary_query,
+                    "query_sequence": query_sequence,
+                    "limit": apply_limit,
+                    "run_id": normalized_run_id,
+                    "journal_path": str(journal_path),
+                    "applied_records": applied_records,
+                    "protected_skips": protected_skips,
+                    "self_sent_skips": self_sent_skips,
+                    "failures": failures,
+                    "rollback_errors": rollback_errors,
+                    "message": "stopped: failure rate > 10%, rollback executed",
+                    "rollback_ready": False,
+                }
+
+    _write_token_artifact(token_file, token_data)
+    return {
+        "status": "ok",
+        "query": primary_query,
+        "query_sequence": query_sequence,
+        "limit": apply_limit,
+        "run_id": normalized_run_id,
+        "journal_path": str(journal_path),
+        "selected_candidates": built["selected_candidates"],
+        "applied": len([r for r in applied_records if r.get("status") == "applied"]),
+        "planned": len([r for r in applied_records if r.get("status") == "planned"]),
+        "noop": len([r for r in applied_records if r.get("status") == "noop"]),
+        "failures": failures,
+        "protected_skips": protected_skips,
+        "self_sent_skips": self_sent_skips,
+        "applied_records": applied_records,
+        "self_sent_policy": "skip_and_manual_review",
+        "rollback_ready": not dry_run and any(r.get("status") == "applied" for r in applied_records),
+    }
+
+
+def _run_build_snapshot(
+    label_file: Path,
+    filter_file: Path,
+    snapshot_limit: int,
+    snapshot_hours: int,
+    allow_critical: bool,
+    snapshot_file: Path,
+) -> Dict[str, Any]:
+    built = _build_phase10_candidates(
+        label_file=label_file,
+        filter_file=filter_file,
+        apply_limit=snapshot_limit,
+        apply_hours=snapshot_hours,
+        allow_critical=allow_critical,
+    )
+    payload = {
+        "status": "ok",
+        "query": built["query"],
+        "query_sequence": built["query_sequence"],
+        "limit": snapshot_limit,
+        "selected_candidates": built["selected_candidates"],
+        "protected_skips": built["protected_skips"],
+        "self_sent_skips": built["self_sent_skips"],
+        "candidates": built["candidate_messages"],
+        "snapshot_path": str(snapshot_file),
+    }
+    _write_json_artifact(snapshot_file, payload)
+    return payload
+
+
+def _run_apply_snapshot(
+    snapshot_file: Path,
+    approval_text: str,
+    run_id: Optional[str],
+    journal_file: Optional[Path],
+) -> Dict[str, Any]:
+    if approval_text.strip() != PHASE10_APPLY_APPROVAL_TEXT:
+        raise ValueError("approval text mismatch")
+    snapshot = _read_json(snapshot_file)
+    candidates = snapshot.get("candidates", [])
+    if not isinstance(candidates, list):
+        raise ValueError("snapshot candidates must be a list")
+
+    token_file = Path(os.environ["GMAIL_TOKEN_FILE"])
+    token_data = _load_token_artifact(token_file)
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(token_file, token_data)
+
+    normalized_run_id = run_id or _build_apply_run_id()
+    journal_path = journal_file or _default_apply_journal_path(normalized_run_id)
+    applied_records = []
+    failures = []
+    for item in candidates:
+        try:
+            _gmail_modify_message(
+                token_data,
+                item["message_id"],
+                item.get("planned_add_label_ids", []),
+                item.get("planned_remove_label_ids", []),
+            )
+            record = {
+                "run_id": normalized_run_id,
+                "message_id": item["message_id"],
+                "from": item.get("from"),
+                "subject": item.get("subject"),
+                "matched_rules": item.get("matched_rules", []),
+                "add_label_ids": item.get("planned_add_label_ids", []),
+                "remove_label_ids": item.get("planned_remove_label_ids", []),
+                "status": "applied",
+                "applied_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            }
+            applied_records.append(record)
+            _append_jsonl(journal_path, record)
+        except Exception as exc:
+            failures.append({"message_id": item.get("message_id"), "error": str(exc)})
+            if len(failures) / max(1, len(applied_records) + len(failures)) > 0.10:
+                break
+    _write_token_artifact(token_file, token_data)
+    return {
+        "status": "ok" if not failures else "fail",
+        "snapshot_path": str(snapshot_file),
+        "run_id": normalized_run_id,
+        "journal_path": str(journal_path),
+        "selected_candidates": len(candidates),
+        "applied": len(applied_records),
+        "failures": failures,
+        "rollback_ready": bool(applied_records),
+    }
+
+
+def _default_trash_journal_path(run_id: str) -> Path:
+    token_file = os.getenv("GMAIL_TOKEN_FILE")
+    base_dir = Path(token_file).parent if token_file else (ROOT / ".tokens")
+    return base_dir / f"trash_commit_journal_{run_id}.jsonl"
+
+
+def _run_trash_commit(
+    trash_label: str,
+    older_than_days: int,
+    trash_limit: int,
+    approval_text: str,
+    run_id: Optional[str],
+    journal_file: Optional[Path],
+) -> Dict[str, Any]:
+    if approval_text.strip() != PHASE10_TRASH_APPROVAL_TEXT:
+        raise ValueError("approval text mismatch")
+    query = f"label:{trash_label} older_than:{older_than_days}d"
+    token_file = Path(os.environ["GMAIL_TOKEN_FILE"])
+    token_data = _load_token_artifact(token_file)
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(token_file, token_data)
+    normalized_run_id = run_id or _build_apply_run_id()
+    journal_path = journal_file or _default_trash_journal_path(normalized_run_id)
+    message_ids = _gmail_list_messages(token_data, query=query, max_total=trash_limit)
+    trashed = []
+    failures = []
+    for message_id in message_ids:
+        try:
+            _gmail_trash_message(token_data, message_id)
+            record = {
+                "run_id": normalized_run_id,
+                "message_id": message_id,
+                "status": "trashed",
+                "trashed_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            }
+            trashed.append(record)
+            _append_jsonl(journal_path, record)
+        except Exception as exc:
+            failures.append({"message_id": message_id, "error": str(exc)})
+    _write_token_artifact(token_file, token_data)
+    return {
+        "status": "ok" if not failures else "fail",
+        "query": query,
+        "run_id": normalized_run_id,
+        "journal_path": str(journal_path),
+        "trashed": len(trashed),
+        "failures": failures,
+    }
+
+
+def _run_trash_rollback(journal_file: Path, run_id: Optional[str]) -> Dict[str, Any]:
+    token_file = Path(os.environ["GMAIL_TOKEN_FILE"])
+    token_data = _load_token_artifact(token_file)
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(token_file, token_data)
+    rows = _load_jsonl(journal_file)
+    target_rows = [row for row in rows if row.get("status") == "trashed" and (not run_id or row.get("run_id") == run_id)]
+    restored = []
+    failures = []
+    for row in reversed(target_rows):
+        try:
+            _gmail_untrash_message(token_data, row["message_id"])
+            restored.append(row["message_id"])
+        except Exception as exc:
+            failures.append({"message_id": row.get("message_id"), "error": str(exc)})
+    _write_token_artifact(token_file, token_data)
+    return {
+        "status": "ok" if not failures else "fail",
+        "journal_path": str(journal_file),
+        "run_id": run_id,
+        "restored": len(restored),
+        "failures": failures,
+    }
+
+
+def _run_apply_rollback(
+    journal_file: Path,
+    run_id: Optional[str],
+) -> Dict[str, Any]:
+    required_env = [
+        "GMAIL_TOKEN_FILE",
+        "GMAIL_CLIENT_SECRET_PATH",
+        "GMAIL_TOKEN_CACHE",
+        "GMAIL_TOKEN_STORE",
+    ]
+    env_state = _collect_required_env(required_env)
+    if env_state["missing"]:
+        raise ValueError(f"missing required env vars: {', '.join(env_state['missing'])}")
+
+    token_file = Path(os.environ["GMAIL_TOKEN_FILE"])
+    token_data = _load_token_artifact(token_file)
+    if _token_expired(token_data):
+        token_data = _refresh_access_token(token_data)
+        _write_token_artifact(token_file, token_data)
+
+    rows = _load_jsonl(journal_file)
+    applied_rows = [
+        row for row in rows
+        if row.get("status") == "applied" and (not run_id or row.get("run_id") == run_id)
+    ]
+    if not applied_rows:
+        return {
+            "status": "ok",
+            "message": "no applied records found for rollback",
+            "journal_path": str(journal_file),
+            "run_id": run_id,
+            "rolled_back": 0,
+            "rollback_failures": [],
+        }
+
+    rolled_back = []
+    rollback_failures = []
+    for row in reversed(applied_rows):
+        try:
+            _gmail_modify_message(
+                token_data,
+                row["message_id"],
+                row.get("remove_label_ids", []),
+                row.get("add_label_ids", []),
+            )
+            event = {
+                "run_id": row.get("run_id"),
+                "message_id": row["message_id"],
+                "status": "rolled_back",
+                "rolled_back_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            }
+            rolled_back.append(event)
+            _append_jsonl(journal_file, event)
+        except Exception as exc:
+            rollback_failures.append({"message_id": row.get("message_id"), "error": str(exc)})
+
+    _write_token_artifact(token_file, token_data)
+    return {
+        "status": "ok" if not rollback_failures else "fail",
+        "journal_path": str(journal_file),
+        "run_id": run_id,
+        "rolled_back": len(rolled_back),
+        "rollback_failures": rollback_failures,
+        "remaining_impacted_messages": len(rollback_failures),
+    }
+
+
 def run_plan(label_file: Path, filter_file: Path, sample_path: Optional[Path] = None) -> Dict[str, Any]:
     loaded = _load_and_validate(label_file, filter_file)
     report = loaded["report"]
@@ -1248,11 +2569,24 @@ def run_plan(label_file: Path, filter_file: Path, sample_path: Optional[Path] = 
     return plan
 
 
+def _append_mode_metadata(payload: Dict[str, Any], mode: str, result: Dict[str, Any]) -> None:
+    payload[mode] = result
+    if result.get("status") == "fail":
+        payload["status"] = "fail"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="gmail-agent-sys plan-only runtime")
     parser.add_argument("--plan-only", action="store_true", help="run static plan checks only")
     parser.add_argument("--dry-run", action="store_true", help="enable simulation mode")
     parser.add_argument("--apply", action="store_true", help="run limited mutate pilot apply mode")
+    parser.add_argument("--archive-migrate", action="store_true", help="run legacy-label archive migration mode")
+    parser.add_argument("--archive-rollback", action="store_true", help="rollback a completed archive migration run")
+    parser.add_argument("--apply-batch", action="store_true", help="run 200-message classification apply pilot")
+    parser.add_argument("--apply-rollback", action="store_true", help="rollback apply-batch using journal")
+    parser.add_argument("--build-snapshot", action="store_true", help="build snapshot for snapshot->apply flow")
+    parser.add_argument("--trash-commit", action="store_true", help="move TrashCandidate messages to TRASH")
+    parser.add_argument("--trash-rollback", action="store_true", help="rollback trash-commit using journal")
     parser.add_argument("--sample", type=str, help="JSON sample file for dry-run")
     parser.add_argument(
         "--connect-check",
@@ -1285,6 +2619,126 @@ def main() -> int:
         type=int,
         default=24,
         help="candidate lookback window in hours",
+    )
+    parser.add_argument(
+        "--apply-limit",
+        type=int,
+        default=200,
+        help="batch apply message cap (must be 1..200)",
+    )
+    parser.add_argument(
+        "--apply-hours",
+        type=int,
+        default=24 * 30,
+        help="batch apply lookback window in hours",
+    )
+    parser.add_argument(
+        "--apply-run-id",
+        type=str,
+        default="",
+        help="apply batch run id",
+    )
+    parser.add_argument(
+        "--apply-journal-file",
+        type=str,
+        default="",
+        help="journal file for apply batch",
+    )
+    parser.add_argument(
+        "--snapshot-limit",
+        type=int,
+        default=50,
+        help="snapshot build candidate cap",
+    )
+    parser.add_argument(
+        "--snapshot-hours",
+        type=int,
+        default=24 * 30,
+        help="snapshot lookback window in hours",
+    )
+    parser.add_argument(
+        "--snapshot-file",
+        type=str,
+        default=str(Path(".tokens/phase10_snapshot.json")),
+        help="snapshot output file",
+    )
+    parser.add_argument(
+        "--apply-snapshot",
+        type=str,
+        default="",
+        help="apply snapshot file path",
+    )
+    parser.add_argument(
+        "--trash-label",
+        type=str,
+        default="@AUTO/TrashCandidate",
+        help="label path used for trash commit",
+    )
+    parser.add_argument(
+        "--trash-older-than-days",
+        type=int,
+        default=7,
+        help="minimum age before trash commit",
+    )
+    parser.add_argument(
+        "--trash-limit",
+        type=int,
+        default=50,
+        help="trash commit batch size",
+    )
+    parser.add_argument(
+        "--trash-run-id",
+        type=str,
+        default="",
+        help="trash commit run id",
+    )
+    parser.add_argument(
+        "--trash-journal-file",
+        type=str,
+        default="",
+        help="journal file for trash commit/rollback",
+    )
+    parser.add_argument(
+        "--archive-root",
+        type=str,
+        default=ARCHIVE_ROOT_DEFAULT,
+        help="archive root label path",
+    )
+    parser.add_argument(
+        "--migration-scope",
+        type=str,
+        default="legacy-user",
+        help="migration scope selector (legacy-user)",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=200,
+        help="per-stage label migration page/selection cap",
+    )
+    parser.add_argument(
+        "--max-messages",
+        type=int,
+        default=0,
+        help="manual max messages (set >0 to run single limited batch)",
+    )
+    parser.add_argument(
+        "--checkpoint-file",
+        type=str,
+        default=str(Path(".tokens/archive_migration_checkpoint.json")),
+        help="checkpoint file for archive migration",
+    )
+    parser.add_argument(
+        "--journal-file",
+        type=str,
+        default=str(Path(".tokens/archive_migration_journal.jsonl")),
+        help="journal file for archive migration",
+    )
+    parser.add_argument(
+        "--run-id",
+        type=str,
+        default="",
+        help="archive migration run id",
     )
     parser.add_argument(
         "--approve-text",
@@ -1346,15 +2800,26 @@ def main() -> int:
         return 1
 
     has_mode = args.plan_only or args.dry_run or args.connect_check or args.oauth_login or args.apply
+    has_mode = (
+        has_mode
+        or args.archive_migrate
+        or args.archive_rollback
+        or args.apply_batch
+        or args.apply_rollback
+        or args.build_snapshot
+        or bool(args.apply_snapshot)
+        or args.trash_commit
+        or args.trash_rollback
+    )
     if not has_mode:
         payload = {
             "status": "fail",
-            "message": "no mode selected. Use --plan-only/--dry-run/--apply.",
+            "message": "no mode selected. Use --plan-only/--dry-run/--apply/--apply-batch/--build-snapshot/--apply-snapshot/--trash-commit/--trash-rollback/--apply-rollback/--archive-migrate/--archive-rollback.",
         }
         print(json.dumps(payload, ensure_ascii=False, indent=2 if args.pretty else None))
         return 1
 
-    if args.plan_only or args.dry_run or args.connect_check or args.oauth_login or args.apply:
+    if args.plan_only or args.dry_run or args.connect_check or args.oauth_login or args.apply or args.apply_batch or args.apply_rollback or args.build_snapshot or bool(args.apply_snapshot) or args.trash_commit or args.trash_rollback:
         plan = run_plan(label_path, filter_path, sample_path if args.sample else None)
         payload["plan"] = plan
         if plan["status"] != "pass":
@@ -1372,18 +2837,167 @@ def main() -> int:
 
     if args.apply:
         try:
-            payload["apply_pilot"] = _run_apply_pilot(
+            _append_mode_metadata(
+                payload=payload,
+                mode="apply_pilot",
+                result=_run_apply_pilot(
                 label_file=label_path,
                 filter_file=filter_path,
                 pilot_limit=args.pilot_limit,
                 pilot_hours=args.pilot_hours,
                 approval_text=args.approve_text,
                 allow_critical=args.allow_critical,
+                ),
             )
-            if payload["apply_pilot"].get("status") != "ok":
-                payload["status"] = "fail"
         except Exception as exc:
             payload["apply_pilot"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.apply_batch:
+        try:
+            _append_mode_metadata(
+                payload=payload,
+                mode="apply_batch",
+                result=_run_apply_batch(
+                    label_file=label_path,
+                    filter_file=filter_path,
+                    apply_limit=args.apply_limit,
+                    apply_hours=args.apply_hours,
+                    approval_text=args.approve_text,
+                    allow_critical=args.allow_critical,
+                    dry_run=args.dry_run,
+                    journal_file=Path(args.apply_journal_file) if args.apply_journal_file else None,
+                    run_id=_normalize_run_id(args.apply_run_id),
+                ),
+            )
+        except Exception as exc:
+            payload["apply_batch"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.build_snapshot:
+        try:
+            _append_mode_metadata(
+                payload=payload,
+                mode="build_snapshot",
+                result=_run_build_snapshot(
+                    label_file=label_path,
+                    filter_file=filter_path,
+                    snapshot_limit=args.snapshot_limit,
+                    snapshot_hours=args.snapshot_hours,
+                    allow_critical=args.allow_critical,
+                    snapshot_file=Path(args.snapshot_file),
+                ),
+            )
+        except Exception as exc:
+            payload["build_snapshot"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.apply_snapshot:
+        try:
+            _append_mode_metadata(
+                payload=payload,
+                mode="apply_snapshot",
+                result=_run_apply_snapshot(
+                    snapshot_file=Path(args.apply_snapshot),
+                    approval_text=args.approve_text,
+                    run_id=_normalize_run_id(args.apply_run_id),
+                    journal_file=Path(args.apply_journal_file) if args.apply_journal_file else None,
+                ),
+            )
+        except Exception as exc:
+            payload["apply_snapshot"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.apply_rollback:
+        try:
+            rollback_run_id = _normalize_run_id(args.apply_run_id)
+            journal_path = Path(args.apply_journal_file) if args.apply_journal_file else _default_apply_journal_path(
+                rollback_run_id or _build_apply_run_id()
+            )
+            _append_mode_metadata(
+                payload=payload,
+                mode="apply_rollback",
+                result=_run_apply_rollback(
+                    journal_file=journal_path,
+                    run_id=rollback_run_id,
+                ),
+            )
+        except Exception as exc:
+            payload["apply_rollback"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.trash_commit:
+        try:
+            _append_mode_metadata(
+                payload=payload,
+                mode="trash_commit",
+                result=_run_trash_commit(
+                    trash_label=args.trash_label,
+                    older_than_days=args.trash_older_than_days,
+                    trash_limit=args.trash_limit,
+                    approval_text=args.approve_text,
+                    run_id=_normalize_run_id(args.trash_run_id),
+                    journal_file=Path(args.trash_journal_file) if args.trash_journal_file else None,
+                ),
+            )
+        except Exception as exc:
+            payload["trash_commit"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.trash_rollback:
+        try:
+            _append_mode_metadata(
+                payload=payload,
+                mode="trash_rollback",
+                result=_run_trash_rollback(
+                    journal_file=Path(args.trash_journal_file),
+                    run_id=_normalize_run_id(args.trash_run_id),
+                ),
+            )
+        except Exception as exc:
+            payload["trash_rollback"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.archive_migrate:
+        try:
+            run_id = _normalize_run_id(args.run_id) or _build_run_id()
+            _append_mode_metadata(
+                payload=payload,
+                mode="archive_migrate",
+                result=_run_archive_migrate(
+                    label_file=label_path,
+                    filter_file=filter_path,
+                    archive_root=args.archive_root,
+                    migration_scope=args.migration_scope,
+                    batch_size=args.batch_size,
+                    max_messages=args.max_messages if args.max_messages > 0 else None,
+                    checkpoint_file=Path(args.checkpoint_file),
+                    journal_file=Path(args.journal_file),
+                    run_id=run_id,
+                    approval_text=args.approve_text,
+                    dry_run=args.dry_run,
+                ),
+            )
+        except Exception as exc:
+            payload["archive_migrate"] = {"status": "fail", "message": str(exc)}
+            payload["status"] = "fail"
+
+    if args.archive_rollback:
+        try:
+            run_id = _normalize_run_id(args.run_id)
+            if not run_id:
+                raise ValueError("run-id is required for rollback")
+            _append_mode_metadata(
+                payload=payload,
+                mode="archive_rollback",
+                result=_run_archive_rollback(
+                    run_id=run_id,
+                    checkpoint_file=Path(args.checkpoint_file),
+                    journal_file=Path(args.journal_file),
+                ),
+            )
+        except Exception as exc:
+            payload["archive_rollback"] = {"status": "fail", "message": str(exc)}
             payload["status"] = "fail"
 
     print(

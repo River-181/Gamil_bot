@@ -1,0 +1,499 @@
+{
+  "total": 764,
+  "sent_or_internal": 594,
+  "received": 170,
+  "with_inbox": 161,
+  "latest_samples": [
+    {
+      "idx": 1,
+      "id": "19c8981cc1747874",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [졸업배너제작] 충남대학교 심리학과 김주용",
+      "date": "Mon, 23 Feb 2026 16:58:30 +0900"
+    },
+    {
+      "idx": 2,
+      "id": "19c8973c9ec10618",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[졸업배너제작] 충남대학교 심리학과 김주용",
+      "date": "Mon, 23 Feb 2026 16:43:12 +0900"
+    },
+    {
+      "idx": 3,
+      "id": "19c5b529d19540df",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Sat, 14 Feb 2026 17:44:26 +0900"
+    },
+    {
+      "idx": 4,
+      "id": "19c5641bdf91d5a2",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 18:07:54 +0900"
+    },
+    {
+      "idx": 5,
+      "id": "19c5571c5e24e9cc",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도 김주용 주소 전달",
+      "date": "Fri, 13 Feb 2026 14:20:45 +0900"
+    },
+    {
+      "idx": 6,
+      "id": "19c54fc0696c6f28",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: RE: 사회문제와 심리학 중간고사 피드백 요청드립니다. 충남대 심리학과 김주용",
+      "date": "Fri, 13 Feb 2026 12:12:08 +0900"
+    },
+    {
+      "idx": 7,
+      "id": "19c54d1674800e65",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Fwd: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 11:25:34 +0900"
+    },
+    {
+      "idx": 8,
+      "id": "19c54d0fd05890da",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 11:25:07 +0900"
+    },
+    {
+      "idx": 9,
+      "id": "19c3ea90d7ef5dfc",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: 장인학교 해커톤 대체과제 안내",
+      "date": "Mon, 9 Feb 2026 04:09:51 +0900"
+    },
+    {
+      "idx": 10,
+      "id": "19c2e02870459de0",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_16",
+        "Label_61",
+        "Label_53",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "123",
+      "date": "Thu, 5 Feb 2026 05:34:03 -0800"
+    },
+    {
+      "idx": 11,
+      "id": "19c2114ffe66f771",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도/김주용_신분증, 통장 사본 제출",
+      "date": "Tue, 3 Feb 2026 10:19:09 +0900"
+    },
+    {
+      "idx": 12,
+      "id": "19c14a378253a12d",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: 장인학교 해커톤 대체과제 안내",
+      "date": "Sun, 1 Feb 2026 00:19:42 +0900"
+    },
+    {
+      "idx": 13,
+      "id": "19bfd5a8b608e349",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_766179132720810407",
+        "Label_53",
+        "Label_59",
+        "SENT"
+      ],
+      "subject": "[2026 로컬장인학교 해커톤] 신청 (20260127)",
+      "date": "Tue, 27 Jan 2026 11:48:47 +0900"
+    },
+    {
+      "idx": 14,
+      "id": "19bf50eea6a2138b",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_16",
+        "Label_61",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "노션 온보딩 중단 오류",
+      "date": "Sun, 25 Jan 2026 04:09:14 -0800"
+    },
+    {
+      "idx": 15,
+      "id": "19bea220683d8eb2",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 18:14:16 +0900"
+    },
+    {
+      "idx": 16,
+      "id": "19bea1b25f180f19",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 18:06:34 +0900"
+    },
+    {
+      "idx": 17,
+      "id": "19bea134435308a1",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 17:58:09 +0900"
+    },
+    {
+      "idx": 18,
+      "id": "19be49a9431bb068",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "Re: 통장사본",
+      "date": "Thu, 22 Jan 2026 16:28:50 +0900"
+    },
+    {
+      "idx": 19,
+      "id": "19be495e60dd3be6",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "Re: 통장사본",
+      "date": "Thu, 22 Jan 2026 16:23:43 +0900"
+    },
+    {
+      "idx": 20,
+      "id": "19be48595524ea37",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[ABC 부트캠프] 상금 서류 제출 (충남대학교 김주용/20260122/데이터드리븐)",
+      "date": "Thu, 22 Jan 2026 16:05:54 +0900"
+    }
+  ],
+  "oldest_samples": [
+    {
+      "idx": 1,
+      "id": "19c8981cc1747874",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [졸업배너제작] 충남대학교 심리학과 김주용",
+      "date": "Mon, 23 Feb 2026 16:58:30 +0900"
+    },
+    {
+      "idx": 2,
+      "id": "19c8973c9ec10618",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[졸업배너제작] 충남대학교 심리학과 김주용",
+      "date": "Mon, 23 Feb 2026 16:43:12 +0900"
+    },
+    {
+      "idx": 3,
+      "id": "19c5b529d19540df",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Sat, 14 Feb 2026 17:44:26 +0900"
+    },
+    {
+      "idx": 4,
+      "id": "19c5641bdf91d5a2",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 18:07:54 +0900"
+    },
+    {
+      "idx": 5,
+      "id": "19c5571c5e24e9cc",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도 김주용 주소 전달",
+      "date": "Fri, 13 Feb 2026 14:20:45 +0900"
+    },
+    {
+      "idx": 6,
+      "id": "19c54fc0696c6f28",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: RE: 사회문제와 심리학 중간고사 피드백 요청드립니다. 충남대 심리학과 김주용",
+      "date": "Fri, 13 Feb 2026 12:12:08 +0900"
+    },
+    {
+      "idx": 7,
+      "id": "19c54d1674800e65",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Fwd: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 11:25:34 +0900"
+    },
+    {
+      "idx": 8,
+      "id": "19c54d0fd05890da",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "date": "Fri, 13 Feb 2026 11:25:07 +0900"
+    },
+    {
+      "idx": 9,
+      "id": "19c3ea90d7ef5dfc",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: 장인학교 해커톤 대체과제 안내",
+      "date": "Mon, 9 Feb 2026 04:09:51 +0900"
+    },
+    {
+      "idx": 10,
+      "id": "19c2e02870459de0",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_16",
+        "Label_61",
+        "Label_53",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "123",
+      "date": "Thu, 5 Feb 2026 05:34:03 -0800"
+    },
+    {
+      "idx": 11,
+      "id": "19c2114ffe66f771",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[2026 장인학교 해커톤] 망상궤도/김주용_신분증, 통장 사본 제출",
+      "date": "Tue, 3 Feb 2026 10:19:09 +0900"
+    },
+    {
+      "idx": 12,
+      "id": "19c14a378253a12d",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: 장인학교 해커톤 대체과제 안내",
+      "date": "Sun, 1 Feb 2026 00:19:42 +0900"
+    },
+    {
+      "idx": 13,
+      "id": "19bfd5a8b608e349",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_766179132720810407",
+        "Label_53",
+        "Label_59",
+        "SENT"
+      ],
+      "subject": "[2026 로컬장인학교 해커톤] 신청 (20260127)",
+      "date": "Tue, 27 Jan 2026 11:48:47 +0900"
+    },
+    {
+      "idx": 14,
+      "id": "19bf50eea6a2138b",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_16",
+        "Label_61",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "노션 온보딩 중단 오류",
+      "date": "Sun, 25 Jan 2026 04:09:14 -0800"
+    },
+    {
+      "idx": 15,
+      "id": "19bea220683d8eb2",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: [Notion] Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 18:14:16 +0900"
+    },
+    {
+      "idx": 16,
+      "id": "19bea1b25f180f19",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 18:06:34 +0900"
+    },
+    {
+      "idx": 17,
+      "id": "19bea134435308a1",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "SENT"
+      ],
+      "subject": "Re: Update your Stripe account to receive your funds from Notion Labs, Inc.",
+      "date": "Fri, 23 Jan 2026 17:58:09 +0900"
+    },
+    {
+      "idx": 18,
+      "id": "19be49a9431bb068",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "Re: 통장사본",
+      "date": "Thu, 22 Jan 2026 16:28:50 +0900"
+    },
+    {
+      "idx": 19,
+      "id": "19be495e60dd3be6",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ],
+      "subject": "Re: 통장사본",
+      "date": "Thu, 22 Jan 2026 16:23:43 +0900"
+    },
+    {
+      "idx": 20,
+      "id": "19be48595524ea37",
+      "labelIds": [
+        "Label_1219931220150789026",
+        "Label_53",
+        "SENT"
+      ],
+      "subject": "[ABC 부트캠프] 상금 서류 제출 (충남대학교 김주용/20260122/데이터드리븐)",
+      "date": "Thu, 22 Jan 2026 16:05:54 +0900"
+    },
+    {
+      "idx": 760,
+      "id": "15d7f1f308116d04",
+      "labelIds": [
+        "YELLOW_STAR",
+        "STARRED",
+        "SENT"
+      ],
+      "subject": "영어 ucc 1-1 김주용, 여승헌, 배완수, 김지호, 이보성",
+      "date": "Wed, 26 Jul 2017 22:38:56 +0900"
+    },
+    {
+      "idx": 761,
+      "id": "15d7d92a774fca7c",
+      "labelIds": [
+        "STARRED",
+        "SENT"
+      ],
+      "subject": "",
+      "date": "Wed, 26 Jul 2017 15:25:49 +0900"
+    },
+    {
+      "idx": 762,
+      "id": "15d509a090005e2c",
+      "labelIds": [
+        "STARRED",
+        "SENT"
+      ],
+      "subject": "과락\\111",
+      "date": "Mon, 17 Jul 2017 21:50:58 +0900"
+    },
+    {
+      "idx": 763,
+      "id": "15889a4d2e82aa42",
+      "labelIds": [
+        "STARRED",
+        "SENT"
+      ],
+      "subject": "성주중3-1.김주용,김준서,이상윤,이주환",
+      "date": "Tue, 22 Nov 2016 10:26:35 +0900"
+    },
+    {
+      "idx": 764,
+      "id": "15885265fb6874cd",
+      "labelIds": [
+        "STARRED",
+        "SENT"
+      ],
+      "subject": "성주중 3-1 1.2.3.4 한자 수행평가",
+      "date": "Mon, 21 Nov 2016 13:30:34 +0900"
+    }
+  ]
+}

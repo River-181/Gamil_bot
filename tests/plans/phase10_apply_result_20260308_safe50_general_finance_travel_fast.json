@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "run_id": "phase10-safe50-general-finance-travel-fast-20260308",
+  "safe_rule_ids": [
+    "rule_newsletter_from",
+    "rule_newsletter_subject_guard",
+    "rule_notification",
+    "rule_promo",
+    "rule_receipt",
+    "rule_social_from",
+    "rule_social_subject_guard",
+    "rule_travel"
+  ],
+  "selected_candidates": 0,
+  "applied": 0,
+  "failures": [],
+  "snapshot_path": "/Users/river/tools/gmail-agent-sys/tests/plans/phase10_apply_snapshot_20260308_safe50_general_finance_travel_fast.json",
+  "journal_path": "/Users/river/tools/gmail-agent-sys/.tokens/apply_batch_journal_phase10_safe50_general_finance_travel_fast_20260308.jsonl",
+  "rollback_ready": false
+}

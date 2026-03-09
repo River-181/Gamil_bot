@@ -1,8 +1,8 @@
 # gmail-agent-sys 워크스페이스
 
 ## 목적
-`/Users/river/tools/gmail-agent-sys`는 개인 Gmail 운영을 위한 **설계·검토 전용 레이어**이다.
-현재 단계는 OpenClaw 포함 외부 자동화 실행을 배제하고, 실행 가능한 정책 정합성만 확정한다.
+`/Users/river/tools/gmail-agent-sys`는 개인 Gmail 운영을 위한 **정책+운영 레이어**이다.
+현재 기준은 `snapshot -> apply-snapshot -> trash-commit` 흐름으로 Gmail 정리와 유지 운영을 수행한다.
 
 ## 아키텍처(고정)
 - `docs/` : 전략, 정합 정책, 흐름/Runbook
@@ -18,20 +18,26 @@
 - 충돌/우선순위 규약: `docs/policy_normalization_v3.md`
 
 ## 운영 제약(현재)
-- 실 API 호출/자동 적용은 보류
-- `--dry-run`, `--plan-only` 우선 실행 체계만 문서/계약으로 유지
+- direct `--apply-batch`는 유지하되 운영 기본경로는 `snapshot -> apply-snapshot -> trash-commit`
+- `@AUTO/TrashCandidate`는 보존 후 삭제 후보 라벨로 사용
 - 인증 비밀(클라이언트 시크릿/토큰)은 파일에 저장하지 않음
 
 ## 다음 단계
-1. Phase 8: 운영 안정화 계획 실행 (`tests/plans/phase8_operations_plan_v1.md`)
-2. Phase 8: 주간 리포트/사고 로그/회귀 게이트 템플릿 확정
-3. Phase 9: 배치 확대 적용(조건부) 및 운영 자동화 확장
+1. snapshot 기반 최근 메일 안정화 (`50 -> 200`)
+2. backlog drain (`200 -> 500 -> 1000`)
+3. delayed trash 및 rollback 운영
 
 ## 즉시 실행 커맨드 (plan-only)
 - 환경 준비:
   - `GMAIL_CLIENT_SECRET_PATH`, `GMAIL_TOKEN_CACHE`, `GMAIL_TOKEN_FILE`, `GMAIL_TOKEN_STORE`, `GMAIL_OAUTH_SCOPES`를 환경변수에 설정
 - 정책 정합성 확인:
   - `python3 -m gmail_agent_sys.mcp.entrypoint --plan-only --pretty`
+- snapshot 생성:
+  - `python3 -m gmail_agent_sys.mcp.entrypoint --build-snapshot --snapshot-limit 50 --snapshot-file .tokens/phase10_snapshot.json --pretty`
+- snapshot 적용:
+  - `python3 -m gmail_agent_sys.mcp.entrypoint --apply-snapshot .tokens/phase10_snapshot.json --apply-run-id phase10-snapshot-run --apply-journal-file .tokens/phase10_apply_journal.jsonl --approve-text "<phase10 approval text>" --pretty`
+- TrashCandidate commit:
+  - `python3 -m gmail_agent_sys.mcp.entrypoint --trash-commit --trash-limit 50 --trash-run-id phase10-trash-run --trash-journal-file .tokens/phase10_trash_journal.jsonl --approve-text "<phase10 trash approval text>" --pretty`
 - 연동 전 체크:
   - `python3 -m gmail_agent_sys.mcp.entrypoint --plan-only --connect-check --pretty`
 - 실제 Gmail OAuth 연결(토큰 발급, 최초 1회):
@@ -42,5 +48,8 @@
   - `python3 -m gmail_agent_sys.mcp.entrypoint --dry-run --sample tests/plans/phase3_sample_messages.json --pretty`
 
 ## 구현 상태
-- `/Users/river/tools/gmail-agent-sys/gmail_agent_sys/mcp/entrypoint.py`는 `--apply` 파일럿 모드를 지원합니다.
-- `--apply`는 승인 문구 일치, 건수 제한(5~10), critical 규칙 제외, 오류율 초과 시 중단/롤백 가드로 보호됩니다.
+- `/Users/river/tools/gmail-agent-sys/gmail_agent_sys/mcp/entrypoint.py`는 `--build-snapshot`, `--apply-snapshot`, `--trash-commit`, `--trash-rollback`을 지원합니다.
+- `@AUTO/TrashCandidate`를 포함한 v3.1 라벨/필터 정책이 적용됩니다.
+- 운영 노하우 시리즈:
+  - `docs/phase10_notes_01_snapshot_apply_trash.md`
+  - `docs/phase10_notes_02_bulk_targeting_and_false_positive.md`

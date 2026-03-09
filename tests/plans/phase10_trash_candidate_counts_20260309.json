@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "counts": {
+    "trash_candidate_all": 167,
+    "trash_candidate_older_than_7d": 159,
+    "trash_candidate_older_than_14d": 157,
+    "trash_candidate_in_inbox": 0
+  }
+}

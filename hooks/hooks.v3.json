@@ -41,7 +41,7 @@
         "fail_open": true
       },
       "allowed_patterns": ["*.json", "*.md", "hooks", "skills", "personas"],
-      "outputs": ["status", "audits", "risk_tags"]
+      "outputs": ["status", "audits", "risk_tags", "run_id", "stage", "messages_mutated", "rollback_ready"]
     },
     {
       "event": "Stop",

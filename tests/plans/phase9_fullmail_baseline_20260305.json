@@ -1,0 +1,185 @@
+{
+  "query": "in:all",
+  "total_messages_in_all": 11354,
+  "inbox": 10426,
+  "sent_or_internal": 594,
+  "unread": 64,
+  "messages_with_user_labels": 3455,
+  "messages_without_user_labels": 7899,
+  "messages_without_any_labels": 168,
+  "sample_without_user_labels": [
+    {
+      "id": "19cbb90a1e3a9a5f",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cbb47b030bfa67",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cbb0f8374e7ad7",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cbadb2e28ef733",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cba278d8c3020e",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cb9780a41acad1",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb96b31a1e8c8c",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "SPAM",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cb7e74bc3ac131",
+      "subject": "",
+      "labels": [
+        "CATEGORY_SOCIAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb6a8d2bd42511",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb698c0b73e370",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "SPAM",
+        "UNREAD"
+      ]
+    },
+    {
+      "id": "19cb66a753906846",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb6275b0a5fd35",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb609ee4d0c137",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb3b339785641d",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb39dab7508d65",
+      "subject": "",
+      "labels": [
+        "CATEGORY_SOCIAL",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb32f1c841867f",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb26f365060951",
+      "subject": "",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb1e1f8e8b41af",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb0f467fc6babf",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    {
+      "id": "19cb042466cedc43",
+      "subject": "",
+      "labels": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX"
+      ]
+    }
+  ]
+}

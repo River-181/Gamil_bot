@@ -11,7 +11,7 @@
   - `config/labels.v3.json.version == v3.0.0`
   - `config/filters.v3.json.version == v3.0.0`
   - `config/labels.v3.json.labels.length == 14`
-  - `config/filters.v3.json.filters.length >= 12`
+  - `config/filters.v3.json.filters.length == 13`
   - `config/filters.v3.json.normalization_ref == docs/policy_normalization_v3.md`
 - 라벨 제약
   - 라벨 총수 <= 15
@@ -86,3 +86,34 @@
 - 전환 상태:
   - 문서 기준 전환 `완료`
   - 실제 mutate 실행 `미실행` (다음 단계 승인 필요)
+
+## 10) Phase 9 Shadow Archive Migration 게이트(신규)
+- P0:
+  - checkpoint/journal 경로 생성 실패
+  - journal write 실패
+  - legacy-archive 매핑 충돌
+- P1:
+  - `archive_migrate` 실행 중 실패율 `> 10%`
+  - 승인 문구 불일치
+  - legacy 분류 오인식/매핑 누락으로 인한 비의도 라벨 처리
+- P2:
+  - runbook 미이행(기록 파일 미생성)
+
+### 필수 판단 항목
+- `tests/plans/phase9_legacy_label_baseline_20260305.md` 존재
+- `tests/plans/phase9_archive_mapping_20260305.json` 존재 및 `collisions == []`
+- `tests/plans/phase9_migration_gate_20260305.md` 존재
+- `docs/runbooks/legacy_label_archive_migration_v1.md` 존재
+- `docs/runbooks/legacy_label_rollback_v1.md` 존재
+- `--archive-migrate --archive-rollback` 출력 JSON 필수 필드:
+  - `status`
+  - `run_id`
+  - `scope`
+  - `legacy_labels_total`
+  - `archive_labels_created`
+  - `messages_scanned`
+  - `messages_mutated`
+  - `failures`
+  - `checkpoint_path`
+  - `journal_path`
+  - `rollback_ready`

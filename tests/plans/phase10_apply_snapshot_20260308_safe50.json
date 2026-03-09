@@ -1,0 +1,816 @@
+{
+  "status": "ok",
+  "run_id": "phase10-safe50-20260308",
+  "query": "has:nouserlabels newer_than:30d",
+  "query_sequence": [
+    "has:nouserlabels newer_than:30d from:noreply@email.apple.com",
+    "has:nouserlabels newer_than:30d from:no-reply@google.com",
+    "has:nouserlabels newer_than:30d from:noreply@google.com",
+    "has:nouserlabels newer_than:30d from:no-reply@accounts.google.com",
+    "has:nouserlabels newer_than:30d subject:login",
+    "has:nouserlabels newer_than:30d subject:OTP",
+    "has:nouserlabels newer_than:30d subject:보안",
+    "has:nouserlabels newer_than:30d subject:\"새로 로그인\"",
+    "has:nouserlabels newer_than:30d from:noreply@email.apple.com subject:login",
+    "has:nouserlabels newer_than:30d from:noreply@email.apple.com subject:OTP",
+    "has:nouserlabels newer_than:30d from:no-reply@google.com subject:login",
+    "has:nouserlabels newer_than:30d from:no-reply@google.com subject:OTP",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr",
+    "has:nouserlabels newer_than:30d subject:교수",
+    "has:nouserlabels newer_than:30d subject:학사",
+    "has:nouserlabels newer_than:30d subject:수강",
+    "has:nouserlabels newer_than:30d subject:과제",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr subject:교수",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr subject:학사",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr",
+    "has:nouserlabels newer_than:30d subject:공지",
+    "has:nouserlabels newer_than:30d subject:안내",
+    "has:nouserlabels newer_than:30d subject:알림",
+    "has:nouserlabels newer_than:30d subject:뉴스레터",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr subject:공지",
+    "has:nouserlabels newer_than:30d from:@cnu.ac.kr subject:안내",
+    "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com",
+    "has:nouserlabels newer_than:30d from:hanacard.co.kr",
+    "has:nouserlabels newer_than:30d from:paypal.com",
+    "has:nouserlabels newer_than:30d subject:결제",
+    "has:nouserlabels newer_than:30d subject:receipt",
+    "has:nouserlabels newer_than:30d subject:payment",
+    "has:nouserlabels newer_than:30d subject:승인",
+    "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:결제",
+    "has:nouserlabels newer_than:30d from:bill@bill-mail.tosspayments.com subject:receipt",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com subject:결제",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com subject:receipt",
+    "has:nouserlabels newer_than:30d from:trip.com",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com",
+    "has:nouserlabels newer_than:30d from:airbnb.com",
+    "has:nouserlabels newer_than:30d from:booking.com",
+    "has:nouserlabels newer_than:30d subject:예약",
+    "has:nouserlabels newer_than:30d subject:ticket",
+    "has:nouserlabels newer_than:30d subject:항공",
+    "has:nouserlabels newer_than:30d subject:항공권",
+    "has:nouserlabels newer_than:30d from:trip.com subject:예약",
+    "has:nouserlabels newer_than:30d from:trip.com subject:ticket",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com subject:예약",
+    "has:nouserlabels newer_than:30d from:dosirakesim.com subject:ticket",
+    "has:nouserlabels newer_than:30d from:notifications-noreply@linkedin.com",
+    "has:nouserlabels newer_than:30d from:messages-noreply@linkedin.com",
+    "has:nouserlabels newer_than:30d from:updates-noreply@linkedin.com",
+    "has:nouserlabels newer_than:30d from:no-reply@mail.instagram.com",
+    "has:nouserlabels newer_than:30d subject:linkedin",
+    "has:nouserlabels newer_than:30d subject:instagram",
+    "has:nouserlabels newer_than:30d subject:twitter",
+    "has:nouserlabels newer_than:30d subject:youtube",
+    "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com",
+    "has:nouserlabels newer_than:30d from:News@insideapple.apple.com",
+    "has:nouserlabels newer_than:30d from:website.kr@shokz.com",
+    "has:nouserlabels newer_than:30d from:noreply@insideapple.apple.com",
+    "has:nouserlabels newer_than:30d subject:광고",
+    "has:nouserlabels newer_than:30d subject:[광고]",
+    "has:nouserlabels newer_than:30d subject:행사",
+    "has:nouserlabels newer_than:30d subject:이벤트",
+    "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:광고",
+    "has:nouserlabels newer_than:30d from:appletv@insideapple.apple.com subject:[광고]",
+    "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:광고",
+    "has:nouserlabels newer_than:30d from:News@insideapple.apple.com subject:[광고]",
+    "has:nouserlabels newer_than:30d from:nytdirect@nytimes.com",
+    "has:nouserlabels newer_than:30d from:updates@mymind.email",
+    "has:nouserlabels newer_than:30d from:nunzio@akiflow.com",
+    "has:nouserlabels newer_than:30d from:care@fabric.so",
+    "has:nouserlabels newer_than:30d subject:unsubscribe",
+    "has:nouserlabels newer_than:30d subject:newsletter",
+    "has:nouserlabels newer_than:30d subject:digest",
+    "has:nouserlabels newer_than:30d subject:weekly",
+    "has:nouserlabels newer_than:30d from:no-reply@google.com",
+    "has:nouserlabels newer_than:30d from:noreply@google.com",
+    "has:nouserlabels newer_than:30d from:no-reply@yes24.com",
+    "has:nouserlabels newer_than:30d from:noreply@kakaopay.com",
+    "has:nouserlabels newer_than:30d from:support@kakao.com",
+    "has:nouserlabels newer_than:30d from:no-reply@kakaotalk.com",
+    "has:nouserlabels newer_than:30d subject:약관",
+    "has:nouserlabels newer_than:30d subject:정책",
+    "has:nouserlabels newer_than:30d subject:변경",
+    "has:nouserlabels newer_than:30d subject:안내",
+    "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:약관",
+    "has:nouserlabels newer_than:30d from:no-reply@yes24.com subject:정책",
+    "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:약관",
+    "has:nouserlabels newer_than:30d from:noreply@kakaopay.com subject:정책",
+    "has:nouserlabels newer_than:30d from:cnuportal@cnu.ac.kr",
+    "has:nouserlabels newer_than:30d subject:OTP",
+    "has:nouserlabels newer_than:30d subject:보안",
+    "has:nouserlabels newer_than:30d subject:인증",
+    "has:nouserlabels newer_than:30d from:cnuportal@cnu.ac.kr subject:OTP",
+    "has:nouserlabels newer_than:30d from:cnuportal@cnu.ac.kr subject:보안",
+    "has:nouserlabels newer_than:30d",
+    "newer_than:30d"
+  ],
+  "limit": 50,
+  "selected_candidates": 50,
+  "self_sent_skips": [],
+  "protected_skips": [],
+  "candidates": [
+    {
+      "message_id": "19c46eb54c9ca733",
+      "from": "Google <no-reply@google.com>",
+      "subject": "주용님, Google 계정 설정을 확인해 주세요",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c44263cc674bf9",
+      "from": "Google <no-reply@google.com>",
+      "subject": "✅ 주용님, Apple iPhone 기기에서 최신 Google 앱 설정을 완료하세요.",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "add_label_ids": [
+        "Label_18"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c45ecffd27ec01",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "matched_rules": [
+        "rule_cnu_otp"
+      ],
+      "add_label_ids": [
+        "Label_78"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c451aa72a22004",
+      "from": "\"창의융합대학\" <cre@cnu.ac.kr>",
+      "subject": "창의융합대학 뉴스레터(Vol.02) 안내 ",
+      "matched_rules": [
+        "rule_cnu_notice"
+      ],
+      "add_label_ids": [
+        "Label_77"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c40c4da681e851",
+      "from": "\"정보화본부\" <mailmaster@cnu.ac.kr>",
+      "subject": " (정보화소식-2026-5호) 다크웹을 통한 개인정보 유출 방지 안내 ",
+      "matched_rules": [
+        "rule_cnu_notice"
+      ],
+      "add_label_ids": [
+        "Label_77"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4138e89d6095e",
+      "from": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "subject": "Your receipt from Anthropic, PBC #2811-3406-8770",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "add_label_ids": [
+        "Label_21",
+        "Label_23"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3a978cd3ef1c1",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "최근 검색에 표시됨",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c5ba9f86b1af35",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 김근식님을 추가하세요. 공통 1촌이 1명 있습니다.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c59eb4672ef8ef",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "주용님, Google의 CEO - Sundar Pichai님을 팔로우하는 게 어떠세요?",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c560e9375cfd6c",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "프로젝트 매니저: 회원님 근처 지역에서 OneRX Korea 및 KLIO DESIGN의 채용이 확인됨",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4bc2cd3139962",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4a7b97be2f9b1",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "속도 빠른 LinkedIn 앱",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c42513bd02d850",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 김성호님을 추가하세요. 공통 1촌이 1명 있습니다.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c41763d6e5a4ce",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3680469d1f185",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "주용님, Google의 CEO - Sundar Pichai님을 팔로우하는 게 어떠세요?",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c567c69eb6589f",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "김주용님, Notion Korea에서 올린 업데이트: 비영리 단체는 우리가 아는 팀들 중에서도 가장 창의적이고 실행력이 뛰어난 조직입니다. 소수의 인원으로도 매일 지역사회에 큰 임팩트와 의미… 💼",
+      "matched_rules": [
+        "rule_social_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_20",
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c51563a416d29a",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Ayodele Thomas, PhD 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3270a201a5d43",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "김주용님, Notion Korea에서 올린 업데이트: Notion AI에게 먼저 물어봤나요? 👀\n\nMerge 팀은 Notion과 Notion AI로 팀의 지식을 한 곳에 모으고, \n필요한 답을… 💼",
+      "matched_rules": [
+        "rule_social_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_20",
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3fb878a0b4b90",
+      "from": "Apple <News@insideapple.apple.com>",
+      "subject": "(광고) 💝 서두르세요, 사랑은 타이밍이니까요.",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "add_label_ids": [
+        "Label_19"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c5bd13075ac0d1",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Desire paths",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c56cdf94890c3f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: At the Olympics",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c51b055f46e34f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Building cities from scratch",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4c84572a9c4af",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Paging Dr. Chatbot",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c47619a9bd5393",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: A new nuclear era?",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c422f0de039c48",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Two million",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3d3ccb6bd027f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Talk to your parents",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c37c8c62a2dde8",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Best in show",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c32bc110bcf20f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The Super Bowl",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c54e98cd390555",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "New upgrades to your mind",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c3feaca04fff6d",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "💭 On mistakes, minimalism & following the crowd",
+      "matched_rules": [
+        "rule_social_subject_guard",
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20",
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c30585a0fcd767",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "Quality of life updates for your mind",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c53b3991780e5c",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "👋🏽 KIM  - here's your weekly community digest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c2fa9eed3e4e52",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "👋🏽 KIM  - here's your weekly community digest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4ccc18570a0c4",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "비밀번호가 변경되었습니다.",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c4cca9cdad2004",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "비밀번호가 변경되었습니다.",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c4cca54cfab7a3",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "비밀번호가 변경되었습니다.",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c56c8f3a769e33",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 29. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c55edcd059c611",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "A new passkey was added to your account",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c55ed39cd5c01f",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c55c3fc5c5e564",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "add_label_ids": [
+        "Label_78",
+        "STARRED"
+      ],
+      "remove_label_ids": []
+    },
+    {
+      "message_id": "19c554657817a568",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 28. 오프라인 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c55461fe71881a",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 29. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c554105026d486",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 @HTML 세션 에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c5540f64165a05",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 [창경설] PPT에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c5540bc4ba6639",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 [망상궤도홈페이지] 기획서에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c5540a7f600a40",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 [로컬]사업지원금 운영지침에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "add_label_ids": [
+        "Label_22"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c54919f3af3f86",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "The toxic baby",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c548c35685ddad",
+      "from": "Law and Ethics in Tech <subscriptions@medium.com>",
+      "subject": "AI doesn’t reduce work but it intensifies, Head of Anthropic Safeguard quits & AI falsely accuses a…",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4f6b61e751482",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "How to turn a group of strangers into a team",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "add_label_ids": [
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    },
+    {
+      "message_id": "19c4e9e49b80362c",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "충남대학교 심리학과 학생회 WorkSpace에서 심리학과 학생회이 업데이트했습니다",
+      "matched_rules": [
+        "rule_newsletter_subject_guard",
+        "rule_notification"
+      ],
+      "add_label_ids": [
+        "Label_18",
+        "Label_20"
+      ],
+      "remove_label_ids": [
+        "INBOX"
+      ]
+    }
+  ]
+}

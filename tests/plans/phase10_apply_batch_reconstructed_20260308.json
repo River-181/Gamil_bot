@@ -1,0 +1,4245 @@
+{
+  "status": "ok",
+  "report_type": "reconstructed_candidate_report",
+  "note": "Exact 191-message mutation report is unavailable because the original apply-batch run had no journal. This file reconstructs the candidate set from current mailbox state using the same policy window.",
+  "query": "newer_than:30d",
+  "candidate_count": 200,
+  "self_sent_skips_sample": [
+    {
+      "message_id": "19c8981cc1747874",
+      "from": "\"김주용\" <chany010713@gmail.com>",
+      "subject": "Re: [졸업배너제작] 충남대학교 심리학과 김주용",
+      "reason": "self_sent_manual_review"
+    },
+    {
+      "message_id": "19c8973c9ec10618",
+      "from": "\"김주용\" <chany010713@gmail.com>",
+      "subject": "[졸업배너제작] 충남대학교 심리학과 김주용",
+      "reason": "self_sent_manual_review"
+    }
+  ],
+  "records": [
+    {
+      "message_id": "19cc802522a4ea63",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Hanging up",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cc74f341eb4f59",
+      "from": "Manus <info@admin.manus.im>",
+      "subject": "Manus Year One: Our First Annual Letter",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cc5a9ea489ba17",
+      "from": "Perplexity <team@mail.perplexity.ai>",
+      "subject": "Action required: Unlock Enterprise Pro features for you and your team",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cc49fb7eadaebe",
+      "from": "OpenAI <noreply@email.openai.com>",
+      "subject": "Introducing GPT-5.4",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cc48c6041306b0",
+      "from": "OpenAI <noreply@email.openai.com>",
+      "subject": "Updates to OpenAI’s Privacy Policy",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cc43cb939b6798",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "Magic Hour",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cc439d914cda1d",
+      "from": "Medium <hello@medium.com>",
+      "subject": "Product update: Profile activity tab. Choose what shows up.",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cc342e20ddcd54",
+      "from": "X <verify@x.com>",
+      "subject": "New login to X from ChromeDesktop on Mac",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cc303554956149",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The jobs report",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cc2a1da6df57c4",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Google President and Chief Investment Officer 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cc233f236dbbf7",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Claude님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cc231b05aecddf",
+      "from": "Apple <News@insideapple.apple.com>",
+      "subject": "(광고) 새롭게 선보이는 MacBook Neo, 신형 MacBook Air, MacBook Pro, Studio Display 그리고 완전히 새로운 Studio Display XDR.",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19cc20f824deed63",
+      "from": "OpenAI <noreply@tm.openai.com>",
+      "subject": "ChatGPT - 데이터 내보내기 준비를 마쳤습니다",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cc15bf8375fa87",
+      "from": "\"[엠브레인]\" <letter@panelpower.net>",
+      "subject": "[146973] 소비자 조사에 참여해 주세요. (소요시간 15분~19분, 적립금 1500원~1900원)",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_19",
+        "Label_2791961586691166355",
+        "Label_37",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cc0ea8e2b2959a",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "주용님, Product Growth의 Newsletter Author, Podcast Host - Aakash Gupta님을 팔로우하는 게 어떠세요?",
+      "matched_rules": [
+        "rule_social_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter",
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_20",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cc0b685afc4e3c",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "A sex therapist's secret to rediscovering your spark",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cc0a8c47fb67bd",
+      "from": "Shokz KR <website.kr@shokz.com>",
+      "subject": "샥즈 봄세일, 마감 임박",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19cc047bf0db1469",
+      "from": "Apple <News@insideapple.apple.com>",
+      "subject": "(광고) ⏰ 마지막 기회. Mac과 iPad 할인에, AirPods이나 액세서리까지.",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19cbfc84b12dac6e",
+      "from": "Law and Ethics in Tech <subscriptions@medium.com>",
+      "subject": "AI chaos: from robot assassins for military use and Meta’s spying glasses to hallucinating Police…",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbfc44a5b6a967",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "👋🏽 KIM  - here's your weekly community digest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbf96769978acc",
+      "from": "GitHub Education <githubeducation@github.com>",
+      "subject": "⚡ Red Bull, Hack Week & Teen Coding Legends",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbe6c03a8aba90",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "최근 검색에 표시됨",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cbe0158dd6122c",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 Manon M.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cbde48ff9f1264",
+      "from": "KIRD <kird@kird.re.kr>",
+      "subject": "[KIRD] 4월 전문교육 5개 과정 안내 및 참석협조 요청",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbddbc50fd63ea",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Your Iran questions",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbce8e0b21049f",
+      "from": "OpenAI <noreply@tm.openai.com>",
+      "subject": "ChatGPT - 데이터 내보내기가 시작되었습니다",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbccb763554ab6",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your two-factor authentication recovery codes were viewed",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cbcc9c1ea11be1",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your two-factor authentication recovery codes were viewed",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cbcc7ea19b875d",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] A passkey was added to your account",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cbc89028f3ce88",
+      "from": "google-cloud-compliance-noreply@google.com",
+      "subject": "Appeal Received: Your Google Cloud Project Gemini API (id: gen-lang-client-0888371524)",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc888cfff261f",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project my-project-35776auto-car has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc88780906d78",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project earnest-vine-383406 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc8857220fbc2",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project gen-lang-client-0607804785 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc882574af119",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project n8n-project-460304 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc880b1350320",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project charming-aegis-470208-u3 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc87e676b4010",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project auto-gpt-397510 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc8786f135a42",
+      "from": "Platform Notifications <PlatformNotifications-noreply@google.com>",
+      "subject": "Your project cobalt-matrix-435306-s2 has been shut down",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cbc6248fa75b9b",
+      "from": "\"지피터스 커뮤니티\" <support@gpters.org>",
+      "subject": "(광고) 이번주 무료 AI 웨비나를 확인해보세요",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_16",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cbb90a1e3a9a5f",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "Three ideas. Three contradictions. Or not.",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cbb7c73736873d",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 1.3만원으로 방콕 가실 분?✈️ 럭셔리 호캉스도 1.9만원부터❗️",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cbb47b030bfa67",
+      "from": "Apple <News@insideapple.apple.com>",
+      "subject": "(광고) 지금 새로운 iPhone 17e를 사전 주문하세요.",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19cbb0f8374e7ad7",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Your personal access token (classic) is about to expire",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED",
+        "UNREAD"
+      ]
+    },
+    {
+      "message_id": "19cbadb2e28ef733",
+      "from": "Apple Developer <developer@insideapple.apple.com>",
+      "subject": "Hello Developer: 2026년 3월",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cba278d8c3020e",
+      "from": "\"“Google AI Studio”\" <googleaistudio-noreply@google.com>",
+      "subject": " [조치 필요] 2026년 3월 9일 전에 Gemini 3.1 Pro 프리뷰로 마이그레이션하세요\n\n",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cb8b7cdf0cd6d5",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Goals of the war",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb7e74bc3ac131",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "김태영님을 추가하고 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cb7e139c17ede4",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19cb7a62f921725c",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_3955743712043589030",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cb7a5d59300aa9",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_3955743712043589030",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cb7a5931b3c245",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_3955743712043589030",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19cb6a8d2bd42511",
+      "from": "Google <no-reply@m.mail.coursera.org>",
+      "subject": "✨ New: The Google AI Professional Certificate | Gain the AI skills employers are looking for",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb68521aa9c671",
+      "from": "\"하나카드\" <hanacard@hanacard.co.kr>",
+      "subject": "[하나카드]김*용님의 2026년03월10일 이용대금명세서입니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "IMPORTANT",
+        "Label_21",
+        "Label_23",
+        "Label_2745683340563748230",
+        "Label_51"
+      ]
+    },
+    {
+      "message_id": "19cb66a753906846",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "How targeted ads might just save your life",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb6275b0a5fd35",
+      "from": "\"KB국민카드\" <cyberman@bill.kbcard.com>",
+      "subject": "(KB국민카드) 김*용님 2026년03월 명세서",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_21",
+        "Label_23"
+      ]
+    },
+    {
+      "message_id": "19cb609ee4d0c137",
+      "from": "\"(재)지관\" <platon@jigwan.org>",
+      "subject": " [VOL.230] 행복은 초콜릿 무게로 환산되지 않아요",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb3b339785641d",
+      "from": "British Museum <emails@britishmuseum.org>",
+      "subject": "Two must-see five-star exhibitions ✨",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb39dab7508d65",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 이용민",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cb3964c0d70b4a",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The midterms begin during war",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb32f1c841867f",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "💭 Microsoft에서 방금 게시했습니다. 지금 확인하세요.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cb1e1f8e8b41af",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"DBROOM\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19cb1b79357b896e",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고)  메가세일 스타트🎉항공권 3,300원부터 오사카 2박 3일 19만원까지!",
+      "matched_rules": [
+        "rule_travel",
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo",
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_17",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19cb136459dfc96b",
+      "from": "Shokz KR <website.kr@shokz.com>",
+      "subject": "봄바람 불어오면, 세일도 함께",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19cb10c1525c4f38",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19cb0f467fc6babf",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "💭 On aesthetic choices, experimenting & making things",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cb042466cedc43",
+      "from": "\"Trip.com\" <kr_flt_noreply@trip.com>",
+      "subject": "[트립닷컴] 항공편 운항 현황 추적 안내",
+      "matched_rules": [
+        "rule_travel"
+      ],
+      "intended_add_label_paths": [
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_17"
+      ]
+    },
+    {
+      "message_id": "19cae75fd102180e",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The war expands",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19cae0d50801d77d",
+      "from": "\"Trip.com\" <kr_flt_noreply@trip.com>",
+      "subject": "[트립닷컴] 항공편 운항 현황 추적 안내",
+      "matched_rules": [
+        "rule_travel"
+      ],
+      "intended_add_label_paths": [
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_17"
+      ]
+    },
+    {
+      "message_id": "19cad9b0dee89d9f",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "김태영님을 추가하고 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19cac17488209209",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 내일 11시🚨 티웨이항공✈️ 일본 왕복 3.3만원의 주인공은 누구❓",
+      "matched_rules": [
+        "rule_travel",
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo",
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_17",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19caa53396cc1679",
+      "from": "Google Payments <payments-noreply@google.com>",
+      "subject": "Google Cloud Platform & APIs: 결제 완료",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19ca97cca35a2bf3",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Killing Iran’s leader",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19ca717fde580ef0",
+      "from": "\"Marriott International, Inc. \" <marriottbonvoy@email-marriott.com>",
+      "subject": "Unlock insider access for all things Marriott Bonvoy",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19ca6f77eebf7d11",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "You are the bridge to the next generation",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19ca6bcb76be683f",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "검색 노출수: 2",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19ca58d3fdd10218",
+      "from": "\"Facebook 과거의 오늘\" <memories@facebookmail.com>",
+      "subject": "과거의 오늘 있었던 추억을 확인해보세요.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19ca433799f0538f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The U.S. and Israel strike Iran",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19ca3c3cfe7cf7a9",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 SEUNG HOON SHIN",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19ca34dd28e26733",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "이수정님을 추가하고 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19ca297cc21f0bfd",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] Claude is requesting updated permissions",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19ca204aac96b910",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "주용님, Google의 CEO - Sundar Pichai님을 팔로우하는 게 어떠세요?",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19ca1b8f89b7d726",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 슬슬 여행 예약할 준비해볼까요? 메가세일 항공권✈️3,300원부터!",
+      "matched_rules": [
+        "rule_travel",
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo",
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_17",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19ca053c22fd358e",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "How to Organize Your Files Better Than 99% of People",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c9eec0f8f8c2c2",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Lower birthrates",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9e967bdb53bb8",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "💭 Google에서 방금 게시했습니다. 지금 확인하세요.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c9caabbfc0eaa9",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "A librarian's case against overdue book fines",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9c98e602d0907",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 돌아온 멤버스데이⭐ 항공 최대 8만원 즉시 할인",
+      "matched_rules": [
+        "rule_travel",
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo",
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_17",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c9bc110d9dfc44",
+      "from": "Law and Ethics in Tech <subscriptions@medium.com>",
+      "subject": "Meta safety chief gets hacked by her own bot, OpenAI summoned after ignoring warning signs of mass…",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9bb8238a731f6",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "👋🏽 KIM  - here's your weekly community digest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9b3dcf2dc6c4e",
+      "from": "Notion Team <team@mail.notion.so>",
+      "subject": "Notion 비즈니스 체험판에 오신 것을 환영합니다!",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c9adec486b5274",
+      "from": "\"TED Conferences@LinkedIn\" <newsletters-noreply@linkedin.com>",
+      "subject": "How endings can actually help you grow",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9ab9d744be51b",
+      "from": "\"토스뱅크\" <no.reply@mail.tossbank.com>",
+      "subject": "[토스뱅크] 체크카드 해외 결제 수수료 면제 혜택 변경 안내",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18",
+        "Label_2745683340563748230"
+      ]
+    },
+    {
+      "message_id": "19c9aabe8f68cda0",
+      "from": "\"“Google AI Studio”\" <googleaistudio-noreply@google.com>",
+      "subject": "[Action Required] Migrate to Gemini 3.1 Pro Preview before March 9, 2026",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c9a5c2622fc293",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "검색 노출수: 2",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c99d768b11454d",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The economy is a feeling",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c997644abed713",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 Woo Hyung Choi님을 추가하세요. 공통 1촌이 1명 있습니다.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c9901321df7d26",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c9806939bac620",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"DBROOM2\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c97c51c3414ae2",
+      "from": "\"Joel @ ngrok\" <team@m.ngrok.com>",
+      "subject": "[ngrok news] I built a self-improving coding agent and here's what I learned",
+      "matched_rules": [
+        "rule_newsletter_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c97896dc6adace",
+      "from": "\"Trip.com\" <kr_flt_noreply@trip.com>",
+      "subject": "[트립닷컴] 항공편 운항 현황 추적 안내",
+      "matched_rules": [
+        "rule_travel"
+      ],
+      "intended_add_label_paths": [
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_17"
+      ]
+    },
+    {
+      "message_id": "19c97846947e29d3",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "A traditional job isn’t the only path to success",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9783897e5c23a",
+      "from": "Shokz KR <website.kr@shokz.com>",
+      "subject": "🌸다가오는 봄 세일, 미리 오픈된 사전 이벤트",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19c973ff883a9338",
+      "from": "\"현대해상\" <doumi@hi.co.kr>",
+      "subject": "[현대해상] 홈페이지 회원가입을 환영합니다.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c973aabbad7198",
+      "from": "\"현대해상\" <doumi@hi.co.kr>",
+      "subject": "다이렉트 해외여행보험 증권팩및약관",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_18",
+        "Label_5496977106424135274",
+        "Label_58",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c96ba78f33667f",
+      "from": "OpenAI <noreply@email.openai.com>",
+      "subject": "OpenAI Dev News: Codex app, tips from OpenAI devs",
+      "matched_rules": [
+        "rule_newsletter_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c95ab91e30a81b",
+      "from": "\"“Google AI Studio”\" <googleaistudio-noreply@google.com>",
+      "subject": " [알림] [조치 필요] 2026년 6월 1일 전에 최신 Gemini 모델로 마이그레이션하세요",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c94a943403df5d",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Political theater",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c949aa484b9bc2",
+      "from": "\"정부24\" <no-reply@gov.kr>",
+      "subject": "김주용님의 「정부24」민원이 처리되었습니다.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c92adfc72f5aa4",
+      "from": "\"한국전력공사\" <billing_info@kepco.co.kr>",
+      "subject": " 2026 년 02 월분 전기요금 청구서",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_21",
+        "Label_23",
+        "Label_3165362885396250472"
+      ]
+    },
+    {
+      "message_id": "19c925e24862c0dc",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "How your brain responds to stories -- and why they're crucial for leaders",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c9256b2b05d0a4",
+      "from": "\"굿윌스토어\" <no-reply@goodwillstore.org>",
+      "subject": "#50. 김주용님! 기증 전, '깨·가·정'만 기억하세요!",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c91fdc0b93303f",
+      "from": "\"재단법인 止觀\" <platon@jigwan.org>",
+      "subject": "💌 [VOL. 229] 이야기는 시선에서 시작된다 ",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c91e3756036bfe",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 완벽한 시안 여행 준비하기",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19c90f0969f6ecea",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "속도 빠른 LinkedIn 앱",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c90c2ca0105137",
+      "from": "juyong kim <notifications@github.com>",
+      "subject": "[River-181/Excaildraw-MCP] Run failed: Docker Build & Push - main (555db7b)",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c8f814435b2b2b",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 Tatsuhiko (Tako) Suzuki",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c8f7f60d462c21",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Your tariff questions",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c8f2bfc67207cc",
+      "from": "\"Google 지도\" <google-maps-noreply@google.com>",
+      "subject": "Google 지도에 올려주신 사진을 많은 사람들이 보고 있습니다",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c8f1bcb039b5ba",
+      "from": "GNU Newsletter <newsletter@gnu.ac.kr>",
+      "subject": "경상국립대학교 뉴스레터 | GNU ON 제377호",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20",
+        "Label_2286395294445008921",
+        "Label_29",
+        "Label_30",
+        "Label_479244036564134563"
+      ]
+    },
+    {
+      "message_id": "19c8ee03466493d5",
+      "from": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "subject": "Your receipt from Anthropic, PBC #2504-8027-3137",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23"
+      ]
+    },
+    {
+      "message_id": "19c8e4a6e0c9ba5e",
+      "from": "\"지피터스 커뮤니티\" <support@gpters.org>",
+      "subject": "(광고) 바이브코딩 스터디 주제가 최초 공개됐어요!",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_16",
+        "Label_19",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c8e1bc9da4561e",
+      "from": "info@raindrop.io",
+      "subject": "Export File Created",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c8dd5e10222f4a",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "matched_rules": [
+        "rule_cnu_otp"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT"
+      ],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_78"
+      ]
+    },
+    {
+      "message_id": "19c8d660c6724e30",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "💭 On longing, brain rot & expectations",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c8ae88d897a7db",
+      "from": "\"토스페이먼츠\" <bill@bill-mail.tosspayments.com>",
+      "subject": "-님, 주식회사와이드모바일에서 결제한 내역이 도착했어요.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23"
+      ]
+    },
+    {
+      "message_id": "19c8a6e7865ebe2c",
+      "from": "\"Trip.com\" <KR_FLIGHT@trip.com>",
+      "subject": "[트립닷컴] 예약 항공권 전자 영수증",
+      "matched_rules": [
+        "rule_travel"
+      ],
+      "intended_add_label_paths": [
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_17",
+        "Label_5496977106424135274",
+        "Label_58"
+      ]
+    },
+    {
+      "message_id": "19c8a6e0b4271e32",
+      "from": "\"Trip.com\" <KR_FLIGHT@trip.com>",
+      "subject": "전자항공권",
+      "matched_rules": [
+        "rule_travel"
+      ],
+      "intended_add_label_paths": [
+        "@CTX/Travel"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_17",
+        "Label_5496977106424135274",
+        "Label_58"
+      ]
+    },
+    {
+      "message_id": "19c8a6040757263f",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: The next conflict",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c8a4d3492bca1b",
+      "from": "Google <no-reply@google.com>",
+      "subject": "주용님, Google 계정 설정을 확인해 주세요",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c8a4c6b0564904",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c8a4c447c03215",
+      "from": "Google <no-reply@accounts.google.com>",
+      "subject": "보안 알림",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_3955743712043589030",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c8a4a0fd5cc890",
+      "from": "Instagram <security@mail.instagram.com>",
+      "subject": "New login to Instagram from Safari on Mac OS X",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c8a05d2d0c3bac",
+      "from": "\"삼성계정\" <sa.noreply@samsung-mail.com>",
+      "subject": "삼성계정에 새로 로그인",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c89fc1e0b3203d",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Google President and Chief Investment Officer 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c898feb2d848db",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c855a5b60e9299",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: You can bet on it",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c85575bbc73a10",
+      "from": "Instagram <security@mail.instagram.com>",
+      "subject": "New login to Instagram from Chrome on Mac OS X",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c82ebc533a11a0",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "What is deep tech? A look at how it could shape the future",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c82b04cb850934",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "회원님이 검색 1건에서 인기",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c801d15985d6b3",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 김성호님을 추가하세요. 공통 1촌이 1명 있습니다.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c8009f98d64ca0",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Future perfect",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c7f41625b77ee9",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c7e0a2153f1383",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"RIVER_181\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c7b99fcd50790e",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "The Linking Your Thinking Manifesto on AI",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c7ae31de19aaad",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: A royal arrest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c7a88e12fe826b",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "LinkedIn Chief Executive Officer 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c79d2348296a51",
+      "from": "\"삼성계정\" <sa.noreply@samsung-mail.com>",
+      "subject": "삼성계정에 새로 로그인",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c79cca66ebd995",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "Password Changed",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c79cbdce214f9f",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "Reset password instructions",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c79c98526df2e2",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "matched_rules": [
+        "rule_cnu_otp"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT"
+      ],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_78"
+      ]
+    },
+    {
+      "message_id": "19c79bb390994b8e",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "matched_rules": [
+        "rule_cnu_otp"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT"
+      ],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_78"
+      ]
+    },
+    {
+      "message_id": "19c79725668553b6",
+      "from": "\"알파컷\" <hello@getalphacut.com>",
+      "subject": "[알파컷 업데이트] 🚀 주제 기획부터 썸네일, 대본까지 알아서 척척! 역대급 신기능 '알파토픽' 출시",
+      "matched_rules": [
+        "rule_newsletter_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c794adce18b0e3",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"DBROOM\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c78ee0c35e9543",
+      "from": "\"다이소몰\" <daisomall_official@daiso.co.kr>",
+      "subject": "다이소 멤버십 포인트 소멸 예정 안내",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19c78d175013f4b1",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "주용님, Advanced Machine Intelligence - AMI Labs의 Executive Chairman - Yann LeCun님을 팔로우하는 게 어떠세요?",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c789e39df35064",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "We don't \"move on\" from grief. We move forward with it",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c789428f87a5fb",
+      "from": "Law and Ethics in Tech <subscriptions@medium.com>",
+      "subject": "TikTok invisibly tracking you even if you don’t have the App, Meta using AI to resurrect the dead…",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c7867856119ae2",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "충남대학교 심리학과 학생회 WorkSpace에서 심리학과 학생회이 업데이트했습니다",
+      "matched_rules": [
+        "rule_newsletter_subject_guard",
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter",
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_18",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c77b6cf14372c0",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "👋🏽 KIM  - here's your weekly community digest",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c7642470950aad",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 Seonggeun Byeon (변성근)님을 추가하세요. 공통 1촌이 1명 있습니다.",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c75d9ece528fc5",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 31. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c75d8326225b17",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 31. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c75d1449a1820d",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "회원님이 검색 1건에서 인기",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c75c4314173811",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 31. 디스코드 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c75ba8f1e8c00d",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Trump’s new diplomacy",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c74f56f0b93ffa",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c74bf14be44d30",
+      "from": "\"Trip.com\" <Trip.com@newsletter.trip.com>",
+      "subject": "(광고) 일주일 후면 꿈꾸던 시안",
+      "matched_rules": [
+        "rule_promo"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Promo"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_19"
+      ]
+    },
+    {
+      "message_id": "19c744acf7912970",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19c7446faa028037",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19c7446fa1870714",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19c73761ba72cfcc",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "Let's put birth control back on the agenda",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c731e3b0bd2a9f",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "Custom Agent templates are here 🎉",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c71f7af989270d",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "[Ideaverse Lite] Notemaking & Mapmaking (6 of 6)",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c71e10fc1c4a08",
+      "from": "\"“Google AI Studio”\" <googleaistudio-noreply@google.com>",
+      "subject": "[Reminder] [Action Required] Migrate to a newer Gemini model before Jun 1, 2026",
+      "matched_rules": [
+        "rule_google_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c71c0246ee8509",
+      "from": "Tavus Team <hello@tavus.io>",
+      "subject": "Phoenix-4 is here: real-time AI human rendering with true emotional intelligence",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PROMOTIONS",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c7091c8c9a0731",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Remembering an icon",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c703c15e3dd75b",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Microsoft Executive Vice President, Microsoft Security 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c6e51d025e2be0",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "What we didn't know about penis anatomy",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c6cd049cdf805d",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "[Ideaverse Lite] How Linking Your Thinking Works (5 of 6)",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c6b83d8e176b30",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "💬 허주원",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c6b62ce832675d",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Reporting on Epstein",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c6b58bd7af2176",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c6acb9fa53a135",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c68d9edce7a4df",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "💭 On intimacy, that thing you loved & waiting for something to happen",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c67a610253c438",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "[Ideaverse Lite] How to Manage Your Efforts (4 of 6)",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c666c09df0776f",
+      "from": "Apple <no_reply@email.apple.com>",
+      "subject": "Apple에서 발행한 영수증입니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_21",
+        "Label_23",
+        "Label_5485476022262625318"
+      ]
+    },
+    {
+      "message_id": "19c66394615daf98",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: What Pelicot survived",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c65efcb5c2cb9a",
+      "from": "LinkedIn <updates-noreply@linkedin.com>",
+      "subject": "Microsoft Executive Vice President, Microsoft Security 님이 최근에 게시함",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c64e690af2dfb2",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "matched_rules": [
+        "rule_sys_security"
+      ],
+      "intended_add_label_paths": [
+        "@SYS/Security"
+      ],
+      "intended_add_system_labels": [
+        "IMPORTANT",
+        "STARRED"
+      ],
+      "intended_remove_labels": [],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "INBOX",
+        "Label_78",
+        "STARRED"
+      ]
+    },
+    {
+      "message_id": "19c636a763f57b5b",
+      "from": "Claude Team <no-reply@email.claude.com>",
+      "subject": "Welcome to the Claude Developer Platform",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_15",
+        "Label_18",
+        "Label_63"
+      ]
+    },
+    {
+      "message_id": "19c6338ae1f5e7f6",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "충남대학교 심리학과 학생회 WorkSpace에서 심리학과 학생회이 업데이트했습니다",
+      "matched_rules": [
+        "rule_newsletter_subject_guard",
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter",
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_18",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c62dfd8f1ce833",
+      "from": "\"네이버페이\" <naverpayadmin_noreply@navercorp.com>",
+      "subject": "[네이버페이] 결제하신 내역을 안내해드립니다.",
+      "matched_rules": [
+        "rule_receipt"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Receipt",
+        "@CTX/Finance"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_21",
+        "Label_23",
+        "Label_65",
+        "Label_9051570227045818593"
+      ]
+    },
+    {
+      "message_id": "19c627eb93bd3fa3",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "[Ideaverse Lite] ACE in the Home Note (3 of 6)",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61",
+        "STARRED",
+        "YELLOW_STAR"
+      ]
+    },
+    {
+      "message_id": "19c614dda3d0132a",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: Everybody’s mom",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c605b210646c87",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Hwogeun Park님의 게시물과 다음 단계를 확인하세요",
+      "matched_rules": [
+        "rule_social_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_SOCIAL",
+        "Label_22"
+      ]
+    },
+    {
+      "message_id": "19c5f0c2f7c18d1c",
+      "from": "dbtools-apexext-noreply@oracleapex.com",
+      "subject": "Warning! Your workspace \"DBROOM2\" is about to be purged.",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "IMPORTANT",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c5edec2e6a71b7",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "The beautiful tricks of flowers",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_20"
+      ]
+    },
+    {
+      "message_id": "19c5d56f6e276fef",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "[Ideaverse Lite] The Headspace of ACE (2 of 6)",
+      "matched_rules": [
+        "rule_newsletter_from"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Newsletter"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_16",
+        "Label_20",
+        "Label_61"
+      ]
+    },
+    {
+      "message_id": "19c5d3a198c827e9",
+      "from": "info@raindrop.io",
+      "subject": "Bookmarks imported successfully",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c5d12de68f969d",
+      "from": "info@raindrop.io",
+      "subject": "Export File Created",
+      "matched_rules": [
+        "rule_notification"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Notification"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_UPDATES",
+        "Label_18"
+      ]
+    },
+    {
+      "message_id": "19c5cb5cf4ae24f1",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "심리학과 학생회님이 30. 오프라인 미팅에서 나를 멘션했습니다.",
+      "matched_rules": [
+        "rule_social_subject_guard"
+      ],
+      "intended_add_label_paths": [
+        "@AUTO/Social"
+      ],
+      "intended_add_system_labels": [],
+      "intended_remove_labels": [
+        "INBOX",
+        "UNREAD"
+      ],
+      "current_label_ids": [
+        "CATEGORY_PERSONAL",
+        "IMPORTANT",
+        "Label_22"
+      ]
+    }
+  ]
+}

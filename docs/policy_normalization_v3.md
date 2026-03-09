@@ -5,8 +5,8 @@
 ## 1) 적용 원칙
 - 이 문서는 Phase 2 종료 시점을 위한 정규화 기준이자 변경 불가 동결본이다.
 - 실행은 다음 phase에서 plan-only 검증 후에만 허용한다.
-- 라벨 수는 `14개`, 상한은 `15개`(변경 불가).
-- 필터 수는 `13개`로 고정한다(구현본 기준).
+- 라벨 수는 `15개`, 상한은 `15개`(변경 불가).
+- 필터 수는 `15개`로 고정한다.
 - OpenClaw/외부 자동화 실행은 Phase 3+로 이동한다.
 - 정합성 검증은 스키마 + 결정 규칙 + 충돌 정책이 모두 통과한 경우만 통과로 본다.
 
@@ -28,6 +28,7 @@
 | AUTO | `@AUTO/Notification` | `auto_notification` | AUTO | `rule_notification`, `rule_google_notification` |
 | AUTO | `@AUTO/Social` | `auto_social` | AUTO | `rule_social_from`, `rule_social_subject_guard` |
 | AUTO | `@AUTO/Promo` | `auto_promo` | AUTO | `rule_promo` |
+| AUTO | `@AUTO/TrashCandidate` | `auto_trash_candidate` | AUTO | `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard` |
 | SYS | `@SYS/Security` | `sys_security` | SYS | `rule_sys_security`, `rule_cnu_otp` |
 
 ### 2-2. 스키마 제약(필수)
@@ -46,18 +47,20 @@
 
 ### 3-1. ID, 우선순위
 1. `rule_sys_security` (priority 10)
-2. `rule_cnu_otp` (20)
-3. `rule_cnu_student` (30)
-4. `rule_cnu_notice` (40)
-5. `rule_receipt` (50)
-6. `rule_travel` (60)
-7. `rule_social_from` (70)
-8. `rule_social_subject_guard` (71)
-9. `rule_promo` (80)
-10. `rule_newsletter_from` (90)
-11. `rule_newsletter_subject_guard` (91)
-12. `rule_google_notification` (95)
-13. `rule_notification` (99)
+2. `rule_cnu_student` (30)
+3. `rule_cnu_notice` (40)
+4. `rule_receipt` (50)
+5. `rule_travel` (60)
+6. `rule_social_from` (70)
+7. `rule_social_subject_guard` (71)
+8. `rule_trash_candidate_sender` (75)
+9. `rule_trash_candidate_subject_guard` (76)
+10. `rule_promo` (80)
+11. `rule_newsletter_from` (90)
+12. `rule_newsletter_subject_guard` (91)
+13. `rule_google_notification` (95)
+14. `rule_notification` (99)
+15. `rule_cnu_otp` (100)
 
 ### 3-2. 필수 형식
 - `from_patterns` 또는 `subject_patterns`는 최소 1개 이상.
@@ -68,6 +71,7 @@
 ### 3-3. 충돌 후보 정합
 - `cnu_scope`: `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp`
 - `social_group`: `rule_social_from`, `rule_social_subject_guard`
+- `bulk_disposition_group`: `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard`, `rule_promo`, `rule_newsletter_from`, `rule_newsletter_subject_guard`
 - `news_group`: `rule_newsletter_from`, `rule_newsletter_subject_guard`
 - `notification_group`: `rule_google_notification`, `rule_notification`
 
@@ -85,13 +89,14 @@
 
 ## 5) 고정 운영 규칙
 1. `@SYS/Security`은 상시 보존 라벨로 취급.
-2. 수동 상태 라벨(`@GTD/*`)은 시스템 자동규칙이 오버라이트하지 않는다.
-3. `skip_inbox=true` + `star=true` 조합은 허용한다.
-4. Phase2 산출물 외 임시 라벨/필터 규칙(`rule_gtd_state_apply` 등) 추가 금지.
-5. 라벨/필터 변경은 plan-only + 리뷰 승인 없이는 반영하지 않는다.
+2. `@AUTO/TrashCandidate`는 즉시 삭제가 아니라 보존 후 삭제 후보 라벨로 취급.
+3. 수동 상태 라벨(`@GTD/*`)은 시스템 자동규칙이 오버라이트하지 않는다.
+4. `skip_inbox=true` + `star=true` 조합은 허용한다.
+5. direct `apply-batch`는 유지하되 운영 기본경로는 `snapshot -> apply-snapshot -> trash-commit`으로 고정한다.
+6. 라벨/필터 변경은 plan-only + 리뷰 승인 없이는 반영하지 않는다.
 
 ## 6) 변경금지 체크리스트
-- 14개 라벨/12개 필터 고정
+- 15개 라벨/15개 필터 고정
 - priority 체인 및 그룹 충돌 규칙 고정
 - source_rule_ref 정합성 고정
 - 스키마/문서 일치 상태에서만 상위 phase 진입

@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "counts": {
+    "all_mail": 11402,
+    "inbox": 9664,
+    "has_nouserlabels": 7120,
+    "has_userlabels": 4257,
+    "trash_candidate": 167,
+    "auto_social": 389,
+    "auto_newsletter": 195,
+    "auto_notification": 51,
+    "auto_promo": 27
+  }
+}

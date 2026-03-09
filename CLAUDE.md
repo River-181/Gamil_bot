@@ -2,7 +2,7 @@
 
 ## 1) Workspace 운영 원칙
 - 이 워크스페이스는 `gmail-agent-sys` 오케스트레이션의 기준 문서 집합이다.
-- 현재 단계는 **학습/준비(설계·구현 미실행)**이며, 외부 자동화(OpenClaw, Zapier, 웹훅 기반 자동전송)는 아직 연결하지 않는다.
+- 현재 단계는 **구성/운영 혼합 단계**로, 외부 자동화(OpenClaw, Zapier, 웹훅 기반 자동전송)는 아직 연결하지 않는다.
 - Gmail 계정은 사용자 단일 계정 기준(`chany010713@gmail.com`) 정책을 기본으로 하며, 다중 계정은 2차 단계에서 확장한다.
 
 ## 2) 기본 목표
@@ -14,10 +14,14 @@
 - 구현은 다음 페이즈에서 시작한다.
 
 ## 3) 제약
-- 실 API 호출은 지금 단계에서 수행하지 않는다.
+- 실 API 호출은 승인 기반 run만 수행한다.
 - 토큰/비밀번호/클라이언트 시크릿 본문 노출 금지.
 - 실행 시 토큰은 사용자 홈 영역 로컬 credential store 또는 환경 변수로만 관리한다.
 - 외부 자동화 호출은 `plan-only` 또는 문서 템플릿 수준에서만 기술한다.
+
+## 7) Phase 9 특이 규칙
+- 레거시 라벨 대량 전환은 `--archive-migrate`와 `--archive-rollback`로 진행한다.
+- 기본 원칙: 기존 라벨 삭제 없이 Shadow Archive 라벨만 추가하고, 필요 시 즉시 rollback을 허용한다.
 
 ## 4) 우선순위
 1. 보안 및 개인 정보 보호
@@ -38,4 +42,3 @@
 - `config/labels.v3.json`
 - `config/filters.v3.json`
 - `personas/gmail-consultant.md`
-
