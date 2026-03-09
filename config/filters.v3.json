@@ -593,7 +593,10 @@
       "enabled": true,
       "from_patterns": [
         "no-reply@google.com",
-        "noreply@google.com"
+        "noreply@google.com",
+        "CloudPlatform-noreply@google.com",
+        "googleplay-noreply@google.com",
+        "googleaistudio-noreply@google.com"
       ],
       "exclude_patterns": [
         "login",
@@ -601,7 +604,10 @@
         "보안",
         "새로 로그인",
         "security",
-        "인증"
+        "인증",
+        "Action Advised",
+        "credential",
+        "공유 요청"
       ],
       "actions": {
         "apply_labels": [

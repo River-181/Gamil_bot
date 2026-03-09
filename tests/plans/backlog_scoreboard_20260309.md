@@ -2,9 +2,9 @@
 
 ## Baseline
 - `all_mail`: `11,410`
-- `inbox`: `9,202`
-- `has:nouserlabels`: `6,654`
-- `has:userlabels`: `4,573`
+- `inbox`: `9,172`
+- `has:nouserlabels`: `6,624`
+- `has:userlabels`: `4,603`
 - `trash_candidate`: `0`
 - `trash_candidate_older_than_14d`: `0`
 
