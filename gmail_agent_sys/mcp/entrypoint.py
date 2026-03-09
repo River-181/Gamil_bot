@@ -782,8 +782,13 @@ def _build_phase10_candidates(
         raise ValueError("minimum window must be smaller than maximum window")
     primary_query = _build_time_window_query(days, min_days, require_no_user_labels=True)
     fallback_query = _build_time_window_query(days, min_days, require_no_user_labels=False)
-    list_max = min(600, max(250, apply_limit * 3))
-    per_query_cap = max(25, min(80, apply_limit))
+    targeted_mode = bool(selected_rule_id_set)
+    if targeted_mode:
+        list_max = min(240, max(60, apply_limit * 2))
+        per_query_cap = max(15, min(40, apply_limit))
+    else:
+        list_max = min(600, max(250, apply_limit * 3))
+        per_query_cap = max(25, min(80, apply_limit))
     query_sequence: List[str] = []
     message_ids: List[str] = []
     seen_message_ids = set()
@@ -803,17 +808,18 @@ def _build_phase10_candidates(
         if len(message_ids) >= list_max:
             break
 
-    for query_part in [primary_query, fallback_query]:
-        if len(message_ids) >= list_max:
-            break
-        query_sequence.append(query_part)
-        for message_id in _gmail_list_messages(token_data, query=query_part, max_total=list_max):
-            if message_id in seen_message_ids:
-                continue
-            seen_message_ids.add(message_id)
-            message_ids.append(message_id)
+    if not targeted_mode:
+        for query_part in [primary_query, fallback_query]:
             if len(message_ids) >= list_max:
                 break
+            query_sequence.append(query_part)
+            for message_id in _gmail_list_messages(token_data, query=query_part, max_total=list_max):
+                if message_id in seen_message_ids:
+                    continue
+                seen_message_ids.add(message_id)
+                message_ids.append(message_id)
+                if len(message_ids) >= list_max:
+                    break
 
     candidate_messages = []
     protected_skips = []
