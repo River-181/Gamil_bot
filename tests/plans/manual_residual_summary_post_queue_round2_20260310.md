@@ -1,0 +1,45 @@
+# manual_residual summary (post queue round2)
+
+- sample_size: 100
+- top_domains:
+  - cnu.ac.kr: 9
+  - trx.mail2.disneyplus.com: 6
+  - naver.com: 4
+  - makenotion.com: 4
+  - ted.com: 4
+  - service.paypal.com: 3
+  - kyobobook.com: 3
+  - megazone.com: 3
+  - google.com: 3
+  - jigwan.org: 3
+  - dongwon.mil.kr: 2
+  - email.claude.com: 2
+  - jigwanseoga.org: 2
+  - tm.openai.com: 2
+  - supabase.com: 2
+  - testsprite.com: 2
+  - hanacard.co.kr: 2
+  - britishmuseum.org: 2
+  - linkingyourthinking.com: 2
+  - bill.kbcard.com: 1
+- top_senders:
+  - "Disney+" <disneyplus@trx.mail2.disneyplus.com>: 6
+  - cnuportal@cnu.ac.kr: 4
+  - TED Recommends <recommends@ted.com>: 4
+  - PayPal <noreply@service.paypal.com>: 3
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - Megazone <pops@megazone.com>: 3
+  - "국방부" <master@dongwon.mil.kr>: 2
+  - Claude Team <no-reply@email.claude.com>: 2
+  - Notion Template Creator Newsletter <templates@makenotion.com>: 2
+  - "재단법인 止觀" <jigwan@jigwanseoga.org>: 2
+  - noreply@tm.openai.com: 2
+  - Ant at Supabase <ant.wilson@supabase.com>: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2
+  - British Museum <emails@britishmuseum.org>: 2
+  - "재단법인 止觀" <platon@jigwan.org>: 2
+  - "교수학습지원센터" <cnuctl@cnu.ac.kr>: 2
+  - "KB국민카드" <cyberman@bill.kbcard.com>: 1
+  - The New York Times <nytdirect@nytimes.com>: 1
+  - mymind <updates@mymind.email>: 1

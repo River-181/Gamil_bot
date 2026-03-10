@@ -19,6 +19,7 @@
         "noreply@tm1.openai.com",
         "pops@megazone.com",
         "sa.noreply@samsung-mail.com",
+        "disneyplus@trx.mail2.disneyplus.com",
         "mail@29cm.co.kr",
         "norply@visitkorea.or.kr"
       ],
@@ -164,6 +165,7 @@
         "정산",
         "청구서",
         "invoice",
+        "statement",
         "환불 요청 접수 확인"
       ],
       "actions": {
@@ -547,7 +549,8 @@
         "hello@tavus.io",
         "no-reply@m.mail.coursera.org",
         "emails@britishmuseum.org",
-        "newsletters-noreply@linkedin.com"
+        "newsletters-noreply@linkedin.com",
+        "templates@makenotion.com"
       ],
       "actions": {
         "apply_labels": [
@@ -744,6 +747,7 @@
         "no-reply@nol-universe.com",
         "memories@facebookmail.com",
         "noreply@developers.facebook.com",
+        "disneyplus@trx.mail2.disneyplus.com",
         "discover@airbnb.com",
         "mail@29cm.co.kr",
         "norply@visitkorea.or.kr",
@@ -781,6 +785,8 @@
         "purged",
         "welcome",
         "가입을 환영합니다",
+        "환영",
+        "작별",
         "회원가입",
         "처리되었습니다",
         "혜택 변경 안내",

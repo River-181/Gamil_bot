@@ -1,0 +1,652 @@
+{
+  "generated_at": "2026-03-10T14:21:04.044373Z",
+  "summary": {
+    "sample_size": 100,
+    "top_domains": {
+      "cnu.ac.kr": 9,
+      "trx.mail2.disneyplus.com": 6,
+      "naver.com": 4,
+      "makenotion.com": 4,
+      "ted.com": 4,
+      "service.paypal.com": 3,
+      "kyobobook.com": 3,
+      "megazone.com": 3,
+      "google.com": 3,
+      "jigwan.org": 3,
+      "dongwon.mil.kr": 2,
+      "email.claude.com": 2,
+      "jigwanseoga.org": 2,
+      "tm.openai.com": 2,
+      "supabase.com": 2,
+      "testsprite.com": 2,
+      "hanacard.co.kr": 2,
+      "britishmuseum.org": 2,
+      "linkingyourthinking.com": 2,
+      "bill.kbcard.com": 1
+    },
+    "top_senders": {
+      "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>": 6,
+      "cnuportal@cnu.ac.kr": 4,
+      "TED Recommends <recommends@ted.com>": 4,
+      "PayPal <noreply@service.paypal.com>": 3,
+      "\"교보문고\" <noreply@kyobobook.com>": 3,
+      "\"글로컬상권 윙윙\" <djglocal25@naver.com>": 3,
+      "Megazone <pops@megazone.com>": 3,
+      "\"국방부\" <master@dongwon.mil.kr>": 2,
+      "Claude Team <no-reply@email.claude.com>": 2,
+      "Notion Template Creator Newsletter <templates@makenotion.com>": 2,
+      "\"재단법인 止觀\" <jigwan@jigwanseoga.org>": 2,
+      "noreply@tm.openai.com": 2,
+      "Ant at Supabase <ant.wilson@supabase.com>": 2,
+      "\"하나카드\" <no-reply@hanacard.co.kr>": 2,
+      "British Museum <emails@britishmuseum.org>": 2,
+      "\"재단법인 止觀\" <platon@jigwan.org>": 2,
+      "\"교수학습지원센터\" <cnuctl@cnu.ac.kr>": 2,
+      "\"KB국민카드\" <cyberman@bill.kbcard.com>": 1,
+      "The New York Times <nytdirect@nytimes.com>": 1,
+      "mymind <updates@mymind.email>": 1
+    }
+  },
+  "messages": [
+    {
+      "id": "19cd7f7cda83bd46",
+      "from": "PayPal <noreply@service.paypal.com>",
+      "subject": "Here’s your February account statement",
+      "domain": "service.paypal.com"
+    },
+    {
+      "id": "19cd79cc71593816",
+      "from": "\"KB국민카드\" <cyberman@bill.kbcard.com>",
+      "subject": "(KB국민카드) 김*용님 2026년02월 KB국민체크카드 내역서",
+      "domain": "bill.kbcard.com"
+    },
+    {
+      "id": "19cd758a7123dc73",
+      "from": "The New York Times <nytdirect@nytimes.com>",
+      "subject": "The Morning: War and the economy",
+      "domain": "nytimes.com"
+    },
+    {
+      "id": "19cd4b2c5d59de73",
+      "from": "mymind <updates@mymind.email>",
+      "subject": "On organic shapes, dying & achieving goals",
+      "domain": "mymind.email"
+    },
+    {
+      "id": "19cd17f13282780b",
+      "from": "factchat@mindlogic.ai",
+      "subject": "[충남대학교] SSO 가입이 완료되었습니다.",
+      "domain": "mindlogic.ai"
+    },
+    {
+      "id": "19ccddbf3ff36f46",
+      "from": "Facebook <security@facebookmail.com>",
+      "subject": "방금 홍성 근처에서 새로운 기기로 로그인하셨나요?",
+      "domain": "facebookmail.com"
+    },
+    {
+      "id": "19cb9780a41acad1",
+      "from": "Marie at Tally <marie@tally.so>",
+      "subject": "Conditional logic updates and other small wins",
+      "domain": "tally.so"
+    },
+    {
+      "id": "19cb26f365060951",
+      "from": "\"교보문고\" <no-reply@kyobobook.co.kr>",
+      "subject": "[교보문고] 이번 달 교보북클럽 회원등급이에요.",
+      "domain": "kyobobook.co.kr"
+    },
+    {
+      "id": "19c9c9c84cb7de7e",
+      "from": "\"국방부\" <master@dongwon.mil.kr>",
+      "subject": "예비군 전입 안내메일입니다.",
+      "domain": "dongwon.mil.kr"
+    },
+    {
+      "id": "19c8ef923a2a40c9",
+      "from": "\"오늘사진관\" <oneulst1@naver.com>",
+      "subject": "김주용님 사진 파일 보내드립니다 ^^",
+      "domain": "naver.com"
+    },
+    {
+      "id": "19c82c4abd611f2a",
+      "from": "UNiDAYS <no-reply@auth.myunidays.com>",
+      "subject": "UNiDAYS 비밀번호는 214101 입니다",
+      "domain": "auth.myunidays.com"
+    },
+    {
+      "id": "19c828b2eaa85305",
+      "from": "\"교보문고\" <noreply@kyobobook.com>",
+      "subject": "[교보문고] 통합포인트가 소멸될 예정입니다.",
+      "domain": "kyobobook.com"
+    },
+    {
+      "id": "19c7db62b21dbf76",
+      "from": "Claude Team <no-reply@email.claude.com>",
+      "subject": "New in Claude Code: Sonnet 4.6, desktop app upgrades, and more",
+      "domain": "email.claude.com"
+    },
+    {
+      "id": "19c7341e69668722",
+      "from": "Notion Template Creator Newsletter <templates@makenotion.com>",
+      "subject": "Custom Agent templates are here!",
+      "domain": "makenotion.com"
+    },
+    {
+      "id": "19c6df23b3291c90",
+      "from": "\"재단법인 止觀\" <jigwan@jigwanseoga.org>",
+      "subject": "[VOL.228] 다시 살아내는 이들의 계절",
+      "domain": "jigwanseoga.org"
+    },
+    {
+      "id": "19c6151e22ce5fec",
+      "from": "noreply@tm.openai.com",
+      "subject": "Your authentication code",
+      "domain": "tm.openai.com"
+    },
+    {
+      "id": "19c5cc2b0dcb93c7",
+      "from": "noreply@tm.openai.com",
+      "subject": "Your authentication code",
+      "domain": "tm.openai.com"
+    },
+    {
+      "id": "19c56f9acb566e43",
+      "from": "\"글로컬상권 윙윙\" <djglocal25@naver.com>",
+      "subject": "Re: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "domain": "naver.com"
+    },
+    {
+      "id": "19c56e92da00a789",
+      "from": "PayPal <noreply@service.paypal.com>",
+      "subject": "Here’s your January account statement",
+      "domain": "service.paypal.com"
+    },
+    {
+      "id": "19c5650c8e341ace",
+      "from": "Ubisoft <news@updates.ubisoft.com>",
+      "subject": "Update to our Terms of Use and Privacy Policy",
+      "domain": "updates.ubisoft.com"
+    },
+    {
+      "id": "19c56234d9237420",
+      "from": "Ant at Supabase <ant.wilson@supabase.com>",
+      "subject": "Supa Update February 2026",
+      "domain": "supabase.com"
+    },
+    {
+      "id": "19c54e53902d5346",
+      "from": "\"글로컬상권 윙윙\" <djglocal25@naver.com>",
+      "subject": "RE: [2026 장인학교 해커톤] 망상궤도 팀, 비교견적 및 계약 문의",
+      "domain": "naver.com"
+    },
+    {
+      "id": "19c529547ec35285",
+      "from": "Claude Team <no-reply@email.claude.com>",
+      "subject": "Tips to get the most out of Claude Code",
+      "domain": "email.claude.com"
+    },
+    {
+      "id": "19c51a601203f0b3",
+      "from": "\"Raindrop.io\" <info@raindrop.io>",
+      "subject": "New: AI Assistant — Ask your bookmarks anything",
+      "domain": "raindrop.io"
+    },
+    {
+      "id": "19c4f147d1fb99d0",
+      "from": "\"국방부\" <master@dongwon.mil.kr>",
+      "subject": "예비군 전입 안내메일입니다.",
+      "domain": "dongwon.mil.kr"
+    },
+    {
+      "id": "19c4ccb7b40d8866",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "비밀번호 재설정을 요청하셨습니다.",
+      "domain": "megazone.com"
+    },
+    {
+      "id": "19c4cca9d74a2a6b",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "김 주용님의 메가존 계정이 휴면 해제되었습니다.",
+      "domain": "megazone.com"
+    },
+    {
+      "id": "19c4cca0574c8fb2",
+      "from": "Megazone <pops@megazone.com>",
+      "subject": "비밀번호 재설정을 요청하셨습니다.",
+      "domain": "megazone.com"
+    },
+    {
+      "id": "19c4425ec31848e4",
+      "from": "OpenAI <noreply@tm1.openai.com>",
+      "subject": "Your authentication code",
+      "domain": "tm1.openai.com"
+    },
+    {
+      "id": "19c4407af606f57c",
+      "from": "\"주용 김\" <outlook_7A89390CA06E025E@outlook.com>",
+      "subject": "오프라인 미팅",
+      "domain": "outlook.com"
+    },
+    {
+      "id": "19c429d479e80332",
+      "from": "Microsoft Teams <no-reply@teams.mail.microsoft>",
+      "subject": "You have been added as a guest to 망상궤도 [복사본] in Microsoft Teams",
+      "domain": "teams.mail.microsoft"
+    },
+    {
+      "id": "19c4299095c7b217",
+      "from": "\"Microsoft 계정 팀\" <account-security-noreply@accountprotection.microsoft.com>",
+      "subject": "Microsoft 계정 보안 정보가 추가됨",
+      "domain": "accountprotection.microsoft.com"
+    },
+    {
+      "id": "19c42929ff7b0377",
+      "from": "Slack <feedback@slack.com>",
+      "subject": "새 기기에서의 Slack 계정 로그인",
+      "domain": "slack.com"
+    },
+    {
+      "id": "19c41b50d0316fc3",
+      "from": "GitHub <noreply@github.com>",
+      "subject": "[GitHub] A personal access token (classic) has been added to your account",
+      "domain": "github.com"
+    },
+    {
+      "id": "19c4165d8d5d6ddc",
+      "from": "contact@testsprite.com",
+      "subject": "Welcome to TestSprite 🚀 Your AI testing journey starts here",
+      "domain": "testsprite.com"
+    },
+    {
+      "id": "19c4165d83bf50b4",
+      "from": "TestSprite Info <info@testsprite.com>",
+      "subject": "Welcome to TestSprite — here’s your login password",
+      "domain": "testsprite.com"
+    },
+    {
+      "id": "19c415d4a35cf799",
+      "from": "Context7 <noreply@context7.com>",
+      "subject": "New device signed in to your Context7 account",
+      "domain": "context7.com"
+    },
+    {
+      "id": "19c4137e643c20e6",
+      "from": "Anthropic <no-reply-AZOiAPwiQRnpwWuA0C9jmA@mail.anthropic.com>",
+      "subject": "Welcome to the Pro plan",
+      "domain": "mail.anthropic.com"
+    },
+    {
+      "id": "19c3fb0023983e37",
+      "from": "\"글로컬상권 윙윙\" <djglocal25@naver.com>",
+      "subject": "Re: 장인학교 해커톤 대체과제 안내",
+      "domain": "naver.com"
+    },
+    {
+      "id": "19c3654882fac033",
+      "from": "Google Cloud <CloudPlatform-noreply@google.com>",
+      "subject": "[Action Advised] Review Google Cloud credential security best practices",
+      "domain": "google.com"
+    },
+    {
+      "id": "19c320b08c360810",
+      "from": "\"한국관광 데이터랩\" <norply@visitkorea.or.kr>",
+      "subject": "[한국관광 데이터랩] 아이디(이메일) 인증번호 입니다.",
+      "domain": "visitkorea.or.kr"
+    },
+    {
+      "id": "19c3124e07150e16",
+      "from": "\"하나카드\" <no-reply@hanacard.co.kr>",
+      "subject": "[하나카드] 유효기간 만료 안내",
+      "domain": "hanacard.co.kr"
+    },
+    {
+      "id": "19c27389cf4fb3b6",
+      "from": "\"Perplexity AI, Inc\" <billing@perplexity.ai>",
+      "subject": "고객 포털 로그인 링크",
+      "domain": "perplexity.ai"
+    },
+    {
+      "id": "19c2470f9b2a15b2",
+      "from": "British Museum <emails@britishmuseum.org>",
+      "subject": "★★★★★ 'Scintillating' | Samurai now open",
+      "domain": "britishmuseum.org"
+    },
+    {
+      "id": "19c1cabb088e7216",
+      "from": "29CM <mail@29cm.co.kr>",
+      "subject": "[29CM] 이메일 인증 안내 메일입니다.",
+      "domain": "29cm.co.kr"
+    },
+    {
+      "id": "19c15eebe31b0910",
+      "from": "\"교보문고\" <noreply@kyobobook.com>",
+      "subject": "[교보문고] 통합포인트가 소멸될 예정입니다.",
+      "domain": "kyobobook.com"
+    },
+    {
+      "id": "19c15675a8051330",
+      "from": "Tavus Team <hello@tavus.io>",
+      "subject": "What's new at Tavus: January 2026",
+      "domain": "tavus.io"
+    },
+    {
+      "id": "19c11a610d2f652f",
+      "from": "Figma <support+notifications@figma.com>",
+      "subject": "이제 '제목 없음' 파일을 편집할 수 있습니다",
+      "domain": "figma.com"
+    },
+    {
+      "id": "19c0f02a1363bfa4",
+      "from": "\"Brandon (Tempo Labs)\" <brandon@growth.tempo.new>",
+      "subject": "Tempo Labs - January Update",
+      "domain": "growth.tempo.new"
+    },
+    {
+      "id": "19c0bb763bc472a6",
+      "from": "\"교보문고\" <noreply@kyobobook.com>",
+      "subject": "[교보문고] 통합포인트가 소멸될 예정입니다.",
+      "domain": "kyobobook.com"
+    },
+    {
+      "id": "19c01cba476efddf",
+      "from": "\"재단법인 止觀\" <platon@jigwan.org>",
+      "subject": "💌 [VOL. 225] 그리고, 이어질 시간들",
+      "domain": "jigwan.org"
+    },
+    {
+      "id": "19c00a5b6c1e34e9",
+      "from": "\"김규종 (Google Drive에서 공유)\" <drive-shares-dm-noreply@google.com>",
+      "subject": "\"202412-202501_산티아고 순례길 영상 모음\"에 대한 공유 요청",
+      "domain": "google.com"
+    },
+    {
+      "id": "19bfe0acec187ae0",
+      "from": "Apple <noreply@email.apple.com>",
+      "subject": "Apple 계정이 웹 브라우저에서 iCloud에 로그인하는 데 사용되었습니다.",
+      "domain": "email.apple.com"
+    },
+    {
+      "id": "19bf50fa0cd93a68",
+      "from": "Notion Support <templates-inbox@makenotion.com>",
+      "subject": "[Notion] Re: 노션 온보딩 중단 오류",
+      "domain": "makenotion.com"
+    },
+    {
+      "id": "19bf50efb7b04ca8",
+      "from": "Notion Template Support <templates+noreply@makenotion.com>",
+      "subject": "Re: 노션 온보딩 중단 오류",
+      "domain": "makenotion.com"
+    },
+    {
+      "id": "19bef340efc44c4d",
+      "from": "\"정부24\" <no-reply@gov.kr>",
+      "subject": "김주용님의「정부24」민원에 접수증이 발송되었습니다.",
+      "domain": "gov.kr"
+    },
+    {
+      "id": "19bea2573854a56c",
+      "from": "Notion Team <notify@mail.notion.so>",
+      "subject": "Thank you for filling out “Well done.”",
+      "domain": "mail.notion.so"
+    },
+    {
+      "id": "19bea10be5d16fbe",
+      "from": "\"Notion Labs, Inc.\" <support@stripe.com>",
+      "subject": "Your Stripe account with Notion Labs, Inc. is now closed",
+      "domain": "stripe.com"
+    },
+    {
+      "id": "19be8dd2bb8581fb",
+      "from": "BAND <noreply@band.us>",
+      "subject": "[BAND] 밴드 광고성 정보 수신 동의 안내",
+      "domain": "band.us"
+    },
+    {
+      "id": "19be85fa3c3353e3",
+      "from": "\"교수학습지원센터\" <cnuctl@cnu.ac.kr>",
+      "subject": "CNU Learning Together 41호: 혼자서도 가능한 최고의 선생님",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19be61f13df15e91",
+      "from": "Nick Milo <hello@linkingyourthinking.com>",
+      "subject": "I’ve got a question for you",
+      "domain": "linkingyourthinking.com"
+    },
+    {
+      "id": "19be5efd450a1bf4",
+      "from": "\"Joel @ ngrok\" <team@m.ngrok.com>",
+      "subject": "[ngrok news] The year ngrok became one gateway for all your traffic",
+      "domain": "m.ngrok.com"
+    },
+    {
+      "id": "19be5453bc4a4bbb",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "아쉽지만 작별 인사를 드립니다",
+      "domain": "trx.mail2.disneyplus.com"
+    },
+    {
+      "id": "19be542fa8e3ab91",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "새로운 로그인 알림",
+      "domain": "trx.mail2.disneyplus.com"
+    },
+    {
+      "id": "19be51ff639248be",
+      "from": "Google <noreply@google.com>",
+      "subject": "Google 인증 코드",
+      "domain": "google.com"
+    },
+    {
+      "id": "19be36a09b759f8e",
+      "from": "\"KB국민은행\" <kbmail@kbmail.kbstar.com>",
+      "subject": "「KB국민인증서 서비스」 이용약관 변경 사전 안내",
+      "domain": "kbmail.kbstar.com"
+    },
+    {
+      "id": "19be03212fc78712",
+      "from": "Riot Games <noreply@mail.accounts.riotgames.com>",
+      "subject": "로그인 코드: 388109",
+      "domain": "mail.accounts.riotgames.com"
+    },
+    {
+      "id": "19bde2291d1fb658",
+      "from": "\"굿윌스토어\" <no-reply@goodwillstore.org>",
+      "subject": "#49. 김주용님 덕분에 만들어진 변화들",
+      "domain": "goodwillstore.org"
+    },
+    {
+      "id": "19bddbefea6d8ed2",
+      "from": "\"재단법인 止觀\" <jigwan@jigwanseoga.org>",
+      "subject": "[VOL.224] 익숙해진 1월에 고전을 펼치는 마음",
+      "domain": "jigwanseoga.org"
+    },
+    {
+      "id": "19bdc76d5773cd4d",
+      "from": "Dan from LYT <hello@linkingyourthinking.com>",
+      "subject": "Enrollment closes tomorrow—can I help you decide?",
+      "domain": "linkingyourthinking.com"
+    },
+    {
+      "id": "19bdbfb79099bdd5",
+      "from": "PayPal <noreply@service.paypal.com>",
+      "subject": "Here’s your December account statement",
+      "domain": "service.paypal.com"
+    },
+    {
+      "id": "19bd93fe2a9090cc",
+      "from": "Nike <nike@official.nike.com>",
+      "subject": "개인정보 이용 내역 통지 안내",
+      "domain": "official.nike.com"
+    },
+    {
+      "id": "19bd6bcd3567c87a",
+      "from": "LearnQuest <no-reply@m.mail.coursera.org>",
+      "subject": "Join Our Free Webinar: Generative AI for Business Leaders",
+      "domain": "m.mail.coursera.org"
+    },
+    {
+      "id": "19bd3f682c65c6c6",
+      "from": "\"하나카드\" <no-reply@hanacard.co.kr>",
+      "subject": "[하나카드] 보험 상품 안내",
+      "domain": "hanacard.co.kr"
+    },
+    {
+      "id": "19bc8e1dce55046f",
+      "from": "\"하나은행\" <hanamail@hanafn.com>",
+      "subject": "[하나은행] 금융거래 정보제공 사실 안내(오픈뱅킹)",
+      "domain": "hanafn.com"
+    },
+    {
+      "id": "19bc80e5d114ca15",
+      "from": "\"쿠팡\" <no_reply@coupang.com>",
+      "subject": "[쿠팡]_구매이용권 안내드립니다.",
+      "domain": "coupang.com"
+    },
+    {
+      "id": "19bc67f6046c15e7",
+      "from": "British Museum <emails@britishmuseum.org>",
+      "subject": "Now open | ★★★★★ Hawaiʻi: a kingdom crossing oceans 🌊",
+      "domain": "britishmuseum.org"
+    },
+    {
+      "id": "19bc46f01b005ab2",
+      "from": "Replit <contact@mail.replit.com>",
+      "subject": "Build your mobile app idea in minutes",
+      "domain": "mail.replit.com"
+    },
+    {
+      "id": "19bbf2727e6094b1",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19bb9b30f23a535f",
+      "from": "\"재단법인 止觀\" <platon@jigwan.org>",
+      "subject": "[VOL.223] 소곤 소곤 이야기가 있는 1월의 전시 소식",
+      "domain": "jigwan.org"
+    },
+    {
+      "id": "19bb68585b84c1b9",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19bb593743c0a7bd",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19bb1610eed5dbdf",
+      "from": "\"국제교류과\" <cnuint@cnu.ac.kr>",
+      "subject": "(메일)",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19bb06bf4309b3c4",
+      "from": "\"충남대학교도서관\" <lib6018@cnu.ac.kr>",
+      "subject": "[충남대학교도서관] 희망도서 신청 안내 (마감임박!)",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19bac1f5540e73f2",
+      "from": "cnuportal@cnu.ac.kr",
+      "subject": "임시 OTP",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19baaa00ea51085d",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "The strange politics of disgust",
+      "domain": "ted.com"
+    },
+    {
+      "id": "19ba0ebbde407180",
+      "from": "\"이마트\" <promotion@emart.com>",
+      "subject": "(공지) 김주용 고객님의 2026년 03월 소멸예정 포인트는 57P 입니다",
+      "domain": "emart.com"
+    },
+    {
+      "id": "19ba046729f6ec12",
+      "from": "\"교수학습지원센터\" <cnuctl@cnu.ac.kr>",
+      "subject": "CNU Learning Together 40호: AI는 답하지만, 의미는 내가 만든다 (AI 네이티브 시대)",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19b9f956c0099e8d",
+      "from": "Ant at Supabase <ant.wilson@supabase.com>",
+      "subject": "Supa Update January 2026",
+      "domain": "supabase.com"
+    },
+    {
+      "id": "19b9f0a2c5cfffa2",
+      "from": "Notion Community <no-reply@notification.circle.so>",
+      "subject": "Lower fees, higher earnings!",
+      "domain": "notification.circle.so"
+    },
+    {
+      "id": "19b9efa77b70b309",
+      "from": "Notion Template Creator Newsletter <templates@makenotion.com>",
+      "subject": "January Update: Lower Fees, Custom Agents and More!",
+      "domain": "makenotion.com"
+    },
+    {
+      "id": "19b9d1c7b2dcf657",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "Emergency shelters made from paper",
+      "domain": "ted.com"
+    },
+    {
+      "id": "19b9b2cd7eeb3bb2",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "An honest history of an ancient and \"nasty\" word",
+      "domain": "ted.com"
+    },
+    {
+      "id": "19b962f1490f819b",
+      "from": "\"충남대학교도서관\" <lib6023@cnu.ac.kr>",
+      "subject": "(메일)",
+      "domain": "cnu.ac.kr"
+    },
+    {
+      "id": "19b96067a95e4a56",
+      "from": "TED Recommends <recommends@ted.com>",
+      "subject": "Success, failure and the drive to keep creating",
+      "domain": "ted.com"
+    },
+    {
+      "id": "19b95a5fd04ccaa7",
+      "from": "\"(재)지관\" <platon@jigwan.org>",
+      "subject": " [VOL.222] 새해에는 죽어라 살지 않을래요",
+      "domain": "jigwan.org"
+    },
+    {
+      "id": "19b93bef019ace97",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "새로운 로그인 알림",
+      "domain": "trx.mail2.disneyplus.com"
+    },
+    {
+      "id": "19b93bc590f65b1b",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "디즈니+에 오신 걸 환영합니다",
+      "domain": "trx.mail2.disneyplus.com"
+    },
+    {
+      "id": "19b93b6e3b7cdf49",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "MyDisney에 오신 것을 환영합니다",
+      "domain": "trx.mail2.disneyplus.com"
+    },
+    {
+      "id": "19b93b6de6e4dbf9",
+      "from": "\"Disney+\" <disneyplus@trx.mail2.disneyplus.com>",
+      "subject": "We noticed a new login",
+      "domain": "trx.mail2.disneyplus.com"
+    }
+  ]
+}
