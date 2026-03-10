@@ -2,9 +2,9 @@
 
 ## Baseline
 - `all_mail`: `11,419`
-- `inbox`: `8,903`
-- `has:nouserlabels`: `6,354`
-- `has:userlabels`: `4,882`
+- `inbox`: `8,873`
+- `has:nouserlabels`: `6,313`
+- `has:userlabels`: `4,923`
 - `trash_candidate`: `0`
 - `trash_candidate_older_than_14d`: `0`
 
@@ -14,8 +14,8 @@
 | `bulk_low_value` | `rule_trash_candidate_sender`, `rule_trash_candidate_subject_guard`, `rule_promo` | `0~30d`, `31~180d` | complete (`0`, `0`) | n/a | `0` | 최근/중기 구간에서 추가 처리 후보 없음, `CNU` 공지 2건 보호됨 |
 | `social_newsletter` | `rule_social_from`, `rule_social_subject_guard`, `rule_newsletter_from`, `rule_newsletter_subject_guard` | `0~365d`, `181~365d`, `366d+` | complete (`25`, `50`, `83`, `40`, `17`, `71`) | complete (`25`, `50`, `83`, `40`, `17`, `71`) | `0` | `phase10-social-newsletter-25-20260309`, `phase10-social-newsletter-50-20260310`, `phase10-social-newsletter-83-20260310`, `phase10-social-newsletter-residual-40-20260310`, `phase10-social-newsletter-17-181-365d-20260310`, `phase10-social-newsletter-71-366d-plus-20260310` 적용 완료 |
 | `context_ops` | `rule_google_notification`, `rule_receipt`, `rule_travel` | `0~30d`, `31~180d`, `181~365d` | complete (`1`, `4`, `31`) | complete (`1`, `4`, `31`) | `0` | `snapshot-min-hours` + targeted fallback 차단 후 정상화, `이메일 확인 코드`는 `Security`로 보호됨, `181~365d` 네이버페이/영수증 31건 적용 완료 |
-| `critical_review` | `rule_sys_security`, `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp` | all | partial (`10`) | partial (`10`) | `0` | `rule_cnu_notice` small batch 10건 적용 완료, `allow-critical` 검증 경로 확인 |
-| `manual_residual` | residual unlabeled | all | sample `100` analyzed, focused snapshots `10`, `10`, `13`, `5`, `9`, `19`, `15`, `10`, `16`, `9`, `7`, `5`, `3`, `2`, `10`, `3`, `20`, `20`, `20`, `20`, `10` | partial (`10`, `10`, `13`, `5`, `9`, `19`, `15`, `10`, `16`, `9`, `7`, `5`, `3`, `2`, `10`, `3`, `20`, `20`, `20`, `20`, `7/10`) | `1` | 최근 상위 도메인: `cnu.ac.kr`, `naver.com`, `megazone.com`, `wargaming.net`, `google.com`; `Notion` support/marketplace 10건, `Apple` 가족공유 10건, `Notion newsletter` 13건, `Notion notify/team` 5건, `Apple storage` 9건, `finance-context` 19건, `Notion notify` 15건, `Medium` 10건, `GitHub residual` 16건, `Notion notify v3` 9건, `Google residual` 7건, `Facebook memories` 5건, `CNU critical review` 3건, `Stripe finance` 2건, `mymind` 10건, `OpenAI/Claude residual` 3건, residual bundle 20건 x2, sender-targeted bundle 20건 x2, sender-targeted bundle C는 `7/10` 적용 후 Gmail `FAILED_PRECONDITION` 1건 발생 |
+| `critical_review` | `rule_sys_security`, `rule_cnu_student`, `rule_cnu_notice`, `rule_cnu_otp` | all | partial (`10`, `20`) | partial (`10`, `20`) | `0` | `rule_cnu_notice` small batch 10건 + sender-targeted 20건 적용 완료, `allow-critical` 검증 경로 확인 |
+| `manual_residual` | residual unlabeled | all | sample `100` analyzed, focused snapshots `10`, `10`, `13`, `5`, `9`, `19`, `15`, `10`, `16`, `9`, `7`, `5`, `3`, `2`, `10`, `3`, `20`, `20`, `20`, `20`, `10`, `11` | partial (`10`, `10`, `13`, `5`, `9`, `19`, `15`, `10`, `16`, `9`, `7`, `5`, `3`, `2`, `10`, `3`, `20`, `20`, `20`, `20`, `7/10`, `11`) | `1` | 최근 상위 도메인: `cnu.ac.kr`, `naver.com`, `kyobobook.com`, `google.com`, `ted.com`, `mail.instagram.com`; `Notion` support/marketplace 10건, `Apple` 가족공유 10건, `Notion newsletter` 13건, `Notion notify/team` 5건, `Apple storage` 9건, `finance-context` 19건, `Notion notify` 15건, `Medium` 10건, `GitHub residual` 16건, `Notion notify v3` 9건, `Google residual` 7건, `Facebook memories` 5건, `CNU critical review` 3건, `Stripe finance` 2건, `mymind` 10건, `OpenAI/Claude residual` 3건, residual bundle 20건 x2, sender-targeted bundle 20건 x2, sender-targeted bundle C는 `7/10` 적용 후 Gmail `FAILED_PRECONDITION` 1건 발생, longtail sender 11건 적용 완료 |
 
 ## Throughput Gates
 - `M8-A`
@@ -28,5 +28,5 @@
   - `31~180d`, `181~365d`, `366d+` 구간에서 `200 -> 500` 반복
 
 ## Acceptance Tracking
-- `M9 / Zero-Unlabeled`: `7,120 -> 6,354 -> 0`
+- `M9 / Zero-Unlabeled`: `7,120 -> 6,313 -> 0`
 - `M10 / Zero-Other steady state`: 최근 `0~7d` 일일 운영 고정

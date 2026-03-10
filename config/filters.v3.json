@@ -17,13 +17,17 @@
         "verify@x.com",
         "noreply@github.com",
         "noreply@tm1.openai.com",
+        "noreply@tm.openai.com",
+        "noreply@wargaming.net",
         "pops@megazone.com",
         "sa.noreply@samsung-mail.com",
         "disneyplus@trx.mail2.disneyplus.com",
         "mail@29cm.co.kr",
         "norply@visitkorea.or.kr",
         "info@upbit.com",
-        "no-reply@auth.myunidays.com"
+        "no-reply@auth.myunidays.com",
+        "contact@testsprite.com",
+        "info@testsprite.com"
       ],
       "subject_patterns": [
         "login",
@@ -120,7 +124,15 @@
         "뉴스레터",
         "정보화소식",
         "조사",
-        "개최"
+        "개최",
+        "CNU Learning Together",
+        "도서관",
+        "학생모집",
+        "설명회",
+        "신년사",
+        "새해 인사",
+        "전자자료",
+        "희망도서"
       ],
       "actions": {
         "apply_labels": [
@@ -756,6 +768,7 @@
         "windowsinsiderprogram@e-mails.microsoft.com",
         "no-reply@nol-universe.com",
         "memories@facebookmail.com",
+        "noreply@band.us",
         "noreply@developers.facebook.com",
         "disneyplus@trx.mail2.disneyplus.com",
         "discover@airbnb.com",

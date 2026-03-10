@@ -1,0 +1,45 @@
+# manual_residual summary (post cnu/longtail 20260311)
+
+- sample_size: 100
+- top_domains:
+  - cnu.ac.kr: 14
+  - naver.com: 4
+  - kyobobook.com: 3
+  - google.com: 3
+  - ted.com: 3
+  - mail.instagram.com: 3
+  - email.claude.com: 2
+  - hanacard.co.kr: 2
+  - makenotion.com: 2
+  - mail.replit.com: 2
+  - gmail.com: 2
+  - wargaming.net: 2
+  - tmoney.co.kr: 2
+  - mindlogic.ai: 1
+  - facebookmail.com: 1
+  - kyobobook.co.kr: 1
+  - auth.myunidays.com: 1
+  - raindrop.io: 1
+  - megazone.com: 1
+  - tm1.openai.com: 1
+- top_senders:
+  - cnuportal@cnu.ac.kr: 5
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - TED Recommends <recommends@ted.com>: 3
+  - Instagram <security@mail.instagram.com>: 3
+  - Claude Team <no-reply@email.claude.com>: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2
+  - "충남대학교도서관" <lib6023@cnu.ac.kr>: 2
+  - "Wargaming.net" <noreply@wargaming.net>: 2
+  - "티머니" <mailadmin@tmoney.co.kr>: 2
+  - factchat@mindlogic.ai: 1
+  - Facebook <security@facebookmail.com>: 1
+  - "교보문고" <no-reply@kyobobook.co.kr>: 1
+  - "오늘사진관" <oneulst1@naver.com>: 1
+  - UNiDAYS <no-reply@auth.myunidays.com>: 1
+  - "Raindrop.io" <info@raindrop.io>: 1
+  - Megazone <pops@megazone.com>: 1
+  - OpenAI <noreply@tm1.openai.com>: 1
+  - "주용 김" <outlook_7A89390CA06E025E@outlook.com>: 1
+  - Microsoft Teams <no-reply@teams.mail.microsoft>: 1
