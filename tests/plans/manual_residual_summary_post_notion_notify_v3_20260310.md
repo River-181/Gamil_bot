@@ -1,0 +1,35 @@
+# manual_residual summary (post notion notify v3)
+
+- sample_size: 100
+- top_domains:
+  - google.com: 6
+  - naver.com: 4
+  - kyobobook.com: 4
+  - cnu.ac.kr: 4
+  - facebookmail.com: 3
+  - makenotion.com: 3
+  - megazone.com: 3
+  - stripe.com: 3
+  - mymind.com: 3
+  - developers.facebook.com: 2
+  - dongwon.mil.kr: 2
+  - e-mails.microsoft.com: 2
+  - padlet.com: 2
+  - airbnb.com: 2
+  - email.claude.com: 2
+- top_senders:
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - Megazone <pops@megazone.com>: 3
+  - Facebook <noreply@developers.facebook.com>: 2
+  - "국방부" <master@dongwon.mil.kr>: 2
+  - Windows Insider Program <Windowsinsiderprogram@e-mails.microsoft.com>: 2
+  - Padlet Folks <folks@padlet.com>: 2
+  - Airbnb <discover@airbnb.com>: 2
+  - Claude Team <no-reply@email.claude.com>: 2
+  - "재단법인 止觀" <jigwan@jigwanseoga.org>: 2
+  - 29CM <mail@29cm.co.kr>: 2
+  - noreply@tm.openai.com: 2
+  - PayPal <noreply@service.paypal.com>: 2
+  - "한국관광 데이터랩" <norply@visitkorea.or.kr>: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2

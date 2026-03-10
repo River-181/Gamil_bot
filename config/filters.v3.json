@@ -49,6 +49,12 @@
         "비밀번호 재설정",
         "휴면 해제"
       ],
+      "exclude_patterns": [
+        "codespaces",
+        "about to be deleted",
+        "copilot sdk",
+        "build ai agents"
+      ],
       "actions": {
         "apply_labels": [
           "@SYS/Security"
@@ -179,7 +185,9 @@
         "mailadmin@tmoney.co.kr",
         "no.reply@mail.tossinvest.com",
         "kbmail@kbmail.kbstar.com",
-        "noreply@service.paypal.com"
+        "noreply@service.paypal.com",
+        "no-reply@stripe.com",
+        "support@stripe.com"
       ],
       "subject_patterns": [
         "약관",
@@ -190,7 +198,9 @@
         "내역",
         "포인트",
         "마일리지",
-        "서비스"
+        "서비스",
+        "update your stripe account",
+        "account is now closed"
       ],
       "exclude_patterns": [
         "OTP",
@@ -506,6 +516,8 @@
       "from_patterns": [
         "nytdirect@nytimes.com",
         "updates@mymind.email",
+        "updates@mymind.com",
+        "service@mymind.com",
         "nunzio@akiflow.com",
         "care@fabric.so",
         "leandro@sync2sheets.com",
@@ -717,6 +729,7 @@
         "noreply@tm.openai.com",
         "noreply@tm1.openai.com",
         "no-reply@email.claude.com",
+        "no-reply@github.com",
         "noreply@github.com",
         "notifications@github.com",
         "dbtools-apexext-noreply@oracleapex.com",
@@ -726,7 +739,8 @@
         "info@raindrop.io",
         "windowsinsiderprogram@e-mails.microsoft.com",
         "no-reply@nol-universe.com",
-        "memories@facebookmail.com"
+        "memories@facebookmail.com",
+        "noreply@developers.facebook.com"
       ],
       "subject_patterns": [
         "약관",
@@ -762,6 +776,9 @@
         "bookmarks imported successfully",
         "과거의 오늘",
         "위치기반서비스 종료 안내",
+        "codespaces",
+        "copilot sdk",
+        "about to be deleted",
         "run failed",
         "run cancelled",
         "새 기능",
