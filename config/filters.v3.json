@@ -21,7 +21,8 @@
         "sa.noreply@samsung-mail.com",
         "disneyplus@trx.mail2.disneyplus.com",
         "mail@29cm.co.kr",
-        "norply@visitkorea.or.kr"
+        "norply@visitkorea.or.kr",
+        "info@upbit.com"
       ],
       "subject_patterns": [
         "login",
@@ -151,7 +152,8 @@
         "mailadmin@tmoney.co.kr",
         "invoice+statements@mail.anthropic.com",
         "no_reply@email.apple.com",
-        "billing_info@kepco.co.kr"
+        "billing_info@kepco.co.kr",
+        "no_reply@coupang.com"
       ],
       "subject_patterns": [
         "결제",
@@ -191,7 +193,8 @@
         "kbmail@kbmail.kbstar.com",
         "noreply@service.paypal.com",
         "no-reply@stripe.com",
-        "support@stripe.com"
+        "support@stripe.com",
+        "info@upbit.com"
       ],
       "subject_patterns": [
         "약관",
@@ -749,6 +752,7 @@
         "noreply@developers.facebook.com",
         "disneyplus@trx.mail2.disneyplus.com",
         "discover@airbnb.com",
+        "no_reply@coupang.com",
         "mail@29cm.co.kr",
         "norply@visitkorea.or.kr",
         "no-reply@kyobobook.com",

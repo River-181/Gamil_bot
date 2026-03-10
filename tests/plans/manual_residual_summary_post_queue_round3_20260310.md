@@ -1,0 +1,45 @@
+# manual_residual summary (post queue round3)
+
+- sample_size: 100
+- top_domains:
+  - cnu.ac.kr: 15
+  - naver.com: 4
+  - kyobobook.com: 3
+  - megazone.com: 3
+  - google.com: 3
+  - britishmuseum.org: 3
+  - jigwan.org: 3
+  - linkingyourthinking.com: 3
+  - dongwon.mil.kr: 2
+  - email.claude.com: 2
+  - jigwanseoga.org: 2
+  - tm.openai.com: 2
+  - supabase.com: 2
+  - testsprite.com: 2
+  - hanacard.co.kr: 2
+  - makenotion.com: 2
+  - coupang.com: 2
+  - upbit.com: 2
+  - nytimes.com: 1
+  - mymind.email: 1
+- top_senders:
+  - cnuportal@cnu.ac.kr: 5
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - Megazone <pops@megazone.com>: 3
+  - British Museum <emails@britishmuseum.org>: 3
+  - "국방부" <master@dongwon.mil.kr>: 2
+  - Claude Team <no-reply@email.claude.com>: 2
+  - "재단법인 止觀" <jigwan@jigwanseoga.org>: 2
+  - noreply@tm.openai.com: 2
+  - Ant at Supabase <ant.wilson@supabase.com>: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2
+  - "재단법인 止觀" <platon@jigwan.org>: 2
+  - "교수학습지원센터" <cnuctl@cnu.ac.kr>: 2
+  - Nick Milo <hello@linkingyourthinking.com>: 2
+  - "쿠팡" <no_reply@coupang.com>: 2
+  - "충남대학교도서관" <lib6023@cnu.ac.kr>: 2
+  - Upbit info <info@upbit.com>: 2
+  - The New York Times <nytdirect@nytimes.com>: 1
+  - mymind <updates@mymind.email>: 1
+  - factchat@mindlogic.ai: 1
