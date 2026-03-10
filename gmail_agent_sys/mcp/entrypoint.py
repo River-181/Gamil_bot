@@ -719,6 +719,7 @@ def _build_phase10_candidates(
     apply_min_hours: int,
     allow_critical: bool,
     target_rule_ids: Optional[List[str]] = None,
+    snapshot_senders: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     loaded = _load_and_validate(label_file, filter_file)
     report = loaded["report"]
@@ -783,6 +784,7 @@ def _build_phase10_candidates(
     primary_query = _build_time_window_query(days, min_days, require_no_user_labels=True)
     fallback_query = _build_time_window_query(days, min_days, require_no_user_labels=False)
     targeted_mode = bool(selected_rule_id_set)
+    targeted_senders = [s.strip() for s in (snapshot_senders or []) if isinstance(s, str) and s.strip()]
     if targeted_mode:
         list_max = min(240, max(60, apply_limit * 2))
         per_query_cap = max(15, min(40, apply_limit))
@@ -793,8 +795,9 @@ def _build_phase10_candidates(
     message_ids: List[str] = []
     seen_message_ids = set()
 
-    for rule in filters_apply:
-        for query_part in _build_rule_gmail_queries(rule, primary_query):
+    if targeted_senders:
+        for sender_pattern in targeted_senders:
+            query_part = f"{primary_query} from:{_quote_gmail_term(sender_pattern)}"
             query_sequence.append(query_part)
             for message_id in _gmail_list_messages(token_data, query=query_part, max_total=per_query_cap):
                 if message_id in seen_message_ids:
@@ -805,10 +808,23 @@ def _build_phase10_candidates(
                     break
             if len(message_ids) >= list_max:
                 break
-        if len(message_ids) >= list_max:
-            break
+    else:
+        for rule in filters_apply:
+            for query_part in _build_rule_gmail_queries(rule, primary_query):
+                query_sequence.append(query_part)
+                for message_id in _gmail_list_messages(token_data, query=query_part, max_total=per_query_cap):
+                    if message_id in seen_message_ids:
+                        continue
+                    seen_message_ids.add(message_id)
+                    message_ids.append(message_id)
+                    if len(message_ids) >= list_max:
+                        break
+                if len(message_ids) >= list_max:
+                    break
+            if len(message_ids) >= list_max:
+                break
 
-    if not targeted_mode:
+    if not targeted_mode and not targeted_senders:
         for query_part in [primary_query, fallback_query]:
             if len(message_ids) >= list_max:
                 break
@@ -2370,6 +2386,7 @@ def _run_build_snapshot(
     snapshot_rule_ids: Optional[List[str]] = None,
     snapshot_queue: str = "",
     snapshot_min_hours: int = 0,
+    snapshot_senders: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     resolved_target_rule_ids = _resolve_snapshot_target_rule_ids(
         snapshot_queue=snapshot_queue,
@@ -2383,6 +2400,7 @@ def _run_build_snapshot(
         apply_min_hours=snapshot_min_hours,
         allow_critical=allow_critical,
         target_rule_ids=resolved_target_rule_ids,
+        snapshot_senders=snapshot_senders,
     )
     payload = {
         "status": "ok",
@@ -2390,6 +2408,7 @@ def _run_build_snapshot(
         "query_sequence": built["query_sequence"],
         "target_queue": snapshot_queue or None,
         "target_rule_ids": built.get("target_rule_ids", []),
+        "target_senders": list(snapshot_senders or []),
         "window": {"max_hours": snapshot_hours, "min_hours": snapshot_min_hours},
         "limit": snapshot_limit,
         "selected_candidates": built["selected_candidates"],
@@ -2792,6 +2811,12 @@ def main() -> int:
         help="comma-separated rule ids for targeted snapshot narrowing",
     )
     parser.add_argument(
+        "--snapshot-senders",
+        type=str,
+        default="",
+        help="comma-separated sender patterns for sender-targeted snapshot",
+    )
+    parser.add_argument(
         "--apply-snapshot",
         type=str,
         default="",
@@ -3017,6 +3042,7 @@ def main() -> int:
                     allow_critical=args.allow_critical,
                     snapshot_file=Path(args.snapshot_file),
                     snapshot_rule_ids=_parse_csv_arg(args.snapshot_rule_ids),
+                    snapshot_senders=_parse_csv_arg(args.snapshot_senders),
                     snapshot_queue=(args.snapshot_queue or "").strip(),
                 ),
             )

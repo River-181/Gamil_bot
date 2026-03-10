@@ -1,0 +1,45 @@
+# manual_residual summary (post sender targeted 20260311)
+
+- sample_size: 100
+- top_domains:
+  - cnu.ac.kr: 17
+  - naver.com: 4
+  - kyobobook.com: 3
+  - megazone.com: 3
+  - google.com: 3
+  - wargaming.net: 3
+  - dongwon.mil.kr: 2
+  - email.claude.com: 2
+  - tm.openai.com: 2
+  - testsprite.com: 2
+  - hanacard.co.kr: 2
+  - makenotion.com: 2
+  - goodwillstore.org: 2
+  - mail.replit.com: 2
+  - gmail.com: 2
+  - mindlogic.ai: 1
+  - facebookmail.com: 1
+  - kyobobook.co.kr: 1
+  - auth.myunidays.com: 1
+  - raindrop.io: 1
+- top_senders:
+  - cnuportal@cnu.ac.kr: 5
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - Megazone <pops@megazone.com>: 3
+  - "교수학습지원센터" <cnuctl@cnu.ac.kr>: 3
+  - "Wargaming.net" <noreply@wargaming.net>: 3
+  - "국방부" <master@dongwon.mil.kr>: 2
+  - Claude Team <no-reply@email.claude.com>: 2
+  - noreply@tm.openai.com: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2
+  - "굿윌스토어" <no-reply@goodwillstore.org>: 2
+  - "충남대학교도서관" <lib6023@cnu.ac.kr>: 2
+  - factchat@mindlogic.ai: 1
+  - Facebook <security@facebookmail.com>: 1
+  - "교보문고" <no-reply@kyobobook.co.kr>: 1
+  - "오늘사진관" <oneulst1@naver.com>: 1
+  - UNiDAYS <no-reply@auth.myunidays.com>: 1
+  - "Raindrop.io" <info@raindrop.io>: 1
+  - OpenAI <noreply@tm1.openai.com>: 1
+  - "주용 김" <outlook_7A89390CA06E025E@outlook.com>: 1
