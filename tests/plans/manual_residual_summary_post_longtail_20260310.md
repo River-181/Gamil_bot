@@ -1,0 +1,45 @@
+# manual_residual summary (post longtail pre-pass)
+
+- sample_size: 100
+- top_domains:
+  - cnu.ac.kr: 8
+  - google.com: 6
+  - naver.com: 4
+  - service.paypal.com: 3
+  - linkedin.com: 3
+  - kyobobook.com: 3
+  - makenotion.com: 3
+  - megazone.com: 3
+  - developers.facebook.com: 2
+  - dongwon.mil.kr: 2
+  - e-mails.microsoft.com: 2
+  - padlet.com: 2
+  - airbnb.com: 2
+  - email.claude.com: 2
+  - jigwanseoga.org: 2
+  - tm.openai.com: 2
+  - testsprite.com: 2
+  - hanacard.co.kr: 2
+  - britishmuseum.org: 2
+  - jigwan.org: 2
+- top_senders:
+  - PayPal <noreply@service.paypal.com>: 3
+  - "교보문고" <noreply@kyobobook.com>: 3
+  - "글로컬상권 윙윙" <djglocal25@naver.com>: 3
+  - Megazone <pops@megazone.com>: 3
+  - cnuportal@cnu.ac.kr: 3
+  - LinkedIn <messages-noreply@linkedin.com>: 2
+  - Facebook <noreply@developers.facebook.com>: 2
+  - "국방부" <master@dongwon.mil.kr>: 2
+  - Windows Insider Program <Windowsinsiderprogram@e-mails.microsoft.com>: 2
+  - Padlet Folks <folks@padlet.com>: 2
+  - Airbnb <discover@airbnb.com>: 2
+  - Claude Team <no-reply@email.claude.com>: 2
+  - "재단법인 止觀" <jigwan@jigwanseoga.org>: 2
+  - noreply@tm.openai.com: 2
+  - "하나카드" <no-reply@hanacard.co.kr>: 2
+  - British Museum <emails@britishmuseum.org>: 2
+  - "“Google AI Studio”" <googleaistudio-noreply@google.com>: 2
+  - "재단법인 止觀" <platon@jigwan.org>: 2
+  - "Disney+" <disneyplus@trx.mail2.disneyplus.com>: 2
+  - "KB국민카드" <cyberman@bill.kbcard.com>: 1

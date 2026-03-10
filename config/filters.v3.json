@@ -18,7 +18,9 @@
         "noreply@github.com",
         "noreply@tm1.openai.com",
         "pops@megazone.com",
-        "sa.noreply@samsung-mail.com"
+        "sa.noreply@samsung-mail.com",
+        "mail@29cm.co.kr",
+        "norply@visitkorea.or.kr"
       ],
       "subject_patterns": [
         "login",
@@ -518,6 +520,7 @@
         "updates@mymind.email",
         "updates@mymind.com",
         "service@mymind.com",
+        "folks@padlet.com",
         "nunzio@akiflow.com",
         "care@fabric.so",
         "leandro@sync2sheets.com",
@@ -740,16 +743,24 @@
         "windowsinsiderprogram@e-mails.microsoft.com",
         "no-reply@nol-universe.com",
         "memories@facebookmail.com",
-        "noreply@developers.facebook.com"
+        "noreply@developers.facebook.com",
+        "discover@airbnb.com",
+        "mail@29cm.co.kr",
+        "norply@visitkorea.or.kr",
+        "no-reply@kyobobook.com",
+        "noreply@kyobobook.com"
       ],
       "subject_patterns": [
         "약관",
         "정책",
         "변경",
         "안내",
+        "알림",
         "공지",
         "서비스",
         "update",
+        "updates to",
+        "you can now",
         "product update",
         "privacy",
         "introducing",
@@ -769,6 +780,7 @@
         "workspace",
         "purged",
         "welcome",
+        "가입을 환영합니다",
         "회원가입",
         "처리되었습니다",
         "혜택 변경 안내",
