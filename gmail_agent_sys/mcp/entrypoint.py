@@ -304,7 +304,7 @@ def _run_oauth_login(oauth_code: Optional[str] = None) -> Dict[str, Any]:
         }
         auth_url = f"https://accounts.google.com/o/oauth2/v2/auth?{urlencode(params)}"
 
-        print(f"[oauth] open this url in browser:\n{auth_url}")
+        print(f"[oauth] open this url in browser:\n{auth_url}", flush=True)
         webbrowser.open(auth_url, new=1, autoraise=True)
 
         callback = _start_local_oauth_server(state, redirect_uri, timeout_seconds=300)
@@ -316,7 +316,7 @@ def _run_oauth_login(oauth_code: Optional[str] = None) -> Dict[str, Any]:
             raise TimeoutError("oauth callback timeout: code not returned within 300 seconds")
 
     else:
-        print("[oauth] using provided oauth code")
+        print("[oauth] using provided oauth code", flush=True)
 
     tokens = _exchange_auth_code_for_tokens(
         code=oauth_code,
@@ -398,8 +398,14 @@ def _refresh_access_token(token_data: Dict[str, Any]) -> Dict[str, Any]:
         method="POST",
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
-    with urlopen(req, timeout=60) as resp:
-        refreshed = json.loads(resp.read().decode("utf-8"))
+    try:
+        with urlopen(req, timeout=60) as resp:
+            refreshed = json.loads(resp.read().decode("utf-8"))
+    except HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="ignore")
+        raise ValueError(f"refresh token failed: HTTP {exc.code} {detail}") from exc
+    except URLError as exc:
+        raise ValueError(f"refresh token request failed: {exc}") from exc
 
     if "access_token" not in refreshed:
         raise ValueError("refresh response missing access_token")
