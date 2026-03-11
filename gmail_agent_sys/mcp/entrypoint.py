@@ -230,7 +230,8 @@ def _exchange_auth_code_for_tokens(
         with urlopen(request, timeout=60) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except HTTPError as exc:
-        raise ValueError(f"token exchange failed: HTTP {exc.code}") from exc
+        detail = exc.read().decode("utf-8", errors="ignore")
+        raise ValueError(f"token exchange failed: HTTP {exc.code} {detail}") from exc
     except URLError as exc:
         raise ValueError(f"token exchange failed: {exc}") from exc
 
