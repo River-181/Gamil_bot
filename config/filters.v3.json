@@ -14,6 +14,8 @@
         "no-reply@google.com",
         "noreply@google.com",
         "no-reply@accounts.google.com",
+        "security@mail.instagram.com",
+        "security@facebookmail.com",
         "verify@x.com",
         "noreply@github.com",
         "noreply@tm1.openai.com",
@@ -27,7 +29,12 @@
         "info@upbit.com",
         "no-reply@auth.myunidays.com",
         "contact@testsprite.com",
-        "info@testsprite.com"
+        "info@testsprite.com",
+        "verify@op.gg",
+        "account_noreply@navercorp.com",
+        "help@arc.net",
+        "no-reply@everytime.kr",
+        "mailer-daemon@googlemail.com"
       ],
       "subject_patterns": [
         "login",
@@ -76,6 +83,201 @@
       "mutual_exclusive_group": "security_priority"
     },
     {
+      "id": "rule_sys_security_sender_only",
+      "name": "[보안] 발신자 전용 잔여",
+      "priority": 11,
+      "enabled": true,
+      "from_patterns": [
+        "security@mail.instagram.com",
+        "security@facebookmail.com",
+        "no-reply@auth.myunidays.com",
+        "noreply@context7.com",
+        "account-security-noreply@accountprotection.microsoft.com",
+        "noreply@wargaming.net",
+        "noreply@mail.accounts.riotgames.com",
+        "feedback@slack.com",
+        "info@upbit.com",
+        "no_reply@nol-universe.com",
+        "noreply@steampowered.com",
+        "noreply@x.ai",
+        "noreply@discord.com",
+        "security@band.us",
+        "noreply@band.us",
+        "noreply@kakaocorp.com",
+        "korail@smail.korail.com",
+        "aihub@aihub.by-works.com",
+        "portalmaster@cnu.ac.kr",
+        "noreply@monkey-type.firebaseapp.com",
+        "account@nvidia.com",
+        "no-reply@everytime.kr",
+        "noreply@steampowered.com",
+        "help@arc.net",
+        "noreply@wargaming.net",
+        "noreply@mail.accounts.riotgames.com",
+        "Verify@sheerid.com",
+        "no-reply@accounts.google.com",
+        "no-reply@email.apple.com",
+        "noreply@kaggle.com",
+        "no-reply@accounts.bitly.com"
+      ],
+      "subject_patterns": [],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@SYS/Security"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": true
+      },
+      "mutual_exclusive_group": "security_priority"
+    },
+    {
+      "id": "rule_residual_read_sender_only",
+      "name": "[잔여] 읽고 종료 가능한 콘텐츠",
+      "priority": 87,
+      "enabled": true,
+      "from_patterns": [
+        "news@updates.ubisoft.com",
+        "newsletter@homify.com",
+        "newsletter@socar.kr",
+        "no-reply@newsletter.socar.kr",
+        "memories@facebookmail.com",
+        "hello@gamma.app",
+        "info@immersed.com",
+        "make-events@make.com",
+        "noreply@kaggle.com",
+        "letter@panelpower.net",
+        "globaltalent@kird.re.kr",
+        "hi@lovable.dev",
+        "news@freedom.to",
+        "sciencedaily@substack.com",
+        "sciencedaily+health@substack.com",
+        "sciencedaily+quirky@substack.com",
+        "sciencedaily+society@substack.com",
+        "sciencedaily+technology@substack.com",
+        "sciencedaily+featured@substack.com",
+        "sciencedaily+environment@substack.com",
+        "hello@linkingyourthinking.com",
+        "quinn@tavus.io",
+        "no-reply@ted.com",
+        "updates@mymind.email",
+        "updates@mymind.com",
+        "service@mymind.com",
+        "noreply@news.d-id.com",
+        "noreply@steampowered.com",
+        "noreply-marketplace@zoom.us",
+        "no-reply@communication.github.com",
+        "nytdirect@nytimes.com",
+        "news@news.d-id.com",
+        "hspark@kird.re.kr"
+      ],
+      "subject_patterns": [
+        "newsletter",
+        "digest",
+        "weekly",
+        "updates",
+        "community",
+        "features",
+        "today",
+        "newsletter",
+        "story",
+        "memories"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Read"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_social_from",
+        "rule_social_subject_guard",
+        "rule_newsletter_from",
+        "rule_newsletter_subject_guard"
+      ],
+      "mutual_exclusive_group": "residual_read_group"
+    },
+    {
+      "id": "rule_residual_reference_sender_only",
+      "name": "[잔여] 참조/서비스 기록",
+      "priority": 88,
+      "enabled": true,
+      "from_patterns": [
+        "developer@insideapple.apple.com",
+        "noreply@transactional.n8n.io",
+        "replies@oracle-mail.com",
+        "notifications@github.com",
+        "no-reply@email.openai.com",
+        "cnu2@icerti.co.kr",
+        "hihippo@lh.or.kr",
+        "munhyunsu@cs-cnu.org",
+        "brb@blueribbonbags.com",
+        "kr_flt_noreply@trip.com",
+        "no-reply@yes24.com",
+        "noreply@kakaopay.com",
+        "support@kakao.com",
+        "no-reply@kakaotalk.com",
+        "no_reply@coupang.com",
+        "no-reply@teams.mail.microsoft",
+        "contact@mail.replit.com",
+        "info@raindrop.io",
+        "notifications@replit.com",
+        "help@copykiller.com",
+        "alerts@ifttt.com",
+        "no-reply@notify.proton.me",
+        "oneulst1@naver.com",
+        "letter@panelpower.net",
+        "no-reply@accounts.google.com",
+        "no-reply@accounts.bitly.com",
+        "no-reply@wargaming.net",
+        "invitations@linkedin.com",
+        "no-reply@email.github.com",
+        "myhomeplus@homeplus.co.kr",
+        "service@your.lufthansa-group.com",
+        "admin@3dexport.com",
+        "mailer-daemon@googlemail.com",
+        "noreply@news.d-id.com"
+      ],
+      "subject_patterns": [
+        "receipt",
+        "payment",
+        "confirmation",
+        "notice",
+        "update",
+        "policy",
+        "terms",
+        "service",
+        "documents",
+        "comment",
+        "comments",
+        "invite",
+        "invitation",
+        "verification"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_google_notification",
+        "rule_notification",
+        "rule_notification_sender_only",
+        "rule_receipt",
+        "rule_travel"
+      ],
+      "mutual_exclusive_group": "residual_reference_group"
+    },
+    {
       "id": "rule_cnu_student",
       "name": "[CNU] 학생/학사 직접 메일",
       "priority": 30,
@@ -107,6 +309,42 @@
         "mark_important": true,
         "star": true
       },
+      "mutual_exclusive_group": "cnu_scope"
+    },
+    {
+      "id": "rule_cnu_student_sender_only",
+      "name": "[CNU] 직접 소통 발신자 전용",
+      "priority": 31,
+      "enabled": true,
+      "from_patterns": [
+        "ykmin@cnu.ac.kr",
+        "sunhee_lee@cnu.ac.kr",
+        "lamaiso23@cnu.ac.kr",
+        "raros23@o.cnu.ac.kr",
+        "srnoh@cnu.ac.kr",
+        "cnupsy@cnu.ac.kr",
+        "sanga1120@cnu.ac.kr"
+      ],
+      "subject_patterns": [],
+      "exclude_patterns": [
+        "OTP",
+        "공지",
+        "안내",
+        "뉴스"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@CNU/학생"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": true
+      },
+      "conflict_with": [
+        "rule_cnu_notice",
+        "rule_cnu_otp"
+      ],
       "mutual_exclusive_group": "cnu_scope"
     },
     {
@@ -148,6 +386,425 @@
         "rule_cnu_otp"
       ],
       "mutual_exclusive_group": "cnu_scope"
+    },
+    {
+      "id": "rule_cnu_library_sender_only",
+      "name": "[CNU] 도서관 발신자 전용",
+      "priority": 41,
+      "enabled": true,
+      "from_patterns": [
+        "lib6023@cnu.ac.kr",
+        "lib7202@cnu.ac.kr"
+      ],
+      "subject_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@CNU/뉴스알림"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_cnu_student",
+        "rule_cnu_otp"
+      ],
+      "mutual_exclusive_group": "cnu_scope"
+    },
+    {
+      "id": "rule_cnu_notice_sender_only",
+      "name": "[CNU] 발신자 전용 잔여",
+      "priority": 42,
+      "enabled": true,
+      "from_patterns": [
+        "cnuint@cnu.ac.kr",
+        "news@cnu.ac.kr",
+        "evaluation@cnu.ac.kr",
+        "esg@cnu.ac.kr",
+        "cnupsy-admin@sona-systems.net",
+        "cnu5000@cnu.ac.kr",
+        "huss@cnu.ac.kr",
+        "cnuscc@cnu.ac.kr",
+        "janghak@cnu.ac.kr",
+        "alma@cnu.ac.kr"
+      ],
+      "subject_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@CNU/뉴스알림"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_cnu_student",
+        "rule_cnu_otp"
+      ],
+      "mutual_exclusive_group": "cnu_scope"
+    },
+    {
+      "id": "rule_manual_self_reference",
+      "name": "[MANUAL] self-thread reference",
+      "priority": 43,
+      "enabled": true,
+      "from_patterns": [
+        "chany010713@gmail.com"
+      ],
+      "subject_patterns": [
+        "안녕하세요",
+        "삼겹살 600g",
+        "21 학기 기말고사 정리",
+        "실험 전 필독 사항 CAR",
+        "[재무로그",
+        "[재무로그 확정]",
+        "심리학과",
+        "신경과학",
+        "재적증명서",
+        "기초글쓰기",
+        "전생애발달심리학 보고서 주제 선정 및 줌 자문",
+        "심리통계 1 성적 문의 답변드립니다.",
+        "상담",
+        "오귀스트 꽁트",
+        "대학생범죄심리연합회 8기 신청서 제출",
+        "이력서양식베스트1.doc",
+        "김주용 발표자료",
+        "예술과 삶 주변인",
+        "썸띵 발표 대회 발표자료 및 통장사본_심청이네",
+        "심리학과 사무실, 논문 목록 PDF",
+        "김주용 사진",
+        "김주용",
+        "IBR서류",
+        "감각과 지각",
+        "EpocCam",
+        "실험참가 메뉴얼과 서류",
+        "인공지능이 우리의 생각을 말로 표현한다고?",
+        "넷플릭스",
+        "근로 장학 서류",
+        "재학증명서",
+        "최근 사진 보기",
+        "학생증",
+        "추천인 학생증",
+        "어깨동무 성장지원 프로그램",
+        "자퇴 승인",
+        "심리학과 학생회 이름",
+        "고전사회학",
+        "대학생범죄심리연합회",
+        "링키드 파티원 김주용",
+        "천안1반 29번 김주용 2022.01.12",
+        "핵심용건",
+        "삼겹살",
+        "감각과 지각_해보기과제3_김주용",
+        "인공지능이 우리의 생각을 말로 표현한다고?",
+        "주용아... 답장 보낸다. 행복한 가을 보내렴.",
+        "문화인류학",
+        "1-2 고전사회학 강의 필기",
+        "1-2 아동심리학 1주차",
+        "경상대 기호학의 이해 수강생, 20학번 김주용 과제 제출합니다.",
+        "ㅇ",
+        "Re:",
+        "aa",
+        "gg",
+        "초본",
+        "사진1",
+        "학생생활관 납입금",
+        "대학원서",
+        "애플케어 계좌이체 거래 내역",
+        "충남대 온라인 확인서",
+        "Re: 답글",
+        "Google One 지원 문의",
+        "제5장 1-3절",
+        "운영체제",
+        "전생애발달심리학 보고서 주제 선정 및 줌 자문",
+        "심리학과 사무실, 논문 목록 PDF",
+        "2020-1 수강신청 확인원",
+        "수강신청 확인원",
+        "경상대 기호학의 이해 수강생, 20학번 김주용 과제 제출합니다.",
+        "경상대",
+        "FIFA ONLINE4 대박 행운에 도전하라! 이벤트 당첨자 신분증",
+        "과학기술과 철학, 수업에 관하여...",
+        "Microsoft Outlook 테스트 메시지",
+        "스팀 복구코드",
+        "초본",
+        "사진",
+        "대학원서",
+        "학생생활관 납입금",
+        "충남대 온라인 확인서",
+        "애플케어 계좌이체 거래 내역",
+        "asd",
+        "ㅗ",
+        "과학기술과 철학, 수업에 관하여...",
+        "Microsoft Outlook 테스트 메시지",
+        "FIFA ONLINE4 대박 행운에 도전하라! 이벤트 당첨자 신분증",
+        "1-2 고전사회학 강의 필기",
+        "1-2 아동심리학 1주차",
+        "제5장 1-3절",
+        "운영체제",
+        "인공지능이 우리의 생각을 말로 표현한다고?",
+        "전생애발달심리학 보고서 주제 선정 및 줌 자문",
+        "심리학과 사무실, 논문 목록 PDF",
+        "토니모리 장학금 신청서입니다 - 김주용",
+        "토니모리 희망열매 캠페인에 신청하겠습니다. 성주고등학교_김주용",
+        "장학금 신청서",
+        "수급자",
+        "영어 기사",
+        "충남대 면접",
+        "영남대 수험표",
+        "면접",
+        "대황1길 2",
+        "김다경 목소리",
+        "Scannable 문서 - Scannable에서 보냄",
+        "논리학개론 개요 및 필기",
+        "Keynote Live 프레젠테이션",
+        "주용아 .... 수고 부탁해요.",
+        "애플케어 계좌이체 거래 내역",
+        "FIFA ONLINE4 대박 행운에 도전하라! 이벤트 당첨자 신분증"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_action_djglocal25",
+      "name": "[MANUAL] action - contract/estimate",
+      "priority": 44,
+      "enabled": true,
+      "from_patterns": [
+        "djglocal25@naver.com"
+      ],
+      "subject_patterns": [
+        "견적",
+        "계약",
+        "해커톤",
+        "대체과제"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Action"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_waiting_doogie233",
+      "name": "[MANUAL] waiting - refund request",
+      "priority": 45,
+      "enabled": true,
+      "from_patterns": [
+        "doogie233@naver.com"
+      ],
+      "subject_patterns": [
+        "환급신청"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Waiting"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_waiting_euclidsoft",
+      "name": "[MANUAL] waiting/reference - mentoring",
+      "priority": 46,
+      "enabled": true,
+      "from_patterns": [
+        "euclidsoft.edu@gmail.com"
+      ],
+      "subject_patterns": [
+        "멘토링",
+        "지출품의서",
+        "결과보고서",
+        "발표자료"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Waiting"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_action_outlook_meeting",
+      "name": "[MANUAL] action - meeting",
+      "priority": 47,
+      "enabled": true,
+      "from_patterns": [
+        "outlook_7a89390ca06e025e@outlook.com"
+      ],
+      "subject_patterns": [
+        "오프라인 미팅"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Action"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_action_aa01053208720",
+      "name": "[MANUAL] action - travel planning",
+      "priority": 48,
+      "enabled": true,
+      "from_patterns": [
+        "aa01053208720@gmail.com"
+      ],
+      "subject_patterns": [
+        "오사카 여행계획"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Action"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_action_minjugim655",
+      "name": "[MANUAL] action - mentoring/project submission",
+      "priority": 51,
+      "enabled": true,
+      "from_patterns": [
+        "minjugim655@gmail.com"
+      ],
+      "subject_patterns": [
+        "ABC 프로젝트",
+        "품의서",
+        "멘토링",
+        "발표자료",
+        "결과보고서"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Action"
+        ],
+        "skip_inbox": false,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_reference_munhyunsu",
+      "name": "[MANUAL] reference - absences/evidence",
+      "priority": 52,
+      "enabled": true,
+      "from_patterns": [
+        "munhyunsu@cs-cnu.org"
+      ],
+      "subject_patterns": [
+        "결석관련",
+        "증빙자료",
+        "제출드립니다"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_reference_hihippo",
+      "name": "[MANUAL] reference - LH notice",
+      "priority": 53,
+      "enabled": true,
+      "from_patterns": [
+        "hihippo@lh.or.kr"
+      ],
+      "subject_patterns": [
+        "한국토지주택공사입니다"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_reference_olepensen",
+      "name": "[MANUAL] reference - personal thread",
+      "priority": 54,
+      "enabled": true,
+      "from_patterns": [
+        "olepensen@gmail.com"
+      ],
+      "subject_patterns": [
+        "Hello Mr Kim & Mr Kim"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      }
+    },
+    {
+      "id": "rule_manual_reference_oneulst1",
+      "name": "[MANUAL] reference - photo/file share",
+      "priority": 56,
+      "enabled": true,
+      "from_patterns": [
+        "oneulst1@naver.com"
+      ],
+      "subject_patterns": [
+        "사진 파일 보내드립니다",
+        "김주용님 사진 파일 보내드립니다"
+      ],
+      "exclude_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@GTD/Reference"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      }
     },
     {
       "id": "rule_receipt",
@@ -204,10 +861,18 @@
         "mailadmin@tmoney.co.kr",
         "no.reply@mail.tossinvest.com",
         "kbmail@kbmail.kbstar.com",
+        "kbmail@kbmail.kbcard.com",
+        "no-reply@hanacard.co.kr",
+        "help@paddle.com",
         "noreply@service.paypal.com",
         "no-reply@stripe.com",
         "support@stripe.com",
-        "info@upbit.com"
+        "info@upbit.com",
+        "customer_center@kbanknow.com",
+        "bcadmin@bccard.com",
+        "openbanking@nonghyup.com",
+        "kosis@kostat.go.kr",
+        "service@intl.paypal.com"
       ],
       "subject_patterns": [
         "약관",
@@ -254,7 +919,9 @@
         "airbnb.com",
         "booking.com",
         "wifi.heathrow.com",
-        "klook.com"
+        "klook.com",
+        "kr_flt_noreply@trip.com",
+        "brb@blueribbonbags.com"
       ],
       "subject_patterns": [
         "예약",
@@ -286,6 +953,7 @@
         "notifications-noreply@linkedin.com",
         "messages-noreply@linkedin.com",
         "updates-noreply@linkedin.com",
+        "super-support@duolingo.com",
         "no-reply@mail.instagram.com",
         "noreply@twitter.com",
         "noreply@youtube.com"
@@ -493,6 +1161,7 @@
         "support@gpters.org",
         "trip.com@newsletter.trip.com",
         "letter@panelpower.net",
+        "hello@info.myunidays.com",
         "noreply@kyobobook.com"
       ],
       "subject_patterns": [
@@ -529,6 +1198,83 @@
       ]
     },
     {
+      "id": "rule_receipt_sender_only",
+      "name": "[결제] 발신자 전용 잔여",
+      "priority": 49,
+      "enabled": true,
+      "from_patterns": [
+        "noreply@ml.store.uniqlo.com",
+        "invoice+statements+acct_1pksddhjohyvid2c@stripe.com",
+        "easypay_noreturn@easypay.co.kr",
+        "nice_customer@nicepg.co.kr",
+        "pgadmcust@kcp.co.kr",
+        "nice_customer@nicepg.co.kr",
+        "inimail@inicis.com",
+        "trial-ending+acct_18q0avccklyjxalv@stripe.com"
+      ],
+      "subject_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/Receipt",
+          "@CTX/Finance"
+        ],
+        "skip_inbox": true,
+        "mark_read": false,
+        "mark_important": true,
+        "star": false
+      },
+      "mutual_exclusive_group": "finance_notification_group"
+    },
+    {
+      "id": "rule_promo_sender_only",
+      "name": "[브랜드] 발신자 전용 잔여",
+      "priority": 81,
+      "enabled": true,
+      "from_patterns": [
+        "noreply@kyobobook.com",
+        "no-reply@kyobobook.co.kr",
+        "promotion@emart.com",
+        "help@paddle.com",
+        "my.homeplus@homeplus.co.kr",
+        "trip.com@newsletter.trip.com",
+        "customer@a-rt.com",
+        "support@daisydiskapp.com",
+        "announce@m.parallels.com",
+        "members@shinsegae.com",
+        "admin@megabox.co.kr",
+        "digitalminimalist@creators.gumroad.com",
+        "mailzine@10x10.co.kr",
+        "hi@flowith.io",
+        "hello@email.mimeophotos.com",
+        "hi@marketing.xmind.ai",
+        "info@immersed.com",
+        "drgardener@creators.gumroad.com",
+        "drgardener@maily.so",
+        "shop@email.stackcommerce.com",
+        "automatic-notifications+recovery@paddle.com",
+        "info@wadiz.kr",
+        "no-reply@email.github.com",
+        "ericjing@genspark.ai",
+        "contact@napkin.ai",
+        "hello@gamma.app"
+      ],
+      "subject_patterns": [],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/Promo"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "mutual_exclusive_group": "bulk_disposition_group",
+      "conflict_with": [
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard"
+      ]
+    },
+    {
       "id": "rule_newsletter_from",
       "name": "[뉴스레터] 발신자 기반",
       "priority": 90,
@@ -538,6 +1284,8 @@
         "updates@mymind.email",
         "updates@mymind.com",
         "service@mymind.com",
+        "no-reply@news.supercell.com",
+        "kling@user-service.klingai.com",
         "folks@padlet.com",
         "nunzio@akiflow.com",
         "care@fabric.so",
@@ -570,7 +1318,69 @@
         "no-reply@m.mail.coursera.org",
         "emails@britishmuseum.org",
         "newsletters-noreply@linkedin.com",
-        "templates@makenotion.com"
+        "templates@makenotion.com",
+        "newsletter@studentappcentre.com",
+        "korment@kosaf.go.kr",
+        "newsletter@mailing.milesandmore.com",
+        "globaltalent@kird.re.kr"
+      ],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/Newsletter"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_newsletter_subject_guard",
+        "rule_trash_candidate_sender",
+        "rule_trash_candidate_subject_guard"
+      ],
+      "mutual_exclusive_group": "bulk_disposition_group"
+    },
+    {
+      "id": "rule_newsletter_sender_only",
+      "name": "[뉴스레터] 발신자 전용 잔여",
+      "priority": 92,
+      "enabled": true,
+      "from_patterns": [
+        "no-reply@email.claude.com",
+        "chelsea.c@ifttt.com",
+        "templates-inbox@makenotion.com",
+        "templates+noreply@makenotion.com",
+        "brandon@growth.tempo.new",
+        "caf@kaist.ac.kr",
+        "dataq@kdata.or.kr",
+        "admin.postech@developeracademy.kr",
+        "news@freedom.to",
+        "coursera@m.learn.coursera.org",
+        "no_reply@learn.heygen.com",
+        "no_reply@email.heygen.com",
+        "mongodb@team.mongodb.com",
+        "noreply@supabase.com",
+        "hi@lovable.dev",
+        "team@disquiet.io",
+        "no-reply@amazonaws.com",
+        "noreply@medium.com",
+        "members@medium.com",
+        "gopro@e-mail.gopro.com",
+        "hello@mermaidchart.com",
+        "newsletter@studentappcentre.com",
+        "korment@kosaf.go.kr",
+        "newsletter@mailing.milesandmore.com",
+        "globaltalent@kird.re.kr",
+        "sciencedaily@substack.com",
+        "sciencedaily+health@substack.com",
+        "sciencedaily+quirky@substack.com",
+        "sciencedaily+society@substack.com",
+        "sciencedaily+technology@substack.com",
+        "sciencedaily+featured@substack.com",
+        "sciencedaily+environment@substack.com",
+        "email@email.getthefuturist.com",
+        "members@arc.net",
+        "hello@linkingyourthinking.com"
       ],
       "actions": {
         "apply_labels": [
@@ -621,7 +1431,12 @@
         "linkedin",
         "notifications-noreply@linkedin.com",
         "messages-noreply@linkedin.com",
-        "updates-noreply@linkedin.com"
+        "updates-noreply@linkedin.com",
+        "계정 정보",
+        "id 정보가 업데이트되었습니다",
+        "id 정보 업데이트",
+        "apple id 정보",
+        "apple 계정 정보"
       ]
     },
     {
@@ -633,6 +1448,7 @@
         "no-reply@google.com",
         "noreply@google.com",
         "CloudPlatform-noreply@google.com",
+        "payments-noreply@google.com",
         "googleplay-noreply@google.com",
         "googleaistudio-noreply@google.com"
       ],
@@ -667,10 +1483,17 @@
       "priority": 96,
       "enabled": true,
       "from_patterns": [
-        "noreply@email.apple.com"
+        "noreply@email.apple.com",
+        "appleid@id.apple.com"
       ],
       "subject_patterns": [
         "가족 공유",
+        "계정 정보가 업데이트되었습니다",
+        "ID 정보가 업데이트되었습니다",
+        "ID 정보 업데이트 완료",
+        "Apple 계정 정보가 업데이트되었습니다",
+        "Apple ID 정보가 업데이트되었습니다",
+        "Apple ID 정보 업데이트 완료",
         "가족에 참여했습니다",
         "가족 공유를 시작합니다",
         "더 이상 가족 공유에 참여하지 않습니다",
@@ -710,7 +1533,7 @@
     {
       "id": "rule_notion_notification",
       "name": "[Notion] 지원/마켓플레이스 알림",
-      "priority": 98,
+      "priority": 97,
       "enabled": true,
       "from_patterns": [
         "templates-inbox@makenotion.com",
@@ -758,7 +1581,13 @@
         "no-reply@github.com",
         "noreply@github.com",
         "notifications@github.com",
+        "support+notifications@figma.com",
+        "no-reply@email.figma.com",
         "dbtools-apexext-noreply@oracleapex.com",
+        "chelsea.c@ifttt.com",
+        "team@m.ngrok.com",
+        "team@mail.perplexity.ai",
+        "contact@mail.replit.com",
         "no-reply@gov.kr",
         "no.reply@mail.tossbank.com",
         "doumi@hi.co.kr",
@@ -828,6 +1657,132 @@
         "새 기능",
         "체험판"
       ],
+      "actions": {
+        "apply_labels": [
+          "@AUTO/Notification"
+        ],
+        "skip_inbox": true,
+        "mark_read": true,
+        "mark_important": false,
+        "star": false
+      },
+      "conflict_with": [
+        "rule_google_notification"
+      ],
+      "mutual_exclusive_group": "notification_group"
+    },
+    {
+      "id": "rule_notification_sender_only",
+      "name": "[서비스 알림] 발신자 전용 잔여",
+      "priority": 98,
+      "enabled": true,
+      "from_patterns": [
+        "support+notifications@figma.com",
+        "notify@mail.notion.so",
+        "drive-shares-dm-noreply@google.com",
+        "no-reply@gov.kr",
+        "info@raindrop.io",
+        "billing@perplexity.ai",
+        "no-reply@teams.mail.microsoft",
+        "contact@mail.replit.com",
+        "notifications@replit.com",
+        "dbtools-apexext-noreply@oracleapex.com",
+        "support@stripe.com",
+        "kbmail@kbmail.kbstar.com",
+        "hanamail@hanafn.com",
+        "contact@testsprite.com",
+        "nike@official.nike.com",
+        "cloudplatform-noreply@google.com",
+        "no-reply-azoiapwiqrnpwwua0c9jmA@mail.anthropic.com",
+        "riotgames@email.riotgames.com",
+        "mydata@navercorp.com",
+        "no-reply@coupangpay.com",
+        "noreplyixio@lguplus.co.kr",
+        "noreply@mail.tadatada.com",
+        "help@alba.co.kr",
+        "noreply@woowahan.com",
+        "notifications@link.com",
+        "windowsinsiderprogram@e-mails.microsoft.com",
+        "no-reply@github.com",
+        "team@mail.notion.so",
+        "no_reply@communications.paypal.com",
+        "noreply@lovable.dev",
+        "no-reply@a.sktelecom.com",
+        "no-reply@slack.com",
+        "alerts@ifttt.com",
+        "ssgdfm_cs@shinsegae.com",
+        "notice@ebs.co.kr",
+        "support.lgaccount@lge.com",
+        "sa.noreply@notice.samsung-mail.com",
+        "englishtest-noreply@duolingo.com",
+        "no-reply@duolingo.com",
+        "noreply@ankiweb.net",
+        "mongodb-atlas@mongodb.com",
+        "sender@premiumoutlets.co.kr",
+        "no-reply@chany010713.atlassian.net",
+        "no-reply@mangsang-gwedo.atlassian.net",
+        "no_reply@am.atlassian.com",
+        "hello@accounts.scribd.com",
+        "mail@update.strava.com",
+        "info@make.com",
+        "hello@duolingo.com",
+        "noreply+automations@airtableemail.com",
+        "team@email.anthropic.com",
+        "noreply@hancom.com",
+        "surveys@mail.notion.so",
+        "surveys@email.riotgames.com",
+        "hello@community.blablacar.com",
+        "google-cloud-compliance@google.com",
+        "help@copykiller.com",
+        "info@e.atlassian.com",
+        "hello@info.n8n.io",
+        "noreply@po.atlassian.net",
+        "notify@updates.notion.so",
+        "hello@e.bitly.com",
+        "comments-noreply@docs.google.com",
+        "marketplace@mail.notion.so",
+        "matt@mail.replit.com",
+        "noreply-apps-scripts-notifications@google.com",
+        "no-reply@notify.proton.me",
+        "master@gseek.kr",
+        "noreply@us1.make.com",
+        "support@figma.com",
+        "mail@dacon.io",
+        "support@clipto.com",
+        "no-reply@samsungcloud.com",
+        "helpdesk@jobkorea.co.kr",
+        "office@spacecloud.kr",
+        "cnu2@icerti.co.kr",
+        "no-reply@canva.com",
+        "noreply@imweb.me",
+        "replies@oracle-mail.com",
+        "no-reply@strava.com",
+        "googledevelopers-noreply@google.com",
+        "hello@clipto.com",
+        "make-events@make.com",
+        "notice@email.anthropic.com",
+        "welcome@overleaf.com",
+        "website+xet@huggingface.co",
+        "no-reply@accounts.bitly.com",
+        "notice-master@daum.net",
+        "team@learn.termius.com",
+        "no-reply-52zqjcndqayglgxwiqizwvch@slack.com",
+        "t-id@sktelecom.com",
+        "welcome@supabase.com",
+        "notifications@github.com",
+        "noreply@steampowered.com",
+        "noreply@github.com",
+        "noreply@nvidia.com",
+        "noreply-cloud-accounts@nvidia.com",
+        "no-reply@news.meshy.ai",
+        "info@mail.airhelp.com",
+        "no-reply-52zQjCndQayGLGxWIQIZwVCh@slack.com",
+        "noreply-marketplace@zoom.us",
+        "no-reply@email.github.com",
+        "no-reply@accounts.google.com",
+        "help@kvoting.go.kr"
+      ],
+      "subject_patterns": [],
       "actions": {
         "apply_labels": [
           "@AUTO/Notification"

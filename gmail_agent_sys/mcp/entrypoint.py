@@ -725,6 +725,7 @@ def _build_phase10_candidates(
     apply_hours: int,
     apply_min_hours: int,
     allow_critical: bool,
+    allow_self_sent_manual: bool,
     target_rule_ids: Optional[List[str]] = None,
     snapshot_senders: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
@@ -852,7 +853,16 @@ def _build_phase10_candidates(
         sender = meta.get("from", "")
         msg = {"id": meta["id"], "from": sender, "subject": meta.get("subject", "")}
 
-        if owner_email and _normalize_email_address(sender) == owner_email:
+        matches_all = [r for r in filters_all if _simulate_one_rule(r, msg)]
+        selected_all = _select_rules_for_message(matches_all)
+        is_self_sent = owner_email and _normalize_email_address(sender) == owner_email
+        allow_self_sent = False
+        if is_self_sent and allow_self_sent_manual:
+            allow_self_sent = any(
+                isinstance(r.get("id"), str) and r.get("id").startswith("rule_manual_")
+                for r in selected_all
+            )
+        if is_self_sent and not allow_self_sent:
             self_sent_skips.append(
                 {
                     "message_id": meta["id"],
@@ -862,9 +872,6 @@ def _build_phase10_candidates(
                 }
             )
             continue
-
-        matches_all = [r for r in filters_all if _simulate_one_rule(r, msg)]
-        selected_all = _select_rules_for_message(matches_all)
         if (not allow_critical) and any(_is_critical_rule(r) for r in selected_all):
             protected_skips.append(
                 {
@@ -2242,6 +2249,7 @@ def _run_apply_batch(
     apply_hours: int,
     approval_text: str,
     allow_critical: bool,
+    allow_self_sent_manual: bool,
     dry_run: bool,
     journal_file: Optional[Path],
     run_id: Optional[str],
@@ -2261,6 +2269,7 @@ def _run_apply_batch(
         apply_hours=apply_hours,
         apply_min_hours=0,
         allow_critical=allow_critical,
+        allow_self_sent_manual=allow_self_sent_manual,
     )
     token_file = built["token_file"]
     token_data = built["token_data"]
@@ -2378,7 +2387,7 @@ def _run_apply_batch(
         "protected_skips": protected_skips,
         "self_sent_skips": self_sent_skips,
         "applied_records": applied_records,
-        "self_sent_policy": "skip_and_manual_review",
+        "self_sent_policy": "skip_except_manual" if allow_self_sent_manual else "skip_and_manual_review",
         "rollback_ready": not dry_run and any(r.get("status") == "applied" for r in applied_records),
     }
 
@@ -2389,6 +2398,7 @@ def _run_build_snapshot(
     snapshot_limit: int,
     snapshot_hours: int,
     allow_critical: bool,
+    allow_self_sent_manual: bool,
     snapshot_file: Path,
     snapshot_rule_ids: Optional[List[str]] = None,
     snapshot_queue: str = "",
@@ -2406,6 +2416,7 @@ def _run_build_snapshot(
         apply_hours=snapshot_hours,
         apply_min_hours=snapshot_min_hours,
         allow_critical=allow_critical,
+        allow_self_sent_manual=allow_self_sent_manual,
         target_rule_ids=resolved_target_rule_ids,
         snapshot_senders=snapshot_senders,
     )
@@ -2912,6 +2923,11 @@ def main() -> int:
         action="store_true",
         help="allow critical SYS/CNU rules in apply pilot (disabled by default)",
     )
+    parser.add_argument(
+        "--allow-self-sent-manual",
+        action="store_true",
+        help="allow self-sent messages only when matched rules start with rule_manual_",
+    )
     parser.add_argument("--pretty", action="store_true")
     args = parser.parse_args()
 
@@ -3026,6 +3042,7 @@ def main() -> int:
                     apply_hours=args.apply_hours,
                     approval_text=args.approve_text,
                     allow_critical=args.allow_critical,
+                    allow_self_sent_manual=args.allow_self_sent_manual,
                     dry_run=args.dry_run,
                     journal_file=Path(args.apply_journal_file) if args.apply_journal_file else None,
                     run_id=_normalize_run_id(args.apply_run_id),
@@ -3047,6 +3064,7 @@ def main() -> int:
                     snapshot_hours=args.snapshot_hours,
                     snapshot_min_hours=args.snapshot_min_hours,
                     allow_critical=args.allow_critical,
+                    allow_self_sent_manual=args.allow_self_sent_manual,
                     snapshot_file=Path(args.snapshot_file),
                     snapshot_rule_ids=_parse_csv_arg(args.snapshot_rule_ids),
                     snapshot_senders=_parse_csv_arg(args.snapshot_senders),

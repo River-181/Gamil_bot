@@ -66,6 +66,30 @@
 - 최근 `0~7d` queue를 일일 운영 루틴으로 고정
 - 신규 유입 메일은 일일 batch 후 `기타 0` 유지
 
+### M11. Residual Rule Expansion
+- 현재 live residual `201`은 기존 lane rule set으로는 `0`건이므로 coverage refresh가 필요하다.
+- 작업:
+  1. `Security-first` / `Read-first` / `Reference-first` / `Manual-Work` rule coverage 재점검
+  2. 남은 residual을 설명할 새 sender / subject family만 추가
+  3. lane별 snapshot을 다시 만든다
+- 통과 기준:
+  - lane snapshot에서 최소 1개 이상 residual hit 확인
+  - residual 201에 대한 커버리지 설명 완료
+
+### M12. Final Residual Closeout
+- coverage refresh 이후 남은 residual을 전부 apply한다.
+- 통과 기준:
+  - `has:nouserlabels = 0`
+  - apply-ready 묶음 전체 회수 완료
+  - security lane 누락 0
+
+### M13. Steady-State Handoff
+- unlabeled closeout 이후 신규 유입만 다루는 daily lane 운영으로 전환한다.
+- 통과 기준:
+  - 신규 메일이 small queue로만 처리됨
+  - 새 auto rule 추가 없음
+  - manual/work는 thread 기반으로만 review
+
 ## 운영 가드
 - 운영 기본경로는 `build-snapshot -> apply-snapshot -> trash-commit`
 - direct `--apply-batch`는 유지되더라도 표준 경로로 쓰지 않는다.
@@ -76,3 +100,4 @@
 - `/Users/river/tools/gmail-agent-sys/docs/phase10_notes_01_snapshot_apply_trash.md`
 - `/Users/river/tools/gmail-agent-sys/docs/phase10_notes_02_bulk_targeting_and_false_positive.md`
 - `/Users/river/tools/gmail-agent-sys/docs/runbooks/rule_family_snapshot_runbook.md`
+- `/Users/river/tools/gmail-agent-sys/tests/plans/final_residual_closeout_201_20260324.md`
